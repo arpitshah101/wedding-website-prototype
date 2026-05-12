@@ -1,0 +1,37 @@
+{
+  "subTitle": "Everything You Need to Know <br />Complimentary airport transfers are included for stays of 4 nights or more, provided the reservation is made at least two weeks before your arrival.<br />This service is subject to availability and must be booked in advance by each guest.<br />Please note that if transportation is not reserved within the required timeframe, no credit or refund will be issued — no exceptions permitted.<br />Transfers can be requested through the following transfer site: https://transfers.palaceresorts.com",
+  "faqs": [
+    {
+      "question": "What are airport transfers?",
+      "answer": "Airport transfers are pre-arranged transportation services that take passengers from the airport to the hotel, and vice versa. These transfers can be private, shared, or shuttle services. Note: Any transfers included with a reservation are shared."
+    },
+    {
+      "question": "How far in advance should I book my airport transfer?",
+      "answer": "We recommend booking your airport transfer at least 30 days in advance to ensure availability, especially during peak travel seasons."
+    },
+    {
+      "question": "What information do I need to provide when booking a transfer?",
+      "answer": "Please provide the following details: -- Hotel Confirmation Number -- Full name of travelers -- Flight number and airline -- Arrival/departure time -- Contact information -- Note: If you are arriving at your destination from a connecting flight, please enter the connecting flight information for your arrival flight."
+    },
+    {
+      "question": "Where will I meet my driver?",
+      "answer": "Your driver will typically meet you at the designated airport pickup area. Specific meeting instructions will be provided upon confirmation of your transfer."
+    },
+    {
+      "question": "What should I do if my flight is delayed?",
+      "answer": "If your flight is delayed, please contact our transfer service team as soon as possible to make necessary adjustments to your pickup time. Transfer service contact information will be provided upon confirmation of your transfer."
+    },
+    {
+      "question": "Can I modify my airport transfer booking?",
+      "answer": "Yes, modifications can be made by contacting the transfer service provider at the contact information on your transfer confirmation."
+    },
+    {
+      "question": "Are child seats available for airport transfers?",
+      "answer": "Child seats are available upon request. Please mention your requirement at the time of booking to ensure availability. An additional charge may apply."
+    },
+    {
+      "question": "What happens if I miss my transfer?",
+      "answer": "If you miss your transfer, please reach out to the transfer service provider immediately at the contact information provided to explore alternative arrangements. Additional charges may apply."
+    }
+  ]
+}

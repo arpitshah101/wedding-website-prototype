@@ -1,0 +1,85 @@
+---
+import EventDetailsGrid from '../../ui/blocks/EventDetailsGrid.astro';
+import Icon from '../../ui/icons/Icon.astro';
+
+const { title, subTitle, message, signature, eventDetails } = Astro.props;
+
+interface Props {
+  title: string;
+  subTitle?: string;
+  message: string;
+  signature: string;
+  eventDetails?: Array<{ title: string; description: string }>;
+}
+---
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  {/* Container for the couple's message */}
+  <div
+    class="lg:grid lg:grid-cols-12 lg:items-center lg:justify-between lg:gap-16"
+  >
+    <div class="lg:col-span-5 lg:col-start-1">
+      {/* Title and Subtitle */}
+      <div class="mb-8">
+        <h2
+          class="mb-2 text-3xl font-bold text-neutral-800 lg:text-4xl dark:text-neutral-200"
+        >
+          {title}
+        </h2>
+        {
+          subTitle && (
+            <p class="text-neutral-600 dark:text-neutral-400">{subTitle}</p>
+          )
+        }
+      </div>
+
+      {/* Message from the couple */}
+      <blockquote class="relative mb-6">
+        <!-- <svg
+          class="absolute top-0 left-0 h-12 w-12 text-neutral-300 dark:text-neutral-700"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M3 21c3 0 7-1 7-8V5c0-1.25-4.5-5-7-5c-1.25 0-2 .75-2 2s.75 2 2 2c3 0 3.5 1 3.5 4v3c-.5 1-1.5 2-2.5 4c-1 2-1 4-1 6s0 1 .5 1s.5.5 1.5.5c1 0 1-1 1-1v-5c0 1 0 2 .5 3s1.5 4 7 4c.5 0 1.5-.5 1.5-1s-.5-.5-.5-1v-6c0 .25 0 .5 0 .75 0 5-7 7-7 7z"
+          ></path>
+        </svg> -->
+        <Icon name="quotation" />
+        <div class="relative z-10 pl-6">
+          {
+            message.split('\n\n').map((paragraph) => (
+              <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </blockquote>
+
+      {/* Signature - Right Aligned */}
+      <div class="text-right">
+        <p class="text-lg font-semibold text-neutral-800 dark:text-neutral-200" set:html={signature} />
+      </div>
+    </div>
+
+    {
+      eventDetails && (
+        <div class="mt-10 lg:col-span-6 lg:col-end-13 lg:mt-0">
+          <div class="space-y-6 sm:space-y-8">
+            <ul class="grid grid-cols-2 divide-x-2 divide-y-2 divide-neutral-300 overflow-hidden dark:divide-neutral-700">
+              {/* Generate a list item for each event detail */}
+              {eventDetails.map((detail) => (
+                <EventDetailsGrid
+                  title={detail.title}
+                  description={detail.description}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

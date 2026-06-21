@@ -7,19 +7,24 @@ interface Props {
 const { targetDate, title = 'Countdown to the Wedding' } = Astro.props;
 ---
 
-<section class="bg-transparent">
-  <div class="flex flex-col items-center justify-center px-4 pb-6 pt-2 sm:px-6 sm:pb-8 sm:pt-3 lg:px-8 lg:pb-10 lg:pt-4">
-    <p class="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-neutral-700/80 sm:text-base">
-      {title}
-    </p>
+<section class="bg-white/50 rounded-[28px] mx-4">
+  <div class="flex flex-col items-center justify-center px-4 sm:px-6 sm:pt-3 lg:px-8">
     <div
-      class="grid grid-cols-1 gap-2 sm:gap-3"
+      class="grid grid-cols-3 gap-2 sm:gap-3"
       data-countdown
       data-target-date={targetDate}
     >
       <div class="min-w-16 rounded-xl px-3 py-2 text-center sm:min-w-20 sm:px-4 sm:py-3">
-        <div data-days class="text-2xl lg:text-4xl font-normal text-[#D6AB3A] sm:text-2xl">00</div>
-        <div class="mt-1 text-[15px] uppercase tracking-[0.2em] text-neutral-600">Days to go!</div>
+        <div data-days class="text-2xl lg:text-4xl text-[#D6AB3A] font-normal sm:text-xs">00</div>
+        <div class="mt-1 text-[15px] uppercase tracking-[0.2em] text-neutral-600">Days</div>
+      </div>
+      <div class="min-w-16 rounded-xl px-3 py-2 text-center sm:min-w-20 sm:px-4 sm:py-3">
+        <div data-hours class="text-2xl lg:text-4xl text-[#D6AB3A] font-normal sm:text-xs">00</div>
+        <div class="mt-1 text-[15px] uppercase tracking-[0.2em] text-neutral-600">Hours</div>
+      </div>
+      <div class="min-w-16 rounded-xl px-3 py-2 text-center sm:min-w-20 sm:px-4 sm:py-3">
+        <div data-minutes class="text-2xl lg:text-4xl text-[#D6AB3A] font-normal sm:text-xs">00</div>
+        <div class="mt-1 text-[15px] uppercase tracking-[0.2em] text-neutral-600">Minutes</div>
       </div>
     </div>
   </div>

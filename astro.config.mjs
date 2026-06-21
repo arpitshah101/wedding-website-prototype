@@ -123,6 +123,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://arpitshah101.github.io',
-  base: '/wedding-website-prototype',
+  site: 'https://arpitshah101.github.io/wedding-website-prototype/',
 });

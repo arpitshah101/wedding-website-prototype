@@ -18,6 +18,9 @@ import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import ganeshMotif from '@images/ganesh-motif.svg';
 import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
 
+const RSVP_EMBED_URL =
+  'https://withjoy.com/arpit-and-rushita/rsvp?utm_medium=web&utm_source=joy&utm_campaign=share_website_dialog';
+
 const avatarSrcs: Array<string> = [
   'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
   'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
@@ -64,12 +67,61 @@ const avatarSrcs: Array<string> = [
     </div>
     <div class="flex-none w-full px-4 pb-50 pt-10">
       <div class="flex items-center justify-center">
-        <RSVPButton
-          title="RSVP"
-          url="/rsvp"
-          fontClass="font-semibold text-base sm:text-base lg:text-4xl"
-        />
+        <div data-rsvp-open class="cursor-pointer">
+          <RSVPButton
+            title="RSVP"
+            url="#"
+            fontClass="font-semibold text-base sm:text-base lg:text-4xl"
+          />
+        </div>
       </div>
     </div>
   </div>
+
+  <div
+    data-rsvp-modal
+    class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-4"
+  >
+    <div class="relative h-full w-full overflow-hidden bg-white shadow-2xl lg:h-[80vh] lg:w-[50vw] lg:rounded-2xl">
+      <button
+        type="button"
+        data-rsvp-close
+        class="absolute top-3 right-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl text-neutral-800 shadow-sm"
+        aria-label="Close RSVP dialog"
+      >
+        ×
+      </button>
+      <iframe
+        src={RSVP_EMBED_URL}
+        title="RSVP form"
+        class="h-full w-full border-0 overflow-hidden"
+        style="scrollbar-width: none; -ms-overflow-style: none; overflow: hidden;"
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    const openButton = document.querySelector('[data-rsvp-open]');
+    const closeButton = document.querySelector('[data-rsvp-close]');
+    const modal = document.querySelector('[data-rsvp-modal]');
+
+    if (openButton && closeButton && modal) {
+      const openModal = (event: MouseEvent) => {
+        event.preventDefault();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      };
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      openButton.addEventListener('click', (event) => openModal(event as MouseEvent));
+      closeButton.addEventListener('click', closeModal);
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+      });
+    }
+  </script>
 </MainLayout>

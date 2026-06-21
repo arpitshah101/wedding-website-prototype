@@ -2,10 +2,10 @@
 const navBarLinks = [
   { name: 'Home', url: '/main' },
   { name: 'Our Story', url: '/story' },
-  { name: 'Things to do', url: '/things-to-do' },
-  { name: 'Dress Code', url: '/dress-code' },
-  { name: 'Q&A', url: '/q-and-a' },
   { name: 'Travel & Accommodation', url: '/travel-and-accommodation' },
+  { name: 'Schedule', url: '/schedule' },
+  { name: 'Things to do', url: '/things-to-do' },
+  { name: 'Q&A', url: '/q-and-a' },
 ];
 // An array of links for footer
 const footerLinks = [

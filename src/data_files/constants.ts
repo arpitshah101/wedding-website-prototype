@@ -1,4 +1,4 @@
-import ogImageSrc from '@images/social.png';
+import ogImageSrc from '@images/ganesh-motif.svg';
 
 export const SITE = {
   title: 'Arpit & Rushita',
@@ -35,9 +35,9 @@ export const OG = {
   locale: 'en_US',
   type: 'website',
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
+  title: `${SITE.title}: Wedding Invitation`,
   description:
-    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+    "Join us for the wedding celebration of Arpit and Rushita! We're excited to share this special day with our loved ones. Save the date and get ready for a memorable event filled with love, laughter, and joy. We can't wait to celebrate with you!",
   image: ogImageSrc,
 };
 

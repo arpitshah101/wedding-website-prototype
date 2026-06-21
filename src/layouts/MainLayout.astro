@@ -55,7 +55,7 @@ interface Props {
     </script>
   </head>
   <body
-    class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+    class="flex min-h-screen flex-col bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
     {
       /*
@@ -64,14 +64,14 @@ interface Props {
     */
     }
     <div
-      class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-4 sm:px-6 lg:px-8"
+      class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-0 sm:px-0 lg:px-8"
     >
       <Navbar />
       <main>
         <slot />
       </main>
     </div>
-    <FooterSection />
+    <!-- <FooterSection /> -->
     <script>
       // https://preline.co
       import 'preline';

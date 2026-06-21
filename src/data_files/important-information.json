@@ -1,0 +1,37 @@
+{
+  "subTitle": "Essential Details for Your Trip",
+  "faqs": [
+    {
+      "question": "What is the passport validity requirement?",
+      "answer": "Please ensure that your passport is valid a minimum of 6 months after the return date. Most countries will not permit a traveler to enter their country unless the passport is set to expire at least six months after the final day of travel."
+    },
+    {
+      "question": "Do I need a visa?",
+      "answer": "If you are a Canadian, American, or UK Citizen, you do not require a tourist visa. If you need additional information on entry requirements, please visit: VisaHQ (https://www.visahq.com/), US Passport Holder (https://travel.state.gov/content/travel/en/passports.html), Canadian Passport Holder (https://www.canada.ca/en/services/immigration-citizenship/helpcentre/glossary.html#passport)"
+    },
+    {
+      "question": "Do I need travel insurance?",
+      "answer": "We highly recommend the purchase of travel insurance. Travel insurance (trip cancellation) must be purchased at the time of booking or within 48 hours of booking your trip. Your group reservation is 100% non-refundable, non-transferable, and no changes are permitted."
+    },
+    {
+      "question": "What will show on my credit card statement after booking?",
+      "answer": "When filling out the forms, you are authorizing Destawed Inc. as your travel agency to process your payment on behalf of the chosen supplier. Your charge will appear on your statement from either the particular airline/supplier above, or Destawed Inc."
+    },
+    {
+      "question": "E-Tickets and Travel Documents",
+      "answer": "E-Documents are issued by the tour operator 5-7 Business days prior to travel. Once we receive the tickets we will send them to the email address on file."
+    },
+    {
+      "question": "Visa Requirements",
+      "answer": "Canadian Citizens: No visa is required to enter Mexico. Guests Traveling from India: If you hold a valid Canadian or U.S. visa, you can obtain a visa on arrival in Mexico. If you do not have a Canadian or U.S. visa, you will need to apply for a Mexican visa in advance. For more details, visit the official Mexican Consulate Visa Information website."
+    },
+    {
+      "question": "Wedding Events",
+      "answer": "Haldi (Turmeric Ceremony): Family members and friends apply a paste of turmeric, sandalwood, and rosewater to the bride and groom. Turmeric symbolizes blessings, protection from negative energies, and prosperity. Sangeet/Mehndi (Henna): A festive evening of music and dancing by family and friends. The bride's hands and feet are adorned with intricate henna designs, symbolizing love and beauty. Hindu Wedding Ceremony: A series of sacred rituals performed around a holy fire (Agni) with a priest officiating. Each ritual represents love, duty, fidelity, and spiritual growth."
+    },
+    {
+      "question": "Gifts/Registry and Plus Ones",
+      "answer": "Your presence at our wedding is the greatest gift we could ask for. We are truly blessed to have you in our lives and need nothing more. Unless otherwise specified on your invitation, please contact the bride or groom if you would like to bring a plus one."
+    }
+  ]
+}

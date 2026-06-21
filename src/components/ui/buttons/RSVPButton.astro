@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  url: string;
+  fontClass?: string;
+}
+
+const { title, url, fontClass = 'font-semibold tracking-[0.35em]' } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[
+    'inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/10 px-20 py-3 text-center text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:text-[#e0be63]',
+    fontClass,
+  ]}
+>
+  {title}
+</a>

@@ -1,0 +1,173 @@
+---
+// Import the necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import CoupleMessageSection from '@components/sections/wedding/CoupleMessageSection.astro';
+import FAQ from '@components/sections/misc/FAQ.astro';
+import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
+import heroImage from '@images/hero-image.avif';
+import faqs from '@data/faqs.json';
+import construction from '@images/construction-image.avif';
+import tools from '@images/automated-tools.avif';
+import dashboard from '@images/dashboard-image.avif';
+import FeaturesStats from '@/components/sections/features/FeaturesStats.astro';
+import Countdown from '@/components/Countdown.astro';
+import weddingThemeBackground from '@images/wedding-theme-background.jpg';
+import ganeshMotif from '@images/ganesh-motif.svg';
+import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
+
+const avatarSrcs: Array<string> = [
+  'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+];
+---
+
+<MainLayout>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-10 hidden bg-[#99b7bf] bg-cover bg-fixed bg-center bg-no-repeat lg:block"
+    style={`background-image: url('${weddingThemeBackground.src}');`}
+  >
+  </div>
+  <div class="relative z-10 mt-7.5 w-full lg:ml-auto">
+    <div class="bg-transparent lg:bg-transparent">
+      <div class="block lg:hidden">
+        <img
+          src={weddingThemeBackground.src}
+          alt=""
+          class="h-64 w-full object-cover"
+        />
+      </div>
+
+      <!-- Ganesh Motif -->
+      <section class="bg-transparent">
+        <div
+          class="flex items-center justify-center px-8 py-8 sm:px-8 sm:py-8 lg:px-10 lg:py-3"
+        >
+          <img
+            src={ganeshMotif.src}
+            alt="Ganesh motif"
+            class="h-15 w-auto object-contain opacity-100 sm:h-15 lg:h-25"
+          />
+        </div>
+        <Countdown targetDate="2027-11-08T00:00:00" title="" />
+        <p
+          class="text-center text-sm font-semibold tracking-[0.3em] text-neutral-700/80 uppercase sm:text-base"
+        >
+          8-11th November, 2027
+        </p>
+        <p class ="mb-4 text-center text-sm font-normal tracking-[0.3em] text-neutral-700/80 uppercase sm:text-base lg:mb-75">
+          Moon Palace, Cancún, Quintana Roo, Mexico
+        </p>
+        
+        <div class="mb-10 flex items-center justify-center">
+          <RSVPButton
+            title="RSVP"
+            url="http://www.google.com"
+            fontClass="font-semibold sm:text-base lg:text-4xl text-base"
+          />
+        </div>
+      </section>
+
+      <!-- <div class="bg-white lg:bg-white/75 lg:backdrop-blur-sm">
+        <HeroSection
+          title=`Join us in <span class="text-red-500 dark:text-red-400">Mexico</span>!`
+          subTitle="8-11 November, 2027 - Moon Palace, Cancun, Mexico"
+          src={heroImage}
+          alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+        />
+
+        <CoupleMessageSection
+          title="A Message From The Couple"
+          subTitle="We're thrilled to share our wedding celebration with you"
+          message="The Countdown is On!\n\nWelcome to our wedding website! We are so happy to share the details of our upcoming celebration in Cancun.\n\nYour presence is the greatest gift we could ask for, and we are so grateful for the effort of traveling to celebrate with us. Please check back often for updates as we get closer to the big day.\n\nWe can't wait to see you in Mexico!"
+          signature="With love, <i>Arpit & Rushita</i>"
+        />
+
+        <FeaturesNavs
+          title=`Itinerary — Wedding Week`
+          tabs={[
+            {
+              heading: 'Nov 8',
+              content: 'Welcome / Sangeet / Mehndi with dinner',
+              svg: 'tools',
+              src: tools,
+              alt: 'Yellow and black heavy equipment on brown grass field',
+              first: true,
+            },
+            {
+              heading: 'Nov 9',
+              content: 'Vidhi & Haldi with lunch',
+              svg: 'dashboard',
+              src: dashboard,
+              alt: 'A screenshot or graphic representation of the intuitive dashboard',
+              second: true,
+            },
+            {
+              heading: 'Nov 10',
+              content: 'Hindu Wedding Ceremony + Post Ceremony Lunch',
+              svg: 'dashboard',
+              src: dashboard,
+              alt: 'A screenshot or graphic representation of the intuitive dashboard',
+              second: true,
+            },
+            {
+              heading: 'Nov 11',
+              content: 'Cocktail Hour + Reception with dinner',
+              svg: 'house',
+              src: construction,
+              alt: 'Gray metal building frame near tower crane during daytime',
+            },
+          ]}
+        />
+
+        <FeaturesStats
+          title="Booking your stay"
+          subTitle="Package: Hotel Only (All Inclusive) ~ Minimum 3 Night Stay"
+          mainStatTitle="$226"
+          mainStatSubTitle="per person, per night - Double Occupancy"
+          stats={[
+            {
+              stat: '$451',
+              description: '1 adult per night - Single Occupancy',
+            },
+            {
+              stat: 'Free',
+              description: 'Children (0 - 17 years) sharing room with 2 adults',
+            },
+            {
+              stat: '$158',
+              description: 'Extra adult per night (min 2 adults in room)',
+            },
+          ]}
+        />
+
+        <section
+          class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+        >
+          <div class="max-w-(--breakpoint-md)">
+            <p
+              class="mb-4 max-w-prose font-normal text-pretty text-neutral-600 sm:text-xl dark:text-neutral-400"
+            >
+              Guests can extend their stay up to 3 nights before and/or after
+              the official wedding dates (November 8, 2027 - November 12, 2027)
+              at the same group rates.
+            </p>
+            <p
+              class="max-w-prose font-normal text-pretty text-neutral-600 sm:text-xl dark:text-neutral-400"
+            >
+              Please note: For extended stays, rooms are subject to
+              availability.
+            </p>
+          </div>
+        </section>
+
+        <FAQ title="Q & A" faqs={faqs} />
+      </div> -->
+    </div>
+  </div>
+</MainLayout>

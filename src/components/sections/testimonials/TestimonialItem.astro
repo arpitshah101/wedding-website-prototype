@@ -8,7 +8,7 @@ interface Props {
   content: string;
   author: string;
   role: string;
-  avatarSrc: string;
+  avatarSrc?: string;
 }
 ---
 
@@ -16,27 +16,35 @@ interface Props {
   <Icon name="quotation" />
 
   <div class="relative z-10">
-    <p class="text-xl text-neutral-800 italic dark:text-neutral-200">
-      {content}
-    </p>
+    {
+      content.split('\n\n').map((paragraph) => (
+        <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
+          {paragraph}
+        </p>
+      ))
+    }
   </div>
 
   <div class="mt-6">
     <div class="flex items-center">
-      <div class="shrink-0">
-        <Image
-          class="h-8 w-8 rounded-full"
-          src={avatarSrc}
-          alt="Avatar Description"
-          loading={'eager'}
-          inferSize
-        />
-      </div>
-      <div class="ms-4 grow">
+      {
+        avatarSrc && (
+          <div class="shrink-0">
+            <Image
+              class="h-8 w-8 rounded-full"
+              src={avatarSrc}
+              alt="Avatar Description"
+              loading={'eager'}
+              inferSize
+            />
+          </div>
+        )
+      }
+      <div class={avatarSrc ? 'ms-4 grow' : 'grow'}>
         <div class="font-bold text-neutral-800 dark:text-neutral-200">
           {author}
         </div>
-        <div class="text-xs text-neutral-500">{role}</div>
+        {role && <div class="text-xs text-neutral-500">{role}</div>}
       </div>
     </div>
   </div>

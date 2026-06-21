@@ -15,6 +15,7 @@ import dashboard from '@images/dashboard-image.avif';
 import FeaturesStats from '@/components/sections/features/FeaturesStats.astro';
 import Countdown from '@/components/Countdown.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
+import mobileBackground from '@images/mobile-background.jpg';
 import ganeshMotif from '@images/ganesh-motif.svg';
 import amp from '@images/amp.svg';
 import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
@@ -32,7 +33,13 @@ const avatarSrcs: Array<string> = [
 <MainLayout>
   <div
     aria-hidden="true"
-    class="fixed inset-0 -z-10 bg-[#99b7bf] bg-cover bg-center bg-no-repeat"
+    class="fixed inset-0 -z-10 hidden bg-cover bg-center bg-no-repeat sm:block md:hidden"
+    style={`background-image: url('${mobileBackground.src}');`}
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-20 hidden bg-cover bg-center bg-no-repeat md:block"
     style={`background-image: url('${weddingThemeBackground.src}');`}
   >
   </div>

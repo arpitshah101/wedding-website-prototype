@@ -1,11 +1,11 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: 'Home', url: '/' },
-  { name: 'Our Story', url: '/products' },
-  { name: 'Things to do', url: '/services' },
-  { name: 'Dress Code', url: '/blog' },
-  { name: 'Q&A', url: '/contact' },
-  { name: 'Travel & Accommodation', url: '/contact' },
+  { name: 'Home', url: '/main' },
+  { name: 'Our Story', url: '/story' },
+  { name: 'Things to do', url: '/things-to-do' },
+  { name: 'Dress Code', url: '/dress-code' },
+  { name: 'Q&A', url: '/q-and-a' },
+  { name: 'Travel & Accommodation', url: '/travel-and-accommodation' },
 ];
 // An array of links for footer
 const footerLinks = [

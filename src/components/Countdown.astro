@@ -1,0 +1,70 @@
+---
+interface Props {
+  targetDate: string;
+  title?: string;
+}
+
+const { targetDate, title = 'Countdown to the Wedding' } = Astro.props;
+---
+
+<section class="bg-transparent">
+  <div class="flex flex-col items-center justify-center px-4 pb-6 pt-2 sm:px-6 sm:pb-8 sm:pt-3 lg:px-8 lg:pb-10 lg:pt-4">
+    <p class="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-neutral-700/80 sm:text-base">
+      {title}
+    </p>
+    <div
+      class="grid grid-cols-1 gap-2 sm:gap-3"
+      data-countdown
+      data-target-date={targetDate}
+    >
+      <div class="min-w-16 rounded-xl px-3 py-2 text-center sm:min-w-20 sm:px-4 sm:py-3">
+        <div data-days class="text-2xl lg:text-4xl font-normal text-[#D6AB3A] sm:text-2xl">00</div>
+        <div class="mt-1 text-[15px] uppercase tracking-[0.2em] text-neutral-600">Days to go!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const countdown = document.querySelector('[data-countdown]') as HTMLElement | null;
+
+  if (countdown) {
+    const targetDate = new Date(countdown.dataset.targetDate || '');
+    const daysEl = countdown.querySelector('[data-days]') as HTMLElement | null;
+    const hoursEl = countdown.querySelector('[data-hours]') as HTMLElement | null;
+    const minutesEl = countdown.querySelector('[data-minutes]') as HTMLElement | null;
+    const secondsEl = countdown.querySelector('[data-seconds]') as HTMLElement | null;
+
+    const formatNumber = (value: number) => String(value).padStart(2, '0');
+
+    const updateCountdown = () => {
+      if (!targetDate || Number.isNaN(targetDate.getTime())) return;
+
+      const now = new Date().getTime();
+      const difference = targetDate.getTime() - now;
+
+      if (difference <= 0) {
+        if (daysEl) daysEl.textContent = '00';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minutesEl) minutesEl.textContent = '00';
+        if (secondsEl) secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      if (daysEl) daysEl.textContent = formatNumber(days);
+      if (hoursEl) hoursEl.textContent = formatNumber(hours);
+      if (minutesEl) minutesEl.textContent = formatNumber(minutes);
+      if (secondsEl) secondsEl.textContent = formatNumber(seconds);
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>

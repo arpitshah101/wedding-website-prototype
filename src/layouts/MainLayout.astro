@@ -54,7 +54,7 @@ interface Props {
     </script>
   </head>
   <body
-    class="flex min-h-screen flex-col bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+    class="flex min-h-full flex-col bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
     {
       /*
@@ -66,7 +66,7 @@ interface Props {
       class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-0 sm:px-0 lg:px-8"
     >
       <Navbar />
-      <main class="min-h-screen">
+      <main class="min-h-full">
         <slot />
       </main>
     </div>

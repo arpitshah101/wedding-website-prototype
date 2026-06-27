@@ -1,27 +1,27 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: 'Home', url: '/' },
-  { name: 'Our Story', url: '/story' },
-  { name: 'Travel & Accommodation', url: '/travel-and-accommodation' },
-  { name: 'Schedule', url: '/schedule' },
-  { name: 'Things to do', url: '/things-to-do' },
-  { name: 'Q&A', url: '/q-and-a' },
+  { name: 'Home', url: '/wedding-website-prototype/' },
+  { name: 'Our Story', url: '/wedding-website-prototype/story' },
+  { name: 'Travel & Accommodation', url: '/wedding-website-prototype/travel-and-accommodation' },
+  { name: 'Schedule', url: '/wedding-website-prototype/schedule' },
+  { name: 'Things to do', url: '/wedding-website-prototype/things-to-do' },
+  { name: 'Q&A', url: '/wedding-website-prototype/q-and-a' },
 ];
 // An array of links for footer
 const footerLinks = [
   {
     section: 'Ecosystem',
     links: [
-      { name: 'Documentation', url: '/welcome-to-docs/' },
-      { name: 'Tools & Equipment', url: '/products' },
-      { name: 'Construction Services', url: '/services' },
+      { name: 'Documentation', url: '/wedding-website-prototype/welcome-to-docs/' },
+      { name: 'Tools & Equipment', url: '/wedding-website-prototype/products' },
+      { name: 'Construction Services', url: '/wedding-website-prototype/services' },
     ],
   },
   {
     section: 'Company',
     links: [
       { name: 'About us', url: '#' },
-      { name: 'Blog', url: '/blog' },
+      { name: 'Blog', url: '/wedding-website-prototype/blog' },
       { name: 'Careers', url: '#' },
       { name: 'Customers', url: '#' },
     ],

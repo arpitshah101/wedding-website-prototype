@@ -7,8 +7,10 @@ import mobileBackground from '@images/mobile-background.jpg';
 import ganeshMotif from '@images/ganesh-motif.svg';
 import amp from '@images/amp.svg';
 import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
+import { getBasePath } from '@/utils/basePath';
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
+const homePath = getBasePath('/');
 ---
 
 <MainLayout>
@@ -90,7 +92,7 @@ const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
         <div data-rsvp-open class="cursor-pointer">
           <RSVPButton
             title="RSVP"
-            url="#"
+            url={homePath}
             fontClass="font-semibold text-base sm:text-base lg:text-4xl"
           />
         </div>

@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import { getBasePath } from '@/utils/basePath';
 
 import storyPic1 from '@images/story-pic-1.jpg';
 import storyPic2 from '@images/story-pic-2.jpg';
@@ -12,6 +13,8 @@ import storyPic6 from '@images/story-pic-6.jpg';
 import storyPic7 from '@images/story-pic-7.jpg';
 import storyPic8 from '@images/story-pic-8.jpg';
 import storyPic9 from '@images/story-pic-9.jpg';
+
+const homePath = getBasePath('/');
 ---
 
 <MainLayout>
@@ -38,7 +41,7 @@ import storyPic9 from '@images/story-pic-9.jpg';
             class="mt-3 text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-xl"
             style="font-family: 'Cinzel', serif;"
           >
-            How We Met
+            Our Story
           </h6>
         </div>
 
@@ -141,7 +144,7 @@ import storyPic9 from '@images/story-pic-9.jpg';
       </section>
 
       <a
-        href="/wedding-website-prototype/"
+        href={homePath}
         class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
       >
         Back to Invitation

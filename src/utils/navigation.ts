@@ -4,7 +4,10 @@ import { getBasePath } from '@/utils/basePath';
 const navBarLinks = [
   { name: 'Home', url: getBasePath('/') },
   { name: 'Our Story', url: getBasePath('/story') },
-  { name: 'Travel & Accommodation', url: getBasePath('/travel-and-accommodation') },
+  {
+    name: 'Travel & Accommodation',
+    url: 'https://www.destawed.com/couples/rushita-arpit',
+  },
   { name: 'Schedule & Dress Code', url: getBasePath('/schedule') },
   { name: 'Things to do', url: getBasePath('/things-to-do') },
   { name: 'Q&A', url: getBasePath('/q-and-a') },

@@ -2,6 +2,8 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import appStoreBadge from '@images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
+import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.svg';
 ---
 
 <MainLayout>
@@ -25,9 +27,8 @@ import mobileBackground from '@images/mobile-background.jpg';
 
         <div class="mt-6 space-y-6 text-base leading-7 text-neutral-700">
           <div>
-            <h2 class="text-lg font-semibold">About Moon Palace Cancún</h2>
             <p class="mt-2">
-              Our wedding will take place at <strong>Moon Palace Cancún</strong>, an all-inclusive beachfront resort located around 15 minutes from Cancún International Airport. The resort is made up of three connected sections—<strong>Nizuc, Sunrise and The Grand</strong>—giving guests access to a wide selection of restaurants, pools, bars and activities throughout the property.
+              <strong>Moon Palace Cancún</strong> is made up of three connected sections—<strong>Nizuc, Sunrise and The Grand</strong>—giving guests access to a wide selection of restaurants, pools, bars and activities throughout the property.
             </p>
             <p class="mt-2">
               Whether you're looking to unwind by the beach, spend time with family, or turn the trip into a holiday, there's plenty to enjoy during your stay.
@@ -62,9 +63,25 @@ import mobileBackground from '@images/mobile-background.jpg';
           </div>
 
           <div class="mt-8 rounded-3xl border border-neutral-200/80 bg-neutral-50/80 p-5 text-base leading-7 text-neutral-700">
-            <p class="font-semibold">We recommend downloading the Palace Resorts app which allows you to view resort amenities, request services, book restaurants, and navigate the resort:</p>
-            <p class="mt-4"><a class="text-yellow-600 underline" href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer">iOS</a></p>
-            <p class="mt-2"><a class="text-yellow-600 underline" href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer">Android</a></p>
+            <p class="font-semibold">Download the Palace Resorts app to view resort amenities, request services, book restaurants, and navigate the resort:</p>
+            <div class="mt-4 flex w-full flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-center">
+              <a
+                href="https://apps.apple.com/us/app/palace-resorts/id1411599607"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download on the App Store"
+              >
+                <img src={appStoreBadge.src} alt="Download on the App Store" class="h-12 w-auto rounded-lg" />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get it on Google Play"
+              >
+                <img src={googlePlayBadge.src} alt="Get it on Google Play" class="h-12 w-auto rounded-lg" />
+              </a>
+            </div>
           </div>
 
         </div>

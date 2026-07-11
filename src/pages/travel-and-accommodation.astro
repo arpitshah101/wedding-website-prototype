@@ -1,0 +1,71 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import weddingThemeBackground from '@images/wedding-theme-background.jpg';
+import mobileBackground from '@images/mobile-background.jpg';
+
+const destawedUrl = 'https://www.destawed.com/couples/rushita-arpit';
+const coupleMessage = `
+  <div class="space-y-4 text-base leading-7 text-neutral-700">
+    <p>
+  We’re so excited to celebrate this next chapter with you in Mexico and can’t wait to share this unforgettable weekend with our loved ones.
+</p>
+<p>
+  We want our celebration to be about more than just the wedding itself. We want our guests to have a memorable experience and enjoy a nice getaway during what might otherwise be a colder and busier time of year.
+</p>
+<p>
+  That’s why we chose Moon Palace in Cancun. We loved the idea of an all-inclusive setting where everyone can just arrive, drop their bags, and not have to worry about the daily logistics of finding meals or planning out activities. 
+</p>
+<p>
+  More than anything, we want you to treat this trip as your own holiday. While we are incredibly excited to celebrate together during our events, we also hope you'll take plenty of time to sleep in, grab a drink by the water, and genuinely relax. 
+</p>
+<p>
+  Please explore the website for details on travel and what to expect. To make securing your accommodations as easy as possible, we’ve partnered with <b><i>Destawed</i></b> as our dedicated travel partner to manage our resort room block. Please visit the link below to explore your options and begin booking your stay. We are so grateful for your love and support, and we can’t wait to see you in the sun in November 2027!
+</p>
+  </div>
+`;
+---
+
+<MainLayout>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat blur-[2px] sm:block md:hidden"
+    style={`background-image: url('${mobileBackground.src}');`}
+  ></div>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat blur-[2px] md:block"
+    style={`background-image: url('${weddingThemeBackground.src}');`}
+  ></div>
+
+  <div class="relative z-10 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-6">
+      <section class="w-full rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-6 lg:p-10">
+        <div class="text-center">
+          <h1
+            class="mt-3 text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-2xl"
+            style="font-family: 'Cinzel', serif;"
+          >
+            Travel & Accommodation
+          </h1>
+        </div>
+
+        <div class="mt-8 space-y-6">
+          <div>
+            <h2 class="text-lg font-semibold text-neutral-900">A note from the couple</h2>
+            <div class="mt-4" set:html={coupleMessage} />
+          </div>
+
+          <div class="mt-8 flex justify-center">
+            <a
+              href={destawedUrl}
+              rel="noreferrer"
+              class="inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/90 px-6 py-3 text-center text-sm font-semibold text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:bg-white/50 hover:text-[#e0be63]"
+            >
+                Book Your Stay
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</MainLayout>

@@ -6,7 +6,7 @@ const navBarLinks = [
   { name: 'Our Story', url: getBasePath('/story') },
   {
     name: 'Travel & Accommodation',
-    url: 'https://www.destawed.com/couples/rushita-arpit',
+    url: getBasePath('/travel-and-accommodation'),
   },
   { name: 'Schedule & Dress Code', url: getBasePath('/schedule') },
   { name: 'Things to do', url: getBasePath('/things-to-do') },

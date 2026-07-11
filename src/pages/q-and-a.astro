@@ -1,0 +1,233 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import weddingThemeBackground from '@images/wedding-theme-background.jpg';
+import mobileBackground from '@images/mobile-background.jpg';
+
+const faqSections = [
+  {
+    title: 'Travel & Arrival',
+    questions: [
+      {
+        question: 'What is the recommended airport to fly into?',
+        answer:
+          'We recommend flying into Cancún International Airport (CUN) and arranging transport to the resort ahead of time for a smoother arrival experience.',
+        keywords: ['airport', 'cancun', 'transport', 'arrival'],
+      },
+      {
+        question: 'How long does it take to get from the airport to the resort?',
+        answer:
+          'The transfer typically takes around 20 to 40 minutes depending on traffic and your exact resort section.',
+        keywords: ['hotel', 'transfer', 'transportation'],
+      },
+      {
+        question: 'Should I book transportation in advance?',
+        answer:
+          'Yes, booking your airport transfer in advance is highly recommended so your arrival and departure are as seamless as possible.',
+        keywords: ['transport', 'booking', 'arrival', 'departure'],
+      },
+      {
+        question: 'What time should I arrive before the wedding events?',
+        answer:
+          'We suggest arriving at least 45 minutes before the ceremony begins so you can settle in, find your seat, and enjoy the atmosphere.',
+      },
+      {
+        question: 'Will there be a welcome desk or check-in area?',
+        answer:
+          'A welcome desk will be available at the resort for guests who need assistance with entry details, transfers, or event questions.',
+      },
+    ],
+  },
+  {
+    title: 'Wedding Day Details',
+    questions: [
+      {
+        question: 'What should I wear to the wedding?',
+        answer:
+          'Dress code details will be shared closer to the celebration, but guests are encouraged to follow the event style guidance in their invitation.',
+        keywords: ['dress code', 'attire', 'outfit', 'formal'],
+      },
+      {
+        question: 'Will the ceremony be indoors or outdoors?',
+        answer:
+          'The ceremony is planned for an outdoor setting with an indoor backup option available if needed due to weather conditions.',
+      },
+      {
+        question: 'Will there be a reception after the ceremony?',
+        answer:
+          'Yes, a reception dinner and celebration will follow the ceremony with music, drinks, and a festive atmosphere for guests.',
+      },
+      {
+        question: 'Can I bring a guest if I am not listed on the invitation?',
+        answer:
+          'Please refer to your invitation and RSVP details for guest allocation. We will do our best to accommodate any approved plus-ones.',
+      },
+      {
+        question: 'What happens if it rains?',
+        answer:
+          'We will move to the indoor backup plan if weather conditions require it, and updates will be shared in a timely manner.',
+      },
+    ],
+  },
+  {
+    title: 'Resort & Stay',
+    questions: [
+      {
+        question: 'What amenities are included in the resort stay?',
+        answer:
+          'The resort offers beach access, multiple dining venues, bars, pools, activities, and entertainment throughout the property.',
+      },
+      {
+        question: 'Is the resort all-inclusive?',
+        answer:
+          'Yes, the resort is designed as an all-inclusive destination, with many amenities and dining options covered in the stay package.',
+      },
+      {
+        question: 'Are there activities for guests who want to explore beyond the resort?',
+        answer:
+          'There are several optional excursions available, including beaches, cultural tours, and nearby attractions for guests who wish to explore the area.',
+      },
+      {
+        question: 'Will there be family-friendly areas and spaces?',
+        answer:
+          'Yes, the resort offers a range of spaces suited for relaxation, dining, and entertainment across the property.',
+      },
+      {
+        question: 'Where can I find more information about local activities?',
+        answer:
+          'You can review the resort activities and excursion details on the wedding website or ask the event team for additional recommendations.',
+      },
+    ],
+  },
+];
+---
+
+<MainLayout title="Q&A | Wedding Website">
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat blur-[2px] sm:block md:hidden"
+    style={`background-image: url('${mobileBackground.src}');`}
+  ></div>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat blur-[2px] md:block"
+    style={`background-image: url('${weddingThemeBackground.src}');`}
+  ></div>
+
+  <div class="relative z-10 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-6">
+      <section class="w-full rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-6 lg:p-10">
+        <div class="text-center">
+          <h1
+            class="mt-3 text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-2xl"
+            style="font-family: 'Cinzel', serif;"
+          >
+            Q&A
+          </h1>
+        </div>
+
+        <div class="mt-6 rounded-2xl bg-white/75 p-3 shadow-sm ring-1 ring-white/70">
+          <label for="faq-search" class="sr-only">Search FAQ questions</label>
+          <div class="flex items-center gap-2">
+            <input
+              id="faq-search"
+              type="search"
+              placeholder="Search questions..."
+              class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-700 outline-none ring-0 placeholder:text-neutral-400 focus:border-neutral-400"
+            />
+            <button
+              id="faq-clear"
+              type="button"
+              class="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-700 transition hover:border-neutral-400 hover:bg-neutral-50"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <div id="faq-empty-state" class="mt-6 hidden rounded-2xl border border-neutral-200 bg-white/80 px-4 py-5 text-sm text-neutral-600">
+          No questions matched your search. Try a different keyword.
+        </div>
+
+        <div class="mt-6 space-y-6">
+          {
+            faqSections.map((section) => (
+              <div
+                class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
+                data-section-title={section.title.toLowerCase()}
+              >
+                <h2 class="text-lg font-semibold text-neutral-800">{section.title}</h2>
+                <div class="mt-4 space-y-3" data-section>
+                  {
+                    section.questions.map((item) => (
+                      <details
+                        class="faq-item rounded-xl border border-neutral-200 bg-white/90 px-4 py-3 shadow-sm"
+                        data-query={`${section.title} ${item.question} ${item.answer} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
+                      >
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-neutral-800">
+                          <span>{item.question}</span>
+                          <span class="shrink-0 rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-600">
+                            +
+                          </span>
+                        </summary>
+                        <div class="pt-3 text-sm leading-6 text-neutral-700">
+                          {item.answer}
+                        </div>
+                      </details>
+                    ))
+                  }
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.querySelector('#faq-search');
+    const clearButton = document.querySelector('#faq-clear');
+    const sections = Array.from(document.querySelectorAll('[data-section]'));
+    const emptyState = document.querySelector('#faq-empty-state');
+
+    const applySearch = (query: string) => {
+      let anyVisible = false;
+
+      sections.forEach((section) => {
+        const sectionContainer = section.closest('.rounded-2xl');
+        const sectionTitle = (sectionContainer as HTMLElement | null)?.dataset.sectionTitle ?? '';
+        let sectionVisible = false;
+        const items = Array.from(section.querySelectorAll('.faq-item'));
+
+        items.forEach((item) => {
+          const text = (item as HTMLElement).dataset.query ?? '';
+          const shouldShow = !query || sectionTitle.includes(query) || text.includes(query);
+          item.classList.toggle('hidden', !shouldShow);
+          if (shouldShow) sectionVisible = true;
+        });
+
+        sectionContainer?.classList.toggle('hidden', !sectionVisible);
+        if (sectionVisible) anyVisible = true;
+      });
+
+      if (emptyState) {
+        emptyState.classList.toggle('hidden', anyVisible);
+      }
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        const query = (event.currentTarget as HTMLInputElement).value.trim().toLowerCase();
+        applySearch(query);
+      });
+
+      clearButton?.addEventListener('click', () => {
+        if (searchInput instanceof HTMLInputElement) {
+          searchInput.value = '';
+          applySearch('');
+          searchInput.focus();
+        }
+      });
+    }
+  </script>
+</MainLayout>

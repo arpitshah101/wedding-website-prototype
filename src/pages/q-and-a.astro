@@ -8,32 +8,48 @@ const faqSections = [
     title: 'Travel & Arrival',
     questions: [
       {
-        question: 'What is the recommended airport to fly into?',
+        question: 'Which airport should I fly into?',
         answer:
-          'We recommend flying into Cancún International Airport (CUN) and arranging transport to the resort ahead of time for a smoother arrival experience.',
+          'The nearest airport is Cancún International Airport (CUN), located approximately 15–20 minutes from Moon Palace.',
         keywords: ['airport', 'cancun', 'transport', 'arrival'],
       },
       {
         question: 'How long does it take to get from the airport to the resort?',
         answer:
-          'The transfer typically takes around 20 to 40 minutes depending on traffic and your exact resort section.',
+          'The transfer typically takes around 15 to 30 minutes depending on traffic and which section of Moon Palace you are heading to.',
         keywords: ['hotel', 'transfer', 'transportation'],
       },
       {
-        question: 'Should I book transportation in advance?',
-        answer:
-          'Yes, booking your airport transfer in advance is highly recommended so your arrival and departure are as seamless as possible.',
-        keywords: ['transport', 'booking', 'arrival', 'departure'],
+        question: 'What flights are available from London, New York and India?',
+        answerHtml: `
+          <p><strong>London:</strong> Direct flights from London Gatwick (LGW) to Cancún (CUN) take approximately 10–11 hours; one-stop flights are also available from Heathrow and other UK airports.</p>
+          <p><strong>New York:</strong> Direct flights from JFK and Newark (EWR) to Cancún (CUN) take approximately 4–5 hours.</p>
+          <p><strong>India:</strong> There are no direct flights to Cancún. Most routes involve one or two connections, with total journey times typically ranging from 20–28 hours depending on your departure city and layovers.</p>
+          <p>Here are some helpful links:</p>
+          <ul class="list-inside list-disc space-y-1">
+            <li><a class="text-yellow-600 underline" href="https://www.google.com/travel/flights?gl=GB&hl=en-GB" target="_blank" rel="noopener noreferrer">Google Flights</a></li>
+            <li><a class="text-yellow-600 underline" href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer">Skyscanner</a></li>
+            <li><a class="text-yellow-600 underline" href="https://www.expedia.co.uk/Flights?locale=en_GB&siteid=3" target="_blank" rel="noopener noreferrer">Expedia Flights</a></li>
+          </ul>
+        `,
+        keywords: ['flights', 'london', 'new york', 'india'],
       },
       {
-        question: 'What time should I arrive before the wedding events?',
+        question: 'Where can I find information about booking my hotel and travel?',
         answer:
-          'We suggest arriving at least 45 minutes before the ceremony begins so you can settle in, find your seat, and enjoy the atmosphere.',
+          'Everything you need to know about accommodation, airport transfers, booking deadlines and travel tips can be found on our Travel & Accommodation page.',
       },
       {
         question: 'Will there be a welcome desk or check-in area?',
         answer:
           'A welcome desk will be available at the resort for guests who need assistance with entry details, transfers, or event questions.',
+      },
+      {
+        question: 'What is the weather like in Cancún in November?',
+        answerHtml: `
+          <p>November is one of the best times to visit Cancún, with warm temperatures, lower humidity and plenty of sunshine. Daytime temperatures typically range from <strong>27–30°C (81–86°F)</strong>, while evenings are a little cooler at around <strong>22–24°C (72–75°F)</strong>.</p>
+          <p>Although November marks the end of the rainy season, any showers are usually brief before the sunshine returns. We recommend packing lightweight clothing for the day, a light layer for the evenings, comfortable footwear, and plenty of sunscreen.</p>
+        `,
       },
     ],
   },
@@ -41,30 +57,30 @@ const faqSections = [
     title: 'Wedding Day Details',
     questions: [
       {
-        question: 'What should I wear to the wedding?',
+        question: 'What should I wear?',
         answer:
-          'Dress code details will be shared closer to the celebration, but guests are encouraged to follow the event style guidance in their invitation.',
-        keywords: ['dress code', 'attire', 'outfit', 'formal'],
+          "Each of our celebrations has its own dress code. Please visit our Dress Code page for outfit guidance, inspiration and recommended colours for each event.",
+        keywords: ['dress code', 'attire', 'outfit', 'colors'],
       },
       {
-        question: 'Will the ceremony be indoors or outdoors?',
+        question: 'Will all of the wedding events take place at Moon Palace?',
         answer:
-          'The ceremony is planned for an outdoor setting with an indoor backup option available if needed due to weather conditions.',
+          'Yes! All of our wedding events will take place within Moon Palace Cancún. Each event will be held at a different venue across the resort, with the exact locations and timings available on our Dress Code & Schedule page.',
       },
       {
-        question: 'Will there be a reception after the ceremony?',
+        question: 'Can dietary requirements or allergies be accommodated?',
         answer:
-          'Yes, a reception dinner and celebration will follow the ceremony with music, drinks, and a festive atmosphere for guests.',
+          'Please let us know about any dietary requirements or allergies when you RSVP.',
       },
       {
-        question: 'Can I bring a guest if I am not listed on the invitation?',
+        question: 'Are children or plus ones invited?',
         answer:
-          'Please refer to your invitation and RSVP details for guest allocation. We will do our best to accommodate any approved plus-ones.',
+          'Please refer to your invitation.',
       },
       {
-        question: 'What happens if it rains?',
+        question: 'Who should I contact if I have a question?',
         answer:
-          'We will move to the indoor backup plan if weather conditions require it, and updates will be shared in a timely manner.',
+          'For wedding-related questions, please feel free to contact either of us directly. If your query relates to accommodation, flights or travel arrangements, please refer to our Travel & Accommodation page.',
       },
     ],
   },
@@ -73,8 +89,10 @@ const faqSections = [
     questions: [
       {
         question: 'What amenities are included in the resort stay?',
-        answer:
-          'The resort offers beach access, multiple dining venues, bars, pools, activities, and entertainment throughout the property.',
+        answerHtml: `
+          <p>The resort offers beach access, multiple dining venues, bars, pools, activities, and entertainment throughout the property along with family-friendly areas.</p>
+          <p>For more information, download the Palace Resorts app: <a class="text-yellow-600 underline" href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer">iOS</a> • <a class="text-yellow-600 underline" href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer">Android</a>.</p>
+        `,
       },
       {
         question: 'Is the resort all-inclusive?',
@@ -83,18 +101,18 @@ const faqSections = [
       },
       {
         question: 'Are there activities for guests who want to explore beyond the resort?',
-        answer:
-          'There are several optional excursions available, including beaches, cultural tours, and nearby attractions for guests who wish to explore the area.',
+        answerHtml: `
+          <p>There are several optional excursions available, including beaches, cultural tours, and excursions for guests who wish to explore.</p>
+          <p>For more information, download the Palace Resorts app: <a class="text-yellow-600 underline" href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer">iOS</a> • <a class="text-yellow-600 underline" href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer">Android</a>.</p>
+        `,
       },
       {
-        question: 'Will there be family-friendly areas and spaces?',
-        answer:
-          'Yes, the resort offers a range of spaces suited for relaxation, dining, and entertainment across the property.',
-      },
-      {
-        question: 'Where can I find more information about local activities?',
-        answer:
-          'You can review the resort activities and excursion details on the wedding website or ask the event team for additional recommendations.',
+        question: 'Can I book my room directly with the resort or through another website?',
+        answerHtml:
+          `
+          <P>Moon Palace requires all wedding guests staying at the resort to book their accommodation using our dedicated booking links. This is a resort requirement to ensure your reservation is linked to our wedding.
+          <P>If you choose to stay at another hotel, please note that Moon Palace charges non-resort guests a day pass for each day they wish to attend events at the resort. Day passes are approximately $150 USD per person, per day (subject to change and resort availability), which can add up quickly over the course of the celebrations. Our negotiated room rates are fully flexible and refundable, giving you added peace of mind should your plans change. Guests staying four nights or more will also receive complimentary round-trip airport transfers and $500 USD resort credit as part of their booking.
+          <P>To avoid any additional costs and enjoy these benefits, we kindly ask that all guests book their stay using the links provided on our Travel & Accommodation page.`,
       },
     ],
   },
@@ -169,9 +187,11 @@ const faqSections = [
                             +
                           </span>
                         </summary>
-                        <div class="pt-3 text-sm leading-6 text-neutral-700">
-                          {item.answer}
-                        </div>
+                        {item.answerHtml ? (
+                          <div class="pt-3 text-sm leading-6 text-neutral-700" set:html={item.answerHtml}></div>
+                        ) : (
+                          <div class="pt-3 text-sm leading-6 text-neutral-700">{item.answer}</div>
+                        )}
                       </details>
                     ))
                   }

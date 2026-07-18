@@ -15,6 +15,7 @@ import storyPic8 from '@images/story-pic-8.jpg';
 import storyPic9 from '@images/story-pic-9.jpg';
 
 const homePath = getBasePath('/');
+const travelPath = getBasePath('/travel-and-accommodation');
 ---
 
 <MainLayout>
@@ -143,12 +144,20 @@ const homePath = getBasePath('/');
         </div>
       </section>
 
-      <a
-        href={homePath}
-        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
-      >
-        Back to Invitation
-      </a>
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <a
+          href={homePath}
+          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+        >
+          Back to Invitation
+        </a>
+        <a
+          href={travelPath}
+          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+        >
+          Travel & Accommodation
+        </a>
+      </div>
     </div>
   </div>
 

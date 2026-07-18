@@ -2,6 +2,10 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import { getBasePath } from '@/utils/basePath';
+
+const homePath = getBasePath('/');
+const nextPagePath = getBasePath('/travel-and-accommodation');
 
 const events = [
   {
@@ -135,6 +139,22 @@ const events = [
       </div>
     </div>
   </section>
+  <div class="px-4 py-10 sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-5xl flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href={homePath}
+        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+      >
+        Back to Invitation
+      </a>
+      <a
+        href={nextPagePath}
+        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+      >
+        Travel & Accommodation
+      </a>
+    </div>
+  </div>
 
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {

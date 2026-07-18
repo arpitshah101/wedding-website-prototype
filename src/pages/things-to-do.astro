@@ -2,8 +2,12 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import { getBasePath } from '@/utils/basePath';
 import appStoreBadge from '@images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
 import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.svg';
+
+const homePath = getBasePath('/');
+const nextPagePath = getBasePath('/q-and-a');
 ---
 
 <MainLayout>
@@ -86,6 +90,20 @@ import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.s
 
         </div>
       </section>
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <a
+          href={homePath}
+          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+        >
+          Back to Invitation
+        </a>
+        <a
+          href={nextPagePath}
+          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+        >
+          Q&A
+        </a>
+      </div>
     </div>
   </div>
 </MainLayout>

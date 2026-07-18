@@ -2,27 +2,34 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import travelImageAgra from '@images/Moon Palace/agra.avif';
+import travelImageAgra2 from '@images/Moon Palace/agra 2.avif';
+import travelImageArielView from '@images/Moon Palace/ariel view.avif';
+import travelImageBalcony from '@images/Moon Palace/balcony.webp';
+import travelImageBeach from '@images/Moon Palace/beach.webp';
+import travelImageGarden from '@images/Moon Palace/garden.avif';
+import travelImageHammock from '@images/Moon Palace/hammock.webp';
+import travelImageLounge from '@images/Moon Palace/lounge.webp';
+import travelImageRoom from '@images/Moon Palace/room.webp';
+import travelImageThai from '@images/Moon Palace/thai.webp';
 
 const destawedUrl = 'https://www.destawed.com/couples/rushita-arpit';
 const coupleMessage = `
   <div class="space-y-4 text-base leading-7 text-neutral-700">
     <p>
-  We’re so excited to celebrate this next chapter with you in Mexico and can’t wait to share this unforgettable weekend with our loved ones.
+  We’re so excited to celebrate this next chapter with you in Mexico and can’t wait to share this unforgettable week with our loved ones.
 </p>
 <p>
-  We want our celebration to be about more than just the wedding itself. We want our guests to have a memorable experience and enjoy a nice getaway during what might otherwise be a colder and busier time of year.
+  We want our celebration to be about more than just the wedding itself and we'd like our guests to have a memorable experience whilst also enjoying a nice getaway during what might otherwise be a colder and busier time of year.
 </p>
 <p>
   That’s why we chose Moon Palace in Cancun. We loved the idea of an all-inclusive setting where everyone can just arrive, drop their bags, and not have to worry about the daily logistics of finding meals or planning out activities. 
 </p>
 <p>
-  More than anything, we want you to treat this trip as your own holiday. While we are incredibly excited to celebrate together during our events, we also hope you'll take plenty of time to sleep in, grab a drink by the water, and genuinely relax. 
-</p>
-<p>
   Please explore the website for details on travel and what to expect. To make securing your accommodations as easy as possible, we’ve partnered with <b><i>Destawed</i></b> as our dedicated travel partner to manage our resort room block. Please visit the link below to explore your options and begin booking your stay. For any questions you have about travel arrangements, please review the Destawed page we've linked below and contact the Account Manager provided at the bottom of that page.
 </p>
 <p>
-  We are so grateful for your love and support, and we can’t wait to see you in the sun in November 2027!
+  We are so grateful for your love and support and can’t wait to see you in the sun in November 2027!
 </p>
   </div>
 `;
@@ -52,6 +59,23 @@ const coupleMessage = `
           </h1>
         </div>
 
+        <div class="mt-8 mx-auto max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10">
+          <div class="relative aspect-[16/9] overflow-hidden rounded-[26px]">
+            <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
+              <img src={travelImageArielView.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageBeach.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageGarden.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageRoom.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageBalcony.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageHammock.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageAgra.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageAgra2.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageThai.src} class="h-full w-full shrink-0 object-cover" />
+              <img src={travelImageLounge.src} class="h-full w-full shrink-0 object-cover" />
+            </div>
+          </div>
+        </div>
+
         <div class="mt-8 space-y-6">
           <div>
             <h2 class="text-lg font-semibold text-neutral-900">A note from the couple</h2>
@@ -71,4 +95,25 @@ const coupleMessage = `
       </section>
     </div>
   </div>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+      const slides = Array.from(track.children);
+      let currentIndex = 0;
+
+      const showSlide = (index: number) => {
+        const offset = index * -100;
+        track.setAttribute('style', `transform: translateX(${offset}%);`);
+      };
+
+      const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      };
+
+      setInterval(nextSlide, 5000);
+      showSlide(0);
+    }
+  </script>
 </MainLayout>

@@ -178,6 +178,7 @@ const coupleMessage = `
       id="v2-home"
       class="w-full min-h-screen scroll-mt-[140px] pt-16 sm:pt-24"
     >
+      <img id="intro-ganesh" src={ganeshMotif.src} alt="Ganesh motif" class="absolute left-1/2 h-16 w-auto -translate-x-1/2 object-contain sm:h-20 lg:h-24 z-20 opacity-0" />
       <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div id="invitation-card" class="w-full rounded-[32px] border border-white/50 bg-white/25 p-6 shadow-2xl shadow-black/10 backdrop-blur-xs sm:p-8 lg:p-10">
         <div class="flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10">
@@ -600,18 +601,51 @@ const coupleMessage = `
     });
   </script>
   <script>
-    import { gsap } from 'gsap';
+    document.addEventListener('DOMContentLoaded', () => {
+      import('gsap').then(({ gsap }) => {
+        const intro = document.querySelector('#intro-ganesh');
+        const card = document.querySelector('#invitation-card');
+        const cardGanesh = card?.querySelector('img');
+        if (!intro || !card || !cardGanesh) return;
 
-    gsap.set('#invitation-card', { autoAlpha: 0, y: 50 });
+        const section = document.querySelector('#v2-home');
+        if (!section) return;
+        const sectionRect = section.getBoundingClientRect();
+        const introHeight = (intro as HTMLElement).offsetHeight;
+        const centeredTop = (sectionRect.height - introHeight) / 2;
+        const targetTop = cardGanesh.getBoundingClientRect().top - sectionRect.top;
 
-    gsap.to('#invitation-card', {
-      duration: 2,
-      autoAlpha: 1,
-      y: 0,
-      delay: 0.3,
-      ease: 'power2.out',
+        gsap.set(intro, { top: centeredTop, opacity: 0 });
+        gsap.set(card, { opacity: 0 });
+
+        const tl = gsap.timeline();
+
+        tl.to(intro, {
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+        });
+
+        tl.to(intro, {
+          top: targetTop,
+          duration: 2,
+          ease: 'power2.inOut',
+        });
+
+        tl.to(card, {
+          opacity: 1,
+          duration: 2,
+          ease: 'power2.out',
+        });
+
+        tl.set(intro, { display: 'none' });
+      });
     });
   </script>
+  <style>
+    #intro-ganesh { opacity: 0; }
+    #invitation-card { opacity: 0; }
+  </style>
   <style set:html={`
     #v2-home {
       background-image: url('${weddingThemeBackground.src}');

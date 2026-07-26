@@ -233,7 +233,7 @@ const coupleMessage = `
       class="w-full scroll-mt-[140px]"
       style="background-color: #e5e5e5;"
     >
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+      <div id="v2-travel-content" class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Note from the Couple
@@ -573,6 +573,24 @@ const coupleMessage = `
       };
       setInterval(nextSlide, 5000);
       showSlide(0);
+    });
+  </script>
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('#v2-travel-content', {
+      autoAlpha: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#v2-travel-content',
+        start: 'top 80%',
+        once: true,
+      },
     });
   </script>
   <style set:html={`

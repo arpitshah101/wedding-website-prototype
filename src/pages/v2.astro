@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+import Navbar from '@components/sections/navbar&footer/Navbar.astro';
 import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import Countdown from '@/components/Countdown.astro';
 import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
@@ -30,6 +31,9 @@ import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
+
+const sectionBackdropStyle = (src: string) =>
+  `background-image: url('${src}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;`;
 
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
@@ -166,32 +170,16 @@ const coupleMessage = `
 `;
 ---
 
-<MainLayout title="Wedding Website">
-  <div
-    aria-hidden="true"
-    class="fixed inset-0 -z-10 hidden bg-cover bg-center bg-no-repeat sm:block md:hidden"
-    style={`background-image: url('${mobileBackground.src}');`}
-  ></div>
-  <div
-    aria-hidden="true"
-    class="fixed inset-0 -z-20 hidden bg-cover bg-center bg-no-repeat md:block"
-    style={`background-image: url('${weddingThemeBackground.src}');`}
-  ></div>
-
-  <div class="relative z-10 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-    <nav class="mx-auto mb-6 flex max-w-6xl flex-wrap justify-center gap-2 rounded-full border border-white/50 bg-white/70 p-2 shadow-lg shadow-black/10 backdrop-blur-xl">
-      {sectionNavItems.map((item) => (
-        <a
-          href={item.href}
-          class="rounded-full px-4 py-2 text-sm font-medium text-neutral-800 transition hover:bg-white/90"
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
-
-    <section id="v2-home" class="mx-auto flex max-w-6xl flex-col items-center gap-6 scroll-mt-[140px]">
-      <div class="w-full rounded-[32px] border border-white/50 bg-white/25 p-6 shadow-2xl shadow-black/10 backdrop-blur-xs sm:p-8 lg:p-10">
+<MainLayout title="Wedding Website" hideNavbar={true}>
+  <Navbar sectionLinks={sectionNavItems} />
+  <div class="relative z-10 -mt-20">
+    <section
+      id="v2-home"
+      class="w-full scroll-mt-[140px] pt-24"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="w-full rounded-[32px] border border-white/50 bg-white/25 p-6 shadow-2xl shadow-black/10 backdrop-blur-xs sm:p-8 lg:p-10">
         <div class="flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10">
           <img src={ganeshMotif.src} alt="Ganesh motif" class="h-16 w-auto object-contain sm:h-20 lg:h-24" />
         </div>
@@ -240,8 +228,13 @@ const coupleMessage = `
       </div>
     </section>
 
-    <section id="v2-story" class="mx-auto mt-8 max-w-6xl scroll-mt-[140px]">
-      <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
+    <section
+      id="v2-story"
+      class="w-full scroll-mt-[140px]"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Our Story
@@ -311,8 +304,13 @@ const coupleMessage = `
       </div>
     </section>
 
-    <section id="v2-travel" class="mx-auto mt-8 max-w-6xl scroll-mt-[140px]">
-      <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
+    <section
+      id="v2-travel"
+      class="w-full scroll-mt-[140px]"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Travel & Accommodation
@@ -355,8 +353,13 @@ const coupleMessage = `
       </div>
     </section>
 
-    <section id="v2-schedule" class="mx-auto mt-8 max-w-6xl scroll-mt-[140px]">
-      <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
+    <section
+      id="v2-schedule"
+      class="w-full scroll-mt-[140px]"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Schedule & Dress Code
@@ -406,8 +409,13 @@ const coupleMessage = `
       </div>
     </section>
 
-    <section id="v2-things-to-do" class="mx-auto mt-8 max-w-6xl scroll-mt-[140px]">
-      <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
+    <section
+      id="v2-things-to-do"
+      class="w-full scroll-mt-[140px]"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Things to do
@@ -463,8 +471,13 @@ const coupleMessage = `
       </div>
     </section>
 
-    <section id="v2-q-and-a" class="mx-auto mt-8 max-w-6xl scroll-mt-[140px]">
-      <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
+    <section
+      id="v2-q-and-a"
+      class="w-full scroll-mt-[140px]"
+      style={sectionBackdropStyle(weddingThemeBackground.src)}
+    >
+      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div class="rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-8 lg:p-10">
         <div class="text-center">
           <h2 class="text-2xl font-normal tracking-[0.1em] text-neutral-800 md:text-3xl" style="font-family: 'Cinzel', serif;">
             Q&A

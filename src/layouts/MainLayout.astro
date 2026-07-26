@@ -14,6 +14,7 @@ const {
   lang = 'en',
   customDescription = null,
   customOgTitle = null,
+  hideNavbar = false,
 } = Astro.props;
 
 // Interface to type-check the properties
@@ -24,6 +25,7 @@ interface Props {
   lang?: string;
   customDescription?: string | null;
   customOgTitle?: string | null;
+  hideNavbar?: boolean;
 }
 ---
 
@@ -62,11 +64,9 @@ interface Props {
     The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
     */
     }
-    <div
-      class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-0 sm:px-0 lg:px-8"
-    >
-      <Navbar />
-      <main class="min-h-full">
+    <div class="w-full grow">
+      {!hideNavbar && <Navbar />}
+      <main class="min-h-full w-full">
         <slot />
       </main>
     </div>

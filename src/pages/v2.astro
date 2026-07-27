@@ -294,8 +294,8 @@ const coupleMessage = `
         <div class="relative mt-10">
           <div class="space-y-10">
             {events.map((event, index) => (
-              <div class="relative flex flex-col gap-6 rounded-3xl border border-neutral-200 bg-white/90 p-6 shadow-sm md:flex-row md:items-start md:gap-8">
-                <div class="md:w-[6rem]">
+              <div class="relative flex flex-col gap-6 rounded-3xl border border-neutral-200 bg-white/90 p-6 shadow-sm md:items-start md:p-8">
+                <div class="md:absolute md:left-8 md:top-8">
                   <div class="flex flex-col items-center gap-4">
                     <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#D6AB3A] text-lg font-semibold text-white shadow-lg shadow-yellow-500/20">
                       <span>{event.label}</span>
@@ -303,7 +303,7 @@ const coupleMessage = `
                   </div>
                 </div>
 
-                <div class="w-full">
+                <div class="w-full text-center">
                   <p class="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-600">{event.date}</p>
                   <h3 class="mt-3 text-2xl font-semibold text-neutral-900">{event.title}</h3>
                   <div class="mt-4 space-y-2 text-sm text-neutral-600">

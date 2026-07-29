@@ -257,7 +257,7 @@ const coupleMessage = `
       </p>
 
       <!-- Venue Artwork -->
-      <div class="relative mx-auto mt-2 w-full overflow-hidden">
+      <div id="v2-watercolor" class="relative mx-auto mt-2 w-full overflow-hidden" style="opacity: 0;">
         <img
           src={watercolorResort.src}
           alt="Moon Palace Cancún"
@@ -265,52 +265,55 @@ const coupleMessage = `
         />
       </div>
 
-      <!-- Date Line -->
-      <p class="mt-2 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
-        8TH – 11TH NOVEMBER, 2027
-      </p>
+      <!-- Details (date, events, countdown, RSVP) -->
+      <div id="v2-details" style="opacity: 0;">
+        <!-- Date Line -->
+        <p class="mt-2 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
+          8TH – 11TH NOVEMBER, 2027
+        </p>
 
-      <!-- Location Tag -->
-      <p class="mt-2 text-center text-base italic text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
-        Moon Palace, Cancún, Quintana Roo, Mexico
-      </p>
+        <!-- Location Tag -->
+        <p class="mt-2 text-center text-base italic text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
+          Moon Palace, Cancún, Quintana Roo, Mexico
+        </p>
 
-      <!-- Horizontal Rule -->
-      <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
+        <!-- Horizontal Rule -->
+        <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
 
-      <!-- Multi-Column Events -->
-      <div class="grid grid-cols-1 divide-y divide-[#2D2D2D]/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-        <div class="px-4 py-5 text-center sm:py-0">
-          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Welcome Event</p>
-          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
-          <p class="mt-1 text-xs text-[#2D2D2D]/50">8 Nov · 6:00 PM</p>
+        <!-- Multi-Column Events -->
+        <div class="grid grid-cols-1 divide-y divide-[#2D2D2D]/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div class="px-4 py-5 text-center sm:py-0">
+            <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Welcome Event</p>
+            <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+            <p class="mt-1 text-xs text-[#2D2D2D]/50">8 Nov · 6:00 PM</p>
+          </div>
+          <div class="px-4 py-5 text-center sm:py-0">
+            <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Wedding Day</p>
+            <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+            <p class="mt-1 text-xs text-[#2D2D2D]/50">10 Nov · 4:00 PM</p>
+          </div>
+          <div class="px-4 py-5 text-center sm:py-0">
+            <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Farewell Beach Day</p>
+            <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+            <p class="mt-1 text-xs text-[#2D2D2D]/50">11 Nov · 11:00 AM</p>
+          </div>
         </div>
-        <div class="px-4 py-5 text-center sm:py-0">
-          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Wedding Day</p>
-          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
-          <p class="mt-1 text-xs text-[#2D2D2D]/50">10 Nov · 4:00 PM</p>
+
+        <!-- Horizontal Rule -->
+        <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
+
+        <!-- Countdown -->
+        <div class="flex justify-center">
+          <Countdown targetDate="2027-11-08T00:00:00" />
         </div>
-        <div class="px-4 py-5 text-center sm:py-0">
-          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Farewell Beach Day</p>
-          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
-          <p class="mt-1 text-xs text-[#2D2D2D]/50">11 Nov · 11:00 AM</p>
-        </div>
-      </div>
 
-      <!-- Horizontal Rule -->
-      <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
-
-      <!-- Countdown -->
-      <div class="flex justify-center">
-        <Countdown targetDate="2027-11-08T00:00:00" />
-      </div>
-
-      <!-- RSVP -->
-      <div class="mt-8 flex justify-center">
-        <div data-rsvp-open class="cursor-pointer">
-          <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-sm tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-            R.S.V.P.
-          </span>
+        <!-- RSVP -->
+        <div class="mt-8 flex justify-center">
+          <div data-rsvp-open class="cursor-pointer">
+            <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-sm tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+              R.S.V.P.
+            </span>
+          </div>
         </div>
       </div>
 
@@ -761,16 +764,18 @@ const coupleMessage = `
       const line1 = document.getElementById('v2-text-line1');
       const line2 = document.getElementById('v2-text-line2');
       const line3 = document.getElementById('v2-text-line3');
-      const venue = document.querySelector('.venue-fade');
-      if (ganesh && line1 && line2 && line3 && venue) {
+      const watercolor = document.getElementById('v2-watercolor');
+      const details = document.getElementById('v2-details');
+      if (ganesh && line1 && line2 && line3 && watercolor && details) {
         const gRect = ganesh.getBoundingClientRect();
-        const vRect = venue.getBoundingClientRect();
-        const fullOffset = vRect.top - gRect.bottom - 10;
-        const startOffset = fullOffset * 0.5;
+        const ganeshCenter = gRect.top + gRect.height / 2;
+        const viewportCenter = window.innerHeight / 2;
+        const centerOffset = viewportCenter - ganeshCenter;
+        ganesh.style.transform = `translateY(${centerOffset}px)`;
+        ganesh.style.opacity = '1';
         ganesh.style.willChange = 'transform';
         animate(ganesh, {
-          translateY: { from: startOffset, to: 0 },
-          opacity: { from: 1, to: 1 },
+          translateY: { from: centerOffset, to: 0 },
           duration: 3200,
           ease: 'outCubic',
           complete: () => {
@@ -778,14 +783,18 @@ const coupleMessage = `
           },
         });
         setTimeout(() => {
-          animate(line1, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
-        }, 800);
+          animate(line1, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
+        }, 3400);
         setTimeout(() => {
-          animate(line2, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
-        }, 2000);
+          animate(line2, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
+          animate(line3, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
+        }, 4600);
         setTimeout(() => {
-          animate(line3, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
-        }, 3200);
+          animate(watercolor, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+        }, 5800);
+        setTimeout(() => {
+          animate(details, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+        }, 7200);
       }
     }
   </script>

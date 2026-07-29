@@ -1,13 +1,7 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
-import Navbar from '@components/sections/navbar&footer/Navbar.astro';
-import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import Countdown from '@/components/Countdown.astro';
-import RSVPButton from '@components/ui/buttons/RSVPButton.astro';
-import weddingThemeBackground from '@images/wedding-theme-background.jpg';
-import mobileBackground from '@images/mobile-background.jpg';
 import ganeshMotif from '@images/ganesh-motif.svg';
-import amp from '@images/amp.svg';
 import appStoreBadge from '@images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
 import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.svg';
 import storyPic1 from '@images/story-pic-1.jpg';
@@ -29,12 +23,10 @@ import travelImageHammock from '@images/Moon Palace/hammock.webp';
 import travelImageLounge from '@images/Moon Palace/lounge.webp';
 import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
-import sandBackground from '@images/temp-sand-background.png';
+import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transparent.png';
+
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
-
-const sectionBackdropStyle = (src: string, position = 'center') =>
-  `background-image: url('${src}'); background-size: 100% 100%; background-position: ${position}; background-repeat: no-repeat; background-attachment: scroll;`;
 
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
@@ -220,67 +212,108 @@ const coupleMessage = `
 ---
 
 <MainLayout title="Wedding Website" hideNavbar={true}>
-  <Navbar sectionLinks={sectionNavItems} />
-  <div class="relative z-10">
-    <section
-      id="v2-home"
-      class="w-full min-h-screen scroll-mt-[140px] pt-16 sm:pt-24"
-    >
-      <img id="intro-ganesh" src={ganeshMotif.src} alt="Ganesh motif" class="absolute left-1/2 h-16 w-auto -translate-x-1/2 object-contain sm:h-20 lg:h-24 z-20 opacity-0" />
-      <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-        <div id="invitation-card" class="w-full rounded-[32px] border border-white/50 bg-white/50 p-6 shadow-2xl shadow-black/10 backdrop-blur-xs sm:p-8 lg:p-10">
-        <div class="flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10">
-          <img src={ganeshMotif.src} alt="Ganesh motif" class="h-16 w-auto object-contain sm:h-20 lg:h-24" />
-        </div>
-
-        <p class="text-center text-sm font-normal tracking-[0.3em] text-neutral-700/80 uppercase sm:text-base">
-          We cordially invite you to the wedding of
-        </p>
-        <h1
-          class="mt-4 text-center text-4xl font-normal tracking-[0.4em] text-balance text-neutral-800 md:text-5xl md:leading-tight dark:text-neutral-200"
-          style="font-family: 'Cinzel', serif;"
+  <header class="fixed inset-x-0 top-0 z-50 w-full border-b border-[#2D2D2D]/10 bg-[#FDFBF7]">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-1 sm:px-6">
+      <span class="text-sm tracking-[0.15em] text-[#2D2D2D] sm:hidden" style="font-family: 'Playfair Display', serif;">ARPIT & RUSHITA</span>
+      <button id="nav-toggle" type="button" class="ml-auto flex h-8 w-8 items-center justify-center text-[#2D2D2D] sm:hidden" aria-label="Toggle navigation">
+        <svg id="nav-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="nav-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav id="nav-links" class="hidden flex-col divide-y divide-[#2D2D2D]/10 border-t border-[#2D2D2D]/10 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0" aria-label="Global">
+      {sectionNavItems.map((link) => (
+        <a
+          href={link.href}
+          data-section-link
+          class="flex flex-1 items-center justify-center px-3 py-3 text-center text-sm tracking-[0.08em] text-[#2D2D2D] transition-colors hover:bg-[#2D2D2D]/5 sm:px-4 sm:py-4"
+          style="font-family: 'Playfair Display', serif;"
         >
-          Arpit
-        </h1>
-        <p class="text-center text-xs font-normal tracking-[0.3em] text-neutral-700/80 uppercase sm:text-sm">
-          Son of Pankaj & Anjna Shah
-        </p>
-        <div class="flex items-center justify-center px-8 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-4">
-          <img src={amp.src} alt="AMP" class="h-16 w-auto object-contain sm:h-20 lg:h-24" />
-        </div>
-        <h1
-          class="text-center text-4xl font-normal tracking-[0.4em] text-balance text-neutral-800 md:text-5xl md:leading-tight dark:text-neutral-200"
-          style="font-family: 'Cinzel', serif;"
-        >
-          Rushita
-        </h1>
-        <p class="text-center text-xs font-normal tracking-[0.3em] text-neutral-700/80 uppercase sm:text-sm">
-          Daughter of Bhavin & Rekha Amin
-        </p>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </header>
+  <div class="relative z-10 bg-[#FDFBF7]">
+    <section id="v2-home" class="mx-auto max-w-4xl px-2.5 pt-14 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20">
 
-        <div class="mt-8 space-y-3 text-center">
-          <p class="text-lg font-semibold tracking-[0.3em] text-neutral-700/80 uppercase">
-            8-11th November, 2027
-          </p>
-          <p class="text-sm font-normal tracking-[0.3em] text-neutral-700/80 uppercase sm:text-sm">
-            Moon Palace, Cancún, Quintana Roo, Mexico
-          </p>
-        </div>
+      <!-- Ganesh Motif -->
+      <div class="mb-6 text-center">
+        <img src={ganeshMotif.src} alt="Ganesh motif" class="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-24" />
+      </div>
 
-        <div class="mt-8 flex justify-center">
-          <Countdown targetDate="2027-11-08T00:00:00" />
-        </div>
+      <!-- Invitation Text -->
+      <p class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm">
+        WE CORDIALLY INVITE YOU TO THE WEDDING OF
+      </p>
 
-        <div class="mt-8 flex justify-center">
-          <div data-rsvp-open class="cursor-pointer">
-            <RSVPButton
-              title="RSVP"
-              url="#"
-              fontClass="font-semibold text-base sm:text-base lg:text-4xl"
-            />
-          </div>
+      <!-- Couple Names -->
+      <h1 class="text-center text-4xl font-bold tracking-[0.15em] text-[#2D2D2D] sm:text-5xl lg:text-6xl" style="font-family: 'Cinzel', serif;">
+        ARPIT &amp; RUSHITA
+      </h1>
+
+      <!-- Parent Names -->
+      <p class="mt-2 text-center text-xs tracking-[0.25em] text-[#2D2D2D]/60 sm:text-sm">
+        SON OF PANKAJ &amp; ANJNA SHAH &nbsp;·&nbsp; DAUGHTER OF BHAVIN &amp; REKHA AMIN
+      </p>
+
+      <!-- Venue Artwork -->
+      <div class="relative mx-auto mt-10 w-full overflow-hidden">
+        <img
+          src={watercolorResort.src}
+          alt="Moon Palace Cancún"
+          class="h-auto w-full object-cover venue-fade"
+        />
+      </div>
+
+      <!-- Date Line -->
+      <p class="mt-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
+        8TH – 11TH NOVEMBER, 2027
+      </p>
+
+      <!-- Location Tag -->
+      <p class="mt-2 text-center text-base italic text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
+        Moon Palace, Cancún, Quintana Roo, Mexico
+      </p>
+
+      <!-- Horizontal Rule -->
+      <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
+
+      <!-- Multi-Column Events -->
+      <div class="grid grid-cols-1 divide-y divide-[#2D2D2D]/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <div class="px-4 py-5 text-center sm:py-0">
+          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Welcome Event</p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+          <p class="mt-1 text-xs text-[#2D2D2D]/50">8 Nov · 6:00 PM</p>
+        </div>
+        <div class="px-4 py-5 text-center sm:py-0">
+          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Wedding Day</p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+          <p class="mt-1 text-xs text-[#2D2D2D]/50">10 Nov · 4:00 PM</p>
+        </div>
+        <div class="px-4 py-5 text-center sm:py-0">
+          <p class="text-lg font-semibold italic text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">Farewell Beach Day</p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[0.15em] text-[#2D2D2D]/70">Moon Palace Cancún</p>
+          <p class="mt-1 text-xs text-[#2D2D2D]/50">11 Nov · 11:00 AM</p>
         </div>
       </div>
+
+      <!-- Horizontal Rule -->
+      <hr class="mx-auto my-10 w-24 border-t border-[#2D2D2D]/20" />
+
+      <!-- Countdown -->
+      <div class="flex justify-center">
+        <Countdown targetDate="2027-11-08T00:00:00" />
+      </div>
+
+      <!-- RSVP -->
+      <div class="mt-8 flex justify-center">
+        <div data-rsvp-open class="cursor-pointer">
+          <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-sm tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+            R.S.V.P.
+          </span>
+        </div>
+      </div>
+
     </section>
 
     <section
@@ -723,63 +756,35 @@ const coupleMessage = `
     });
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      import('gsap').then(({ gsap }) => {
-        const intro = document.querySelector('#intro-ganesh');
-        const card = document.querySelector('#invitation-card');
-        const cardGanesh = card?.querySelector('img');
-        if (!intro || !card || !cardGanesh) return;
-
-        const section = document.querySelector('#v2-home');
-        if (!section) return;
-        const sectionRect = section.getBoundingClientRect();
-        const introHeight = (intro as HTMLElement).offsetHeight;
-        const centeredTop = (sectionRect.height - introHeight) / 2 - sectionRect.height * 0.125;
-        const targetTop = cardGanesh.getBoundingClientRect().top - sectionRect.top;
-
-        gsap.set(intro, { top: centeredTop, opacity: 0 });
-        gsap.set(card, { opacity: 0 });
-
-        const tl = gsap.timeline();
-
-        tl.to(intro, {
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-        });
-
-        tl.to(intro, {
-          top: targetTop,
-          duration: 2,
-          ease: 'power2.inOut',
-        });
-
-        tl.to(card, {
-          opacity: 1,
-          duration: 2,
-          ease: 'power2.out',
-        });
-
-        tl.set(intro, { display: 'none' });
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    const iconOpen = document.getElementById('nav-icon-open');
+    const iconClose = document.getElementById('nav-icon-close');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden');
+        iconClose?.classList.toggle('hidden');
       });
-    });
+      links.querySelectorAll('[data-section-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 640) {
+            links.classList.add('hidden');
+            iconOpen?.classList.remove('hidden');
+            iconClose?.classList.add('hidden');
+          }
+        });
+      });
+    }
   </script>
   <style>
-    #intro-ganesh { opacity: 0; }
-    #invitation-card { opacity: 0; }
+    .venue-fade {
+      --fade-width: 100%;
+      --fade-height: 100%;
+      --fade-start: 100%;
+      --fade-end: 100%;
+      mask-image: radial-gradient(ellipse var(--fade-width) var(--fade-height) at center, black var(--fade-start), transparent var(--fade-end));
+      -webkit-mask-image: radial-gradient(ellipse var(--fade-width) var(--fade-height) at center, black var(--fade-start), transparent var(--fade-end));
+    }
   </style>
-  <style set:html={`
-    #v2-home {
-      background-image: url('${weddingThemeBackground.src}');
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-    }
-    @media (max-width: 639px) {
-      #v2-home {
-        background-image: url('${mobileBackground.src}') !important;
-      }
-    }
-  `}></style>
 </MainLayout>

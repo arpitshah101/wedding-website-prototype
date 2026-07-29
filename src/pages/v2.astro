@@ -237,36 +237,36 @@ const coupleMessage = `
     <section id="v2-home" class="mx-auto max-w-4xl px-2.5 pt-14 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20">
 
       <!-- Ganesh Motif -->
-      <div class="mb-6 text-center">
-        <img src={ganeshMotif.src} alt="Ganesh motif" class="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-24" />
+      <div id="intro-ganesh" class="mb-6 md:my-6 text-center" style="opacity: 0;">
+        <img src={ganeshMotif.src} alt="Ganesh motif" class="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-20" />
       </div>
 
       <!-- Invitation Text -->
-      <p class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm">
+      <p id="v2-text-line1" class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm" style="opacity: 0;">
         WE CORDIALLY INVITE YOU TO THE WEDDING OF
       </p>
 
       <!-- Couple Names -->
-      <h1 class="text-center text-4xl font-bold tracking-[0.15em] text-[#2D2D2D] sm:text-5xl lg:text-6xl" style="font-family: 'Cinzel', serif;">
+      <h1 id="v2-text-line2" class="text-center text-2xl font-bold tracking-[0.15em] text-[#2D2D2D] sm:text-5xl lg:text-6xl" style="opacity: 0; font-family: 'Cinzel', serif;">
         ARPIT &amp; RUSHITA
       </h1>
 
       <!-- Parent Names -->
-      <p class="mt-2 text-center text-xs tracking-[0.25em] text-[#2D2D2D]/60 sm:text-sm">
+      <p id="v2-text-line3" class="mt-2 text-center text-xs tracking-[0.25em] text-[#2D2D2D]/60 sm:text-sm" style="opacity: 0;">
         SON OF PANKAJ &amp; ANJNA SHAH &nbsp;·&nbsp; DAUGHTER OF BHAVIN &amp; REKHA AMIN
       </p>
 
       <!-- Venue Artwork -->
-      <div class="relative mx-auto mt-10 w-full overflow-hidden">
+      <div class="relative mx-auto mt-2 w-full overflow-hidden">
         <img
           src={watercolorResort.src}
           alt="Moon Palace Cancún"
-          class="h-auto w-full object-cover venue-fade"
+          class="mx-auto h-auto w-full max-w-lg object-cover sm:max-w-xl md:max-w-lg venue-fade"
         />
       </div>
 
       <!-- Date Line -->
-      <p class="mt-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
+      <p class="mt-2 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
         8TH – 11TH NOVEMBER, 2027
       </p>
 
@@ -754,6 +754,40 @@ const coupleMessage = `
         once: true,
       },
     });
+
+    import { animate } from 'animejs';
+    {
+      const ganesh = document.getElementById('intro-ganesh');
+      const line1 = document.getElementById('v2-text-line1');
+      const line2 = document.getElementById('v2-text-line2');
+      const line3 = document.getElementById('v2-text-line3');
+      const venue = document.querySelector('.venue-fade');
+      if (ganesh && line1 && line2 && line3 && venue) {
+        const gRect = ganesh.getBoundingClientRect();
+        const vRect = venue.getBoundingClientRect();
+        const fullOffset = vRect.top - gRect.bottom - 10;
+        const startOffset = fullOffset * 0.5;
+        ganesh.style.willChange = 'transform';
+        animate(ganesh, {
+          translateY: { from: startOffset, to: 0 },
+          opacity: { from: 1, to: 1 },
+          duration: 3200,
+          ease: 'outCubic',
+          complete: () => {
+            ganesh.style.willChange = '';
+          },
+        });
+        setTimeout(() => {
+          animate(line1, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+        }, 800);
+        setTimeout(() => {
+          animate(line2, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+        }, 2000);
+        setTimeout(() => {
+          animate(line3, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+        }, 3200);
+      }
+    }
   </script>
   <script>
     const toggle = document.getElementById('nav-toggle');

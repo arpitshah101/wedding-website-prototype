@@ -211,7 +211,7 @@ const coupleMessage = `
 <MainLayout title="Wedding Website" hideNavbar={true}>
   <header class="fixed inset-x-0 top-0 z-50 w-full border-b border-[#2D2D2D]/10 bg-[#FDFBF7]">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-1 sm:px-6">
-      <span class="text-sm tracking-[0.15em] text-[#2D2D2D] sm:hidden" style="font-family: 'Playfair Display', serif;">ARPIT & RUSHITA</span>
+      <span class="text-sm text-[#2D2D2D] sm:hidden" style="font-family: 'Parisienne', cursive;">Arpit &amp; Rushita</span>
       <button id="nav-toggle" type="button" class="ml-auto flex h-8 w-8 items-center justify-center text-[#2D2D2D] sm:hidden" aria-label="Toggle navigation">
         <svg id="nav-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="nav-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
@@ -239,18 +239,18 @@ const coupleMessage = `
       </div>
 
       <!-- Invitation Text -->
-      <p id="v2-text-line1" class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm" style="opacity: 0;">
+      <p id="v2-text-line1" class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm" style="opacity: 0; font-family: 'Playfair Display', serif;">
         WE CORDIALLY INVITE YOU TO THE WEDDING OF
       </p>
 
       <!-- Couple Names -->
-      <h1 id="v2-text-line2" class="text-center text-2xl font-bold tracking-[0.15em] text-[#2D2D2D] sm:text-5xl lg:text-3xl" style="opacity: 0; font-family: 'Cinzel', serif;">
-        ARPIT &amp; RUSHITA
+      <h1 id="v2-text-line2" class="text-center text-4xl text-[#2D2D2D] sm:text-6xl lg:text-5xl" style="opacity: 0; font-family: 'Parisienne', cursive;">
+        Arpit &amp; Rushita
       </h1>
 
       <!-- Parent Names -->
-      <p id="v2-text-line3" class="mt-2 text-center text-[10px] tracking-[0.25em] text-[#2D2D2D]/60 sm:text-[11px]" style="opacity: 0;">
-        SON OF PANKAJ &amp; ANJNA SHAH &nbsp;·&nbsp; DAUGHTER OF BHAVIN &amp; REKHA AMIN
+      <p id="v2-text-line3" class="mt-2 text-center text-[10px] tracking-[0.25em] text-[#2D2D2D]/60 sm:text-[11px]" style="opacity: 0; font-family: 'Playfair Display', serif;">
+        Son of Pankaj &amp; Anjna Shah &nbsp;·&nbsp; Daughter of Bhavin &amp; Rekha Amin
       </p>
 
       <!-- Venue Artwork -->
@@ -265,12 +265,12 @@ const coupleMessage = `
       <!-- Details (date, events, countdown, RSVP) -->
       <div id="v2-details" style="opacity: 0;">
         <!-- Date Line -->
-        <p class="mt-2 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm">
+        <p class="mt-2 text-center text-xs font-bold tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm" style="font-family: 'Playfair Display', serif;">
           8TH – 11TH NOVEMBER, 2027
         </p>
 
         <!-- Location Tag -->
-        <p class="mt-2 text-center text-base italic text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
+        <p class="mt-2 text-center text-base font-bold text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
           Moon Palace, Cancún, Quintana Roo, Mexico
         </p>
 
@@ -408,15 +408,15 @@ const coupleMessage = `
         </div>
 
         <div class="mt-6 space-y-6 text-base leading-7 text-neutral-700" style="font-family: 'Lora', serif;">
-          <p>
+          <p class="text-center">
             <strong>Moon Palace Cancún</strong> is made up of three connected sections—<strong>Nizuc, Sunrise and The Grand</strong>—giving guests access to a wide selection of restaurants, pools, bars and activities throughout the property.
           </p>
-          <p>
+          <p class="text-center">
             Whether you're looking to unwind by the beach, spend time with family, or turn the trip into a holiday, there's plenty to enjoy during your stay.
           </p>
 
           <div>
-            <h3 class="text-lg font-semibold">Things to Do</h3>
+            <h3 class="text-center text-lg font-semibold">Things to Do</h3>
             <ul class="mt-3 space-y-2">
               <li>🏖️ Relax on the beach or by one of the many pools</li>
               <li>🍽️ Dine at over 20 restaurants and bars, including Indian cuisine</li>
@@ -430,7 +430,7 @@ const coupleMessage = `
           </div>
 
           <div>
-            <h3 class="text-lg font-semibold">Excursions</h3>
+            <h3 class="text-center text-lg font-semibold">Excursions*</h3>
             <ul class="mt-3 space-y-2">
               <li>⛵ <strong>Isla Mujeres</strong> – A picturesque island known for its beaches, snorkelling and relaxed atmosphere.</li>
               <li>🏛️ <strong>Chichén Itzá</strong> – One of the New Seven Wonders of the World and Mexico's most famous Mayan archaeological site.</li>
@@ -485,7 +485,7 @@ const coupleMessage = `
             </div>
           </div>
 
-          <div class="space-y-4 text-base leading-8 text-neutral-700" style="font-family: 'Lora', serif;">
+          <div class="space-y-4 text-center text-base leading-8 text-neutral-700" style="font-family: 'Lora', serif;">
             <p>
               If you'd asked either of us in September 2024 whether we'd be
               planning a wedding, we'd probably have laughed… and then
@@ -573,7 +573,7 @@ const coupleMessage = `
               class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
               data-section-title={section.title.toLowerCase()}
             >
-              <h3 class="text-lg font-semibold text-neutral-800">{section.title}</h3>
+              <h3 class="text-center text-lg font-semibold text-neutral-800">{section.title}</h3>
               <div class="mt-4 space-y-3" data-section>
                 {section.questions.map((item) => (
                   <details

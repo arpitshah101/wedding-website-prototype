@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import weddingThemeBackground from '@images/wedding-theme-background.jpg';
 import mobileBackground from '@images/mobile-background.jpg';
+import haldiDressCode from '@images/Haldi dress code.png';
 import { getBasePath } from '@/utils/basePath';
 
 const homePath = getBasePath('/');
@@ -23,6 +24,7 @@ const events = [
     time: '10:00 AM - 2:00 PM',
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
+    dressCodeImage: haldiDressCode,
   },
   {
     date: '10th November 2027',
@@ -168,14 +170,24 @@ const events = [
                     {event.dressCodeHeading}
                   </p>
                   <div class="mt-4 overflow-hidden rounded-3xl bg-gradient-to-br from-yellow-100 via-white to-yellow-100 p-6 dark:from-yellow-900/20 dark:via-neutral-900 dark:to-yellow-900/10">
-                    <div class="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-dashed border-yellow-300 bg-white/80 p-6 text-center shadow-sm dark:border-yellow-600 dark:bg-neutral-900/70">
-                      <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-                        {event.dressCodeHeading}
-                      </p>
-                      <p class="mt-3 text-sm leading-7 text-neutral-600 dark:text-neutral-300" style="font-family: 'Lora', serif;">
-                        This preview image shows the suggested guest dress code for the celebration.
-                      </p>
-                    </div>
+                    {event.dressCodeImage ? (
+                      <div class="overflow-hidden rounded-3xl border border-dashed border-yellow-300 bg-white/80 shadow-sm dark:border-yellow-600 dark:bg-neutral-900/70">
+                        <img
+                          src={event.dressCodeImage.src}
+                          alt={event.dressCodeHeading}
+                          class="h-auto w-full"
+                        />
+                      </div>
+                    ) : (
+                      <div class="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-dashed border-yellow-300 bg-white/80 p-6 text-center shadow-sm dark:border-yellow-600 dark:bg-neutral-900/70">
+                        <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+                          {event.dressCodeHeading}
+                        </p>
+                        <p class="mt-3 text-sm leading-7 text-neutral-600 dark:text-neutral-300" style="font-family: 'Lora', serif;">
+                          This preview image shows the suggested guest dress code for the celebration.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

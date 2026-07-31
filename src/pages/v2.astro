@@ -24,6 +24,7 @@ import travelImageLounge from '@images/Moon Palace/lounge.webp';
 import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
 import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transparent.png';
+import haldiDressCode from '@images/Haldi dress code.png';
 
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
@@ -53,6 +54,7 @@ const events = [
     time: '10:00 AM - 2:00 PM',
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
+    dressCodeImage: haldiDressCode,
   },
   {
     date: '10th November 2027',
@@ -471,10 +473,20 @@ const coupleMessage = `
                   <div id={`dress-code-${index}`} class="mt-6 hidden rounded-3xl border border-neutral-200 bg-neutral-50 p-6">
                     <p class="text-sm font-semibold uppercase tracking-[0.35em] text-neutral-500">{event.dressCodeHeading}</p>
                     <div class="mt-4 rounded-3xl bg-gradient-to-br from-yellow-100 via-white to-yellow-100 p-6">
-                      <div class="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-dashed border-yellow-300 bg-white/80 p-6 text-center shadow-sm">
-                        <p class="text-lg font-semibold text-neutral-900">{event.dressCodeHeading}</p>
-                        <p class="mt-3 text-sm leading-7 text-neutral-600" style="font-family: 'Lora', serif;">This preview image shows the suggested guest dress code for the celebration.</p>
-                      </div>
+                      {event.dressCodeImage ? (
+                        <div class="overflow-hidden rounded-3xl border border-dashed border-yellow-300 bg-white/80 shadow-sm">
+                          <img
+                            src={event.dressCodeImage.src}
+                            alt={event.dressCodeHeading}
+                            class="h-auto w-full"
+                          />
+                        </div>
+                      ) : (
+                        <div class="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-dashed border-yellow-300 bg-white/80 p-6 text-center shadow-sm">
+                          <p class="text-lg font-semibold text-neutral-900">{event.dressCodeHeading}</p>
+                          <p class="mt-3 text-sm leading-7 text-neutral-600" style="font-family: 'Lora', serif;">This preview image shows the suggested guest dress code for the celebration.</p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

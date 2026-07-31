@@ -30,7 +30,7 @@ const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
-  { label: 'Note from the Couple', href: '#v2-travel' },
+  { label: 'A Note From Us', href: '#v2-travel' },
   { label: 'Schedule & Dress Code', href: '#v2-schedule' },
   { label: 'Things to do', href: '#v2-things-to-do' },
   { label: 'Our Story', href: '#v2-story' },
@@ -83,6 +83,16 @@ const faqSections = [
         keywords: ['airport', 'cancun', 'transport', 'arrival'],
       },
       {
+        question: 'Do I need a visa to visit Mexico?',
+        answerHtml: `
+          <p>Visa requirements depend on the passport you hold.</p>
+          <p><strong>UK passport holders</strong> do not need a visa for tourist visits to Mexico and will be granted entry on arrival, subject to immigration approval.</p>
+          <p><strong>US passport holders</strong> also do not need a visa for tourism.</p>
+          <p>If you hold a passport from another country, visa requirements may vary. Please check with your nearest Mexican Embassy or Consulate well in advance of travelling to confirm the latest entry requirements.</p>
+          <p class="mt-2">Please note that your passport should be valid for the duration of your stay (although at least six months' validity is recommended). Officials may ask you for proof of return flight and accommodation details upon arrival.</p>
+        `,
+      },
+      {
         question: 'How long does it take to get from the airport to the resort?',
         answer:
           'The transfer typically takes around 15 to 30 minutes depending on traffic and which section of Moon Palace you are heading to.',
@@ -105,7 +115,7 @@ const faqSections = [
         keywords: ['flights', 'london', 'new york', 'india'],
       },
       {
-        question: 'Where can I find information about booking my hotel and travel?',
+        question: 'Where can I find information about booking my room and airport transfers?',
         answer:
           'Everything you need to know about accommodation, airport transfers, booking deadlines and travel tips can be found on our Travel & Accommodation page.',
       },
@@ -115,16 +125,23 @@ const faqSections = [
           'A welcome desk will be available at the resort for guests who need assistance with entry details, transfers, or event questions.',
       },
       {
-        question: 'What is the weather like in Cancún in November?',
+        question: 'What is the weather like in November?',
         answerHtml: `
-          <p>November is one of the best times to visit Cancún, with warm temperatures, lower humidity and plenty of sunshine. Daytime temperatures typically range from <strong>27–30°C (81–86°F)</strong>, while evenings are a little cooler at around <strong>22–24°C (72–75°F)</strong>.</p>
-          <p>Although November marks the end of the rainy season, any showers are usually brief before the sunshine returns. We recommend packing lightweight clothing for the day, a light layer for the evenings, comfortable footwear, and plenty of sunscreen.</p>
+          <p>November is one of the best times to visit Cancún, with warm temperatures, lower humidity and plenty of sunshine. Expect daytime temperatures of <strong>28–30°C (82–86°F)</strong> and evenings around <strong>22–24°C (72–75°F)</strong>.</p>
+          <p class="mt-2">So we recommend packing:</p>
+          <ul class="mt-2 space-y-1 list-disc list-inside">
+            <li>☀️ Light, breathable clothing</li>
+            <li>😎 Sunglasses &amp; a hat</li>
+            <li>🧴 Sunscreen</li>
+            <li>👡 Comfortable sandals</li>
+            <li>🌙 A light layer for the evenings</li>
+          </ul>
         `,
       },
     ],
   },
   {
-    title: 'Wedding Day Details',
+    title: 'Wedding Week Details',
     questions: [
       {
         question: 'What should I wear?',
@@ -158,6 +175,21 @@ const faqSections = [
     title: 'Resort & Stay',
     questions: [
       {
+        question: 'Can I book my room directly with the resort or through another website?',
+        answerHtml:
+          `
+          <P>Moon Palace requires all wedding guests staying at the resort to book their accommodation using our dedicated booking links. This is a resort requirement to ensure your reservation is linked to our wedding.</p>
+          <br/>
+          <P>If you choose to stay at another hotel, please note that Moon Palace charges non-resort guests a day pass for each day they wish to attend events at the resort. Day passes are approximately $150 USD per person, per day (subject to change and resort availability), which can add up quickly over the course of the celebrations. Our negotiated room rates are fully flexible and refundable, giving you added peace of mind should your plans change. Guests staying four nights or more will also receive complimentary round-trip airport transfers and resort credit as part of their booking.</p>
+          <br/>
+          <P>To avoid any additional costs and enjoy these benefits, we kindly ask that all guests book their stay using the links provided on our Travel & Accommodation page.</p>`,
+      },
+      {
+        question: 'Can I extend my stay?',
+        answer:
+          "Absolutely! Whether you'd like to arrive early or turn the wedding into a longer holiday, you're welcome to extend your stay up to 3 days before or after the wedding week at the same rate. Visit the Book Your Stay page for further info.",
+      },
+      {
         question: 'What amenities are included in the resort stay?',
         answerHtml: `
           <p>The resort offers beach access, multiple dining venues, bars, pools, activities, and entertainment throughout the property along with family-friendly areas.</p>
@@ -175,16 +207,6 @@ const faqSections = [
           <p>There are several optional excursions available, including beaches, cultural tours, and excursions for guests who wish to explore.</p>
           <p>For more information, download the Palace Resorts app: <a class="text-yellow-600 underline" href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer">iOS</a> • <a class="text-yellow-600 underline" href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer">Android</a>.</p>
         `,
-      },
-      {
-        question: 'Can I book my room directly with the resort or through another website?',
-        answerHtml:
-          `
-          <P>Moon Palace requires all wedding guests staying at the resort to book their accommodation using our dedicated booking links. This is a resort requirement to ensure your reservation is linked to our wedding.</p>
-          <br/>
-          <P>If you choose to stay at another hotel, please note that Moon Palace charges non-resort guests a day pass for each day they wish to attend events at the resort. Day passes are approximately $150 USD per person, per day (subject to change and resort availability), which can add up quickly over the course of the celebrations. Our negotiated room rates are fully flexible and refundable, giving you added peace of mind should your plans change. Guests staying four nights or more will also receive complimentary round-trip airport transfers and resort credit as part of their booking.</p>
-          <br/>
-          <P>To avoid any additional costs and enjoy these benefits, we kindly ask that all guests book their stay using the links provided on our Travel & Accommodation page.</p>`,
       },
     ],
   },
@@ -285,7 +307,7 @@ const coupleMessage = `
         <!-- RSVP -->
         <div class="mt-4 flex justify-center">
           <div data-rsvp-open class="cursor-pointer">
-            <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-md tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+            <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-lg tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
               R.S.V.P.
             </span>
           </div>
@@ -314,9 +336,12 @@ const coupleMessage = `
             <a
               href="https://www.destawed.com/couples/rushita-arpit"
               rel="noreferrer"
-              class="inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/90 px-6 py-3 text-center text-sm font-semibold text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:bg-white/50 hover:text-[#e0be63]"
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-neutral-600 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-neutral-800 hover:shadow-xl hover:shadow-neutral-900/15"
+              style="font-family: 'Playfair Display', serif;"
             >
+              <span aria-hidden="true" class="mr-2 text-base leading-none">✦</span>
               Book Your Stay
+              <span aria-hidden="true" class="ml-2 text-base leading-none">✦</span>
             </a>
           </div>
         </div>

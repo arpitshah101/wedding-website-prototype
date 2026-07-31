@@ -88,9 +88,12 @@ const coupleMessage = `
             <a
               href={destawedUrl}
               rel="noreferrer"
-              class="inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/90 px-6 py-3 text-center text-sm font-semibold text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:bg-white/50 hover:text-[#e0be63]"
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-neutral-600 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-neutral-800 hover:shadow-xl hover:shadow-neutral-900/15"
+              style="font-family: 'Playfair Display', serif;"
             >
-                Book Your Stay
+              <span aria-hidden="true" class="mr-2 text-base leading-none">✦</span>
+              Book Your Stay
+              <span aria-hidden="true" class="ml-2 text-base leading-none">✦</span>
             </a>
           </div>
         </div>

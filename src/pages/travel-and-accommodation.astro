@@ -18,7 +18,7 @@ const homePath = getBasePath('/');
 const nextPagePath = getBasePath('/things-to-do');
 const destawedUrl = 'https://www.destawed.com/couples/rushita-arpit';
 const coupleMessage = `
-  <div class="space-y-4 text-center text-base leading-7 text-neutral-700">
+  <div class="space-y-4 text-center text-base leading-7 text-neutral-700" style="font-family: 'Lora', serif;">
     <p>
   We’re so excited to celebrate this next chapter with you in Mexico and can’t wait to spend an unforgettable week with our favourite people.
 </p>
@@ -77,9 +77,11 @@ const coupleMessage = `
         </div>
 
         <div class="mt-8 space-y-6">
-          <div>
-            <h2 class="text-xl font-semibold text-neutral-900" style="font-family: 'Sirivennela', serif;">A Note From Us<span class="block">❤️</span></h2>
-            <div class="mt-4" set:html={coupleMessage} />
+          <div class="text-center">
+            <h2 class="text-xl font-bold text-neutral-900" style="font-family: 'Sirivennela', serif;">A Note From Us</h2>
+            <div class="my-6 text-3xl">♥️</div>
+          </div>
+          <div set:html={coupleMessage} />
           </div>
 
           <div class="mt-8 flex justify-center">

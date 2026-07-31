@@ -13,7 +13,7 @@ const events = [
     title: 'Sangeet / Mendhi',
     label: 'Day 1',
     time: '6:00 PM - 10:00 PM',
-    venue: 'Resort venue placeholder',
+    venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mendhi Dress Code',
   },
   {
@@ -21,15 +21,27 @@ const events = [
     title: 'Vidhi / Haldi',
     label: 'Day 2',
     time: '10:00 AM - 2:00 PM',
-    venue: 'Resort venue placeholder',
+    venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
   },
   {
     date: '10th November 2027',
-    title: 'Wedding Ceremony',
+    title: 'Wedding Day',
     label: 'Day 3',
-    time: '4:00 PM - 10:00 PM',
-    venue: 'Resort venue placeholder',
+    time: '9:00 AM - 4:00 PM',
+    venue: `The moment we've been waiting for! Join both families as we exchange our vows in a beautiful Hindu wedding ceremony. Be part of this special moment by showering the newlyweds with flower petals and celebrating the beginning of our next chapter together. Light refreshments will be served during the ceremony, followed by a formal Indian lunch.`,
+    agenda: [
+      {
+        time: '9:00 AM - 10:00 AM',
+        title: 'Baarat',
+        description: `The groom's arrival in a vibrant procession, with music and dancing, before the ceremony begins.`,
+      },
+      {
+        time: '10:00 AM - 4:00 PM',
+        title: 'Wedding Ceremony',
+        description: `Join both families as we exchange our vows in a beautiful Hindu wedding ceremony.`,
+      },
+    ],
     dressCodeHeading: 'Wedding Ceremony Dress Code',
   },
   {
@@ -37,7 +49,7 @@ const events = [
     title: 'Reception',
     label: 'Day 4',
     time: '7:00 PM - 11:00 PM',
-    venue: 'Resort venue placeholder',
+    venue: `One final celebration! Dress to impress for an evening dinner and dance as we toast to an unforgettable wedding week. Let's end the festivities in style and create memories that will last a lifetime.`,
     dressCodeHeading: 'Reception Dress Code',
   },
 ];
@@ -109,6 +121,28 @@ const events = [
                   <p class="font-semibold text-neutral-900 dark:text-neutral-100">{event.time}</p>
                   <p>{event.venue}</p>
                 </div>
+                {event.agenda ? (
+                  <div class="mt-6 space-y-4">
+                    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400">
+                      Day's Schedule
+                    </p>
+                    {event.agenda.map((item) => (
+                      <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-700 dark:bg-neutral-950">
+                        <div class="flex flex-wrap items-baseline justify-between gap-2">
+                          <h3 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                            {item.title}
+                          </h3>
+                          <p class="text-sm font-semibold text-yellow-600">{item.time}</p>
+                        </div>
+                        {item.description ? (
+                          <p class="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-300" style="font-family: 'Lora', serif;">
+                            {item.description}
+                          </p>
+                        ) : null}
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
                 <button
                   type="button"
                   class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-yellow-500 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yellow-300"

@@ -1351,6 +1351,26 @@ const coupleMessage = `
     }
   </script>
   <script>
+    type LenisLike = {
+      scrollTo: (
+        target: string | number | HTMLElement,
+        options?: {
+          offset?: number;
+          duration?: number;
+          immediate?: boolean;
+          lock?: boolean;
+          force?: boolean;
+          onComplete?: () => void;
+        }
+      ) => void;
+    };
+
+    declare global {
+      interface Window {
+        lenisScroll?: LenisLike;
+      }
+    }
+
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');
     const iconOpen = document.getElementById('nav-icon-open');
@@ -1362,11 +1382,28 @@ const coupleMessage = `
         iconClose?.classList.toggle('hidden');
       });
       links.querySelectorAll('[data-section-link]').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth < 640) {
-            links.classList.add('hidden');
-            iconOpen?.classList.remove('hidden');
-            iconClose?.classList.add('hidden');
+        link.addEventListener('click', event => {
+          const href = link.getAttribute('href');
+          if (href?.startsWith('#')) {
+            event.preventDefault();
+            if (window.innerWidth < 640) {
+              links.classList.add('hidden');
+              iconOpen?.classList.remove('hidden');
+              iconClose?.classList.add('hidden');
+            }
+            const target = document.querySelector(href);
+            const headerHeight =
+              document.querySelector('header.fixed')?.getBoundingClientRect()
+                .height ?? 0;
+            const targetTop =
+              (target?.getBoundingClientRect().top ?? 0) + window.scrollY;
+            const scrollTop = Math.max(0, targetTop - headerHeight - 12);
+            const lenis = window.lenisScroll;
+            if (lenis) {
+              lenis.scrollTo(scrollTop);
+            } else {
+              window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+            }
           }
         });
       });

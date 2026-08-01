@@ -7,3 +7,7 @@ import Lenis from 'lenis';
 const lenis = new Lenis({
   autoRaf: true,
 });
+
+// Expose the instance so page-level scripts (e.g. custom navbars) can
+// trigger smooth scrolling to anchors.
+window.lenisScroll = lenis;

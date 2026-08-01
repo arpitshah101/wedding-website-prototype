@@ -28,6 +28,7 @@ import haldiDressCode from '@images/Haldi dress code.png';
 import backgroundTexture from '@images/background-texture-sample.png';
 import logo from '@images/wedding-website-logo-updated.svg';
 import divider from '@images/divider.svg';
+import flowerVineBackground from '@images/flower-vine-border.png';
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
@@ -578,10 +579,25 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section id="v2-schedule" class="w-full scroll-mt-[140px]">
+    <section
+      id="v2-schedule"
+      class="relative w-full scroll-mt-[140px]"
+    >
       <div
-        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+        class="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
       >
+        <img
+          src={flowerVineBackground.src}
+          alt=""
+          aria-hidden="true"
+          class="absolute top-0 left-0 w-[120px]"
+        />
+        <img
+          src={flowerVineBackground.src}
+          alt=""
+          aria-hidden="true"
+          class="absolute top-0 right-0 w-[120px] -scale-x-100"
+        />
         <div class="text-center">
           <h2
             class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"

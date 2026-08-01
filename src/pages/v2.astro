@@ -34,7 +34,7 @@ const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
   { label: 'A Note From Us', href: '#v2-travel' },
-  { label: 'Schedule & Dress Code', href: '#v2-schedule' },
+  { label: 'Schedule', href: '#v2-schedule' },
   { label: 'Things to do', href: '#v2-things-to-do' },
   { label: 'Our Story', href: '#v2-story' },
   { label: 'Q&A', href: '#v2-q-and-a' },
@@ -43,26 +43,29 @@ const sectionNavItems = [
 const events = [
   {
     date: '8th November 2027',
+    weekday: 'Monday',
     title: 'Sangeet / Mendhi',
-    label: 'Day 1',
     time: '6:00 PM - 10:00 PM',
+    location: 'Venue TBC',
     venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mendhi Dress Code',
   },
   {
     date: '9th November 2027',
+    weekday: 'Tuesday',
     title: 'Vidhi / Haldi',
-    label: 'Day 2',
     time: '10:00 AM - 2:00 PM',
+    location: 'Venue TBC',
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
     dressCodeImage: haldiDressCode,
   },
   {
     date: '10th November 2027',
+    weekday: 'Wednesday',
     title: 'Wedding Day',
-    label: 'Day 3',
     time: '9:00 AM - 4:00 PM',
+    location: 'Venue TBC',
     venue: `The moment we've been waiting for! Join both families as we exchange our vows in a beautiful Hindu wedding ceremony. Be part of this special moment by showering the newlyweds with flower petals and celebrating the beginning of our next chapter together. Light refreshments will be served during the ceremony, followed by a formal Indian lunch.`,
     agenda: [
       {
@@ -80,9 +83,10 @@ const events = [
   },
   {
     date: '11th November 2027',
+    weekday: 'Thursday',
     title: 'Reception',
-    label: 'Day 4',
     time: '6:00 PM - 11:00 PM',
+    location: 'Venue TBC',
     venue: `One final celebration! Dress to impress for an evening dinner and dance as we toast to an unforgettable wedding week. Let's end the festivities in style and create memories that will last a lifetime.`,
     agenda: [
       {
@@ -427,75 +431,78 @@ const coupleMessage = `
       <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
           <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
-            Schedule & Dress Code
+            Schedule
           </h2>
         </div>
-        <div class="relative mt-10">
-          <div class="space-y-10">
-            {events.map((event, index) => (
-              <div class="relative flex flex-col gap-6 rounded-3xl border border-neutral-200 bg-white/90 p-6 shadow-sm md:items-start md:p-8">
-                <div class="md:absolute md:left-8 md:top-8">
-                  <div class="flex flex-col items-center gap-4">
-                    <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#D6AB3A] text-lg font-semibold text-white shadow-lg shadow-yellow-500/20">
-                      <span>{event.label}</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="w-full text-center">
-                  <p class="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-600">{event.date}</p>
-                  <h3 class="mt-3 text-2xl font-semibold text-neutral-900">{event.title}</h3>
-                  <div class="mt-4 space-y-2 text-sm text-neutral-600" style="font-family: 'Lora', serif;">
-                    <p class="font-semibold text-neutral-900">{event.time}</p>
-                    <p>{event.venue}</p>
-                  </div>
-                  {event.agenda ? (
-                    <div class="mt-6 space-y-4">
-                      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-neutral-500">Day's Schedule</p>
-                      {event.agenda.map((item) => (
-                        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 text-left">
-                          <div class="flex flex-wrap items-baseline justify-between gap-2">
-                            <h4 class="text-base font-semibold text-neutral-900">{item.title}</h4>
-                            <p class="text-sm font-semibold text-yellow-600">{item.time}</p>
-                          </div>
-                          {item.description ? (
-                            <p class="mt-2 text-sm leading-6 text-neutral-600" style="font-family: 'Lora', serif;">{item.description}</p>
-                          ) : null}
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
-                  <button
-                    type="button"
-                    class="mt-6 inline-flex items-center justify-center rounded-full bg-yellow-500 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-yellow-600"
-                    aria-expanded="false"
-                    data-toggle={`dress-code-${index}`}
-                  >
-                    View Dress Code
-                  </button>
-                  <div id={`dress-code-${index}`} class="mt-6 hidden rounded-3xl border border-neutral-200 bg-neutral-50 p-6">
-                    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-neutral-500">{event.dressCodeHeading}</p>
-                    <div class="mt-4 rounded-3xl bg-gradient-to-br from-yellow-100 via-white to-yellow-100 p-6">
-                      {event.dressCodeImage ? (
-                        <div class="overflow-hidden rounded-3xl border border-dashed border-yellow-300 bg-white/80 shadow-sm">
-                          <img
-                            src={event.dressCodeImage.src}
-                            alt={event.dressCodeHeading}
-                            class="h-auto w-full"
-                          />
-                        </div>
-                      ) : (
-                        <div class="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-dashed border-yellow-300 bg-white/80 p-6 text-center shadow-sm">
-                          <p class="text-lg font-semibold text-neutral-900">{event.dressCodeHeading}</p>
-                          <p class="mt-3 text-sm leading-7 text-neutral-600" style="font-family: 'Lora', serif;">This preview image shows the suggested guest dress code for the celebration.</p>
-                        </div>
-                      )}
-                    </div>
+        <div class="mt-10 space-y-12">
+          {events.map((event, index) => (
+            <div class="flex flex-col items-center gap-4">
+              {index > 0 ? <hr class="mx-auto mb-2 w-16 border-t border-[#2D2D2D]/20" /> : null}
+
+              {event.dressCodeImage ? (
+                <div class="mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] order-last pt-3 sm:order-first sm:mb-3 sm:max-w-[375px] sm:p-2">
+                  <div class="overflow-hidden border border-[#2D2D2D]/15">
+                    <img
+                      src={event.dressCodeImage.src}
+                      alt={event.dressCodeHeading}
+                      class="h-auto w-full"
+                    />
                   </div>
                 </div>
+              ) : (
+                <div class="flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#2D2D2D]/25 bg-white/50 p-8 text-center order-last pt-3 sm:order-first">
+                  <p class="text-sm font-semibold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                    {event.dressCodeHeading}
+                  </p>
+                  <p class="mt-2 text-xs tracking-[0.2em] uppercase text-[#2D2D2D]/40" style="font-family: 'Playfair Display', serif;">
+                    Image coming soon
+                  </p>
+                </div>
+              )}
+
+              <p class="text-xs font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
+                {event.weekday}, {event.date}
+              </p>
+
+              <h3 class="text-center text-3xl text-[#2D2D2D] sm:text-4xl" style="font-family: 'Parisienne', cursive;">
+                {event.title}
+              </h3>
+
+              <p class="text-center text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                {event.location}
+              </p>
+
+              <div class="mt-2 w-full space-y-6 text-center">
+                {event.agenda ? (
+                  event.agenda.map((item) => (
+                    <div>
+                      <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                        {item.time}
+                      </p>
+                      <p class="mt-1 text-lg font-semibold text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">
+                        {item.title}
+                      </p>
+                      {item.description ? (
+                        <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                          {item.description}
+                        </p>
+                      ) : null}
+                    </div>
+                  ))
+                ) : (
+                  <div>
+                    <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                      {event.time}
+                    </p>
+                    <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                      {event.venue}
+                    </p>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -748,19 +755,6 @@ const coupleMessage = `
         if (event.target === modal) closeModal();
       });
     }
-
-    const toggleButtons = document.querySelectorAll('[data-toggle]');
-    toggleButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-toggle');
-        if (!targetId) return;
-        const panel = document.getElementById(targetId);
-        if (!panel) return;
-        const isHidden = panel.classList.toggle('hidden');
-        button.setAttribute('aria-expanded', String(!isHidden));
-        button.textContent = isHidden ? 'View Dress Code' : 'Hide Dress Code';
-      });
-    });
 
     const searchInput = document.querySelector('#faq-search');
     const clearButton = document.querySelector('#faq-clear');

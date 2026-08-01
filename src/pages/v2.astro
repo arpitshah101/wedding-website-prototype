@@ -27,6 +27,7 @@ import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transpa
 import haldiDressCode from '@images/Haldi dress code.png';
 import backgroundTexture from '@images/background-texture-sample.png';
 import logo from '@images/wedding-website-logo-updated.svg';
+import divider from '@images/divider.svg';
 
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
@@ -376,13 +377,17 @@ const coupleMessage = `
 
     </section>
 
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
+
     <section
       id="v2-travel"
       class="w-full scroll-mt-[140px]"
     >
       <div id="v2-travel-content" class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2 class="text-4xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
             A Note From Us
           </h2>
           <div class="my-6 text-3xl">♥️</div>
@@ -423,6 +428,10 @@ const coupleMessage = `
         </div>
       </div>
     </section>
+
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
 
     <section
       id="v2-schedule"
@@ -468,8 +477,8 @@ const coupleMessage = `
                   </div>
                 )}
 
-                <div class={`flex w-full flex-col gap-4 sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
-                  <p class="text-xs font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
+                <div class={`flex w-full flex-col sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
+                  <p class="text-center text-xs mb-4 font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
                     {event.weekday}, {event.date}
                   </p>
 
@@ -477,7 +486,7 @@ const coupleMessage = `
                     {event.location}
                   </p>
 
-                  <div class="mt-2 w-full space-y-6">
+                  <div class="w-full space-y-6">
                     {event.agenda ? (
                       event.agenda.map((item) => (
                         <div>
@@ -512,6 +521,10 @@ const coupleMessage = `
         </div>
       </div>
     </section>
+
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
 
     <section
       id="v2-things-to-do"
@@ -572,6 +585,10 @@ const coupleMessage = `
         </div>
       </div>
     </section>
+
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
 
     <section
       id="v2-story"
@@ -646,6 +663,10 @@ const coupleMessage = `
         </div>
       </div>
     </section>
+
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
 
     <section
       id="v2-q-and-a"

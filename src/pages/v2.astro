@@ -29,7 +29,6 @@ import backgroundTexture from '@images/background-texture-sample.png';
 import logo from '@images/wedding-website-logo-updated.svg';
 import divider from '@images/divider.svg';
 
-
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
 const sectionNavItems = [
@@ -126,7 +125,8 @@ const faqSections = [
         `,
       },
       {
-        question: 'How long does it take to get from the airport to the resort?',
+        question:
+          'How long does it take to get from the airport to the resort?',
         answer:
           'The transfer typically takes around 15 to 30 minutes depending on traffic and which section of Moon Palace you are heading to.',
         keywords: ['hotel', 'transfer', 'transportation'],
@@ -148,7 +148,8 @@ const faqSections = [
         keywords: ['flights', 'london', 'new york', 'india'],
       },
       {
-        question: 'Where can I find information about booking my room and airport transfers?',
+        question:
+          'Where can I find information about booking my room and airport transfers?',
         answer:
           'Everything you need to know about accommodation, airport transfers, booking deadlines and travel tips can be found on our Travel & Accommodation page.',
       },
@@ -219,8 +220,7 @@ const faqSections = [
       },
       {
         question: 'Are children or plus ones invited?',
-        answer:
-          'Please refer to your invitation.',
+        answer: 'Please refer to your invitation.',
       },
       {
         question: 'Who should I contact if I have a question?',
@@ -233,9 +233,9 @@ const faqSections = [
     title: 'Resort & Stay',
     questions: [
       {
-        question: 'Can I book my room directly with the resort or through another website?',
-        answerHtml:
-          `
+        question:
+          'Can I book my room directly with the resort or through another website?',
+        answerHtml: `
           <P>Moon Palace requires all wedding guests staying at the resort to book their accommodation using our dedicated booking links. This is a resort requirement to ensure your reservation is linked to our wedding.</p>
           <br/>
           <P>If you choose to stay at another hotel, please note that Moon Palace charges non-resort guests a day pass for each day they wish to attend events at the resort. Day passes are approximately $150 USD per person, per day (subject to change and resort availability), which can add up quickly over the course of the celebrations. Our negotiated room rates are fully flexible and refundable, giving you added peace of mind should your plans change. Guests staying four nights or more will also receive complimentary round-trip airport transfers and resort credit as part of their booking.</p>
@@ -260,7 +260,8 @@ const faqSections = [
           'Yes, the resort is designed as an all-inclusive destination, with many amenities and dining options covered in the stay package.',
       },
       {
-        question: 'Are there activities for guests who want to explore beyond the resort?',
+        question:
+          'Are there activities for guests who want to explore beyond the resort?',
         answerHtml: `
           <p>There are several optional excursions available, including beaches, cultural tours, and excursions for guests who wish to explore.</p>
           <p>For more information, download the Palace Resorts app: <a class="text-yellow-600 underline" href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer">iOS</a> • <a class="text-yellow-600 underline" href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer">Android</a>.</p>
@@ -289,73 +290,149 @@ const coupleMessage = `
 ---
 
 <MainLayout title="Wedding Website" hideNavbar={true}>
-  <header class="fixed inset-x-0 top-0 z-50 w-full border-b border-[#2D2D2D]/10 bg-[#FDFBF7]">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-1 sm:px-6">
+  <header
+    class="fixed inset-x-0 top-0 z-50 w-full border-b border-[#2D2D2D]/10 bg-[#FDFBF7]"
+  >
+    <div
+      class="mx-auto flex max-w-6xl items-center justify-between px-4 py-1 sm:px-6"
+    >
       <div class="flex items-center gap-2 sm:hidden">
-        <img src={logo.src} alt="Arpit & Rushita monogram" class="h-11 w-auto" />
+        <img
+          src={logo.src}
+          alt="Arpit & Rushita monogram"
+          class="h-11 w-auto"
+        />
       </div>
-      <button id="nav-toggle" type="button" class="ml-auto flex h-8 w-8 items-center justify-center text-[#2D2D2D] sm:hidden" aria-label="Toggle navigation">
-        <svg id="nav-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="nav-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="ml-auto flex h-8 w-8 items-center justify-center text-[#2D2D2D] sm:hidden"
+        aria-label="Toggle navigation"
+      >
+        <svg
+          id="nav-icon-open"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"></path></svg
+        >
+        <svg
+          id="nav-icon-close"
+          class="hidden h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"></path></svg
+        >
       </button>
     </div>
-    <nav id="nav-links" class="hidden flex-col divide-y divide-[#2D2D2D]/10 border-t border-[#2D2D2D]/10 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0" aria-label="Global">
-      {sectionNavItems.map((link) => (
-        <a
-          href={link.href}
-          data-section-link
-          class="flex flex-1 items-center justify-center px-3 py-3 text-center text-sm tracking-[0.08em] text-[#2D2D2D] transition-colors hover:bg-[#2D2D2D]/5 sm:px-4 sm:py-4"
-          style="font-family: 'Playfair Display', serif;"
-        >
-          {link.label}
-        </a>
-      ))}
+    <nav
+      id="nav-links"
+      class="hidden flex-col divide-y divide-[#2D2D2D]/10 border-t border-[#2D2D2D]/10 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0"
+      aria-label="Global"
+    >
+      {
+        sectionNavItems.map(link => (
+          <a
+            href={link.href}
+            data-section-link
+            class="flex flex-1 items-center justify-center px-3 py-3 text-center text-sm tracking-[0.08em] text-[#2D2D2D] transition-colors hover:bg-[#2D2D2D]/5 sm:px-4 sm:py-4"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
   </header>
-  <div class="relative z-10" style="background-color: #FDFBF7; background-image: url('${backgroundTexture.src}'); background-repeat: repeat; background-size: 600px 600px;">
-    <section id="v2-home" class="mx-auto max-w-4xl px-2.5 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20">
-
+  <div
+    class="relative z-10"
+    style="background-color: #FDFBF7; background-image: url('${backgroundTexture.src}'); background-repeat: repeat; background-size: 600px 600px;"
+  >
+    <section
+      id="v2-home"
+      class="mx-auto max-w-4xl px-2.5 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20"
+    >
       <!-- Ganesh Motif -->
-      <div id="intro-ganesh" class="mb-6 md:my-6 text-center" style="opacity: 0;">
-        <img src={ganeshMotif.src} alt="Ganesh motif" class="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-20" />
+      <div
+        id="intro-ganesh"
+        class="mb-6 text-center md:my-6"
+        style="opacity: 0;"
+      >
+        <img
+          src={ganeshMotif.src}
+          alt="Ganesh motif"
+          class="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-20"
+        />
       </div>
 
       <!-- Invitation Text -->
-      <p id="v2-text-line1" class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm" style="opacity: 0; font-family: 'Playfair Display', serif;">
+      <p
+        id="v2-text-line1"
+        class="mb-6 text-center text-xs tracking-[0.35em] text-[#2D2D2D]/60 sm:text-sm"
+        style="opacity: 0; font-family: 'Playfair Display', serif;"
+      >
         WE CORDIALLY INVITE YOU TO THE WEDDING OF
       </p>
 
       <!-- Couple Names -->
-      <h1 id="v2-text-line2" class="text-center text-4xl text-[#2D2D2D] sm:text-6xl lg:text-5xl" style="opacity: 0; font-family: 'Parisienne', cursive;">
+      <h1
+        id="v2-text-line2"
+        class="text-center text-4xl text-[#2D2D2D] sm:text-6xl lg:text-5xl"
+        style="opacity: 0; font-family: 'Parisienne', cursive;"
+      >
         Arpit &amp; Rushita
       </h1>
 
       <!-- Parent Names -->
-      <p id="v2-text-line3" class="mt-2 text-center text-[10px] tracking-[0.25em] text-[#2D2D2D]/60 sm:text-[11px]" style="opacity: 0; font-family: 'Playfair Display', serif;">
-        Son of Pankaj &amp; Anjna Shah &nbsp;·&nbsp; Daughter of Bhavin &amp; Rekha Amin
+      <p
+        id="v2-text-line3"
+        class="mt-2 text-center text-[10px] tracking-[0.25em] text-[#2D2D2D]/60 sm:text-[11px]"
+        style="opacity: 0; font-family: 'Playfair Display', serif;"
+      >
+        Son of Pankaj &amp; Anjna Shah &nbsp;·&nbsp; Daughter of Bhavin &amp;
+        Rekha Amin
       </p>
 
       <!-- Venue Artwork -->
-      <div id="v2-watercolor" class="relative mx-auto mt-2 w-full overflow-hidden" style="opacity: 0;">
+      <div
+        id="v2-watercolor"
+        class="relative mx-auto mt-2 w-full overflow-hidden"
+        style="opacity: 0;"
+      >
         <img
           src={watercolorResort.src}
           alt="Moon Palace Cancún"
-          class="mx-auto h-auto w-full max-w-lg object-cover sm:max-w-xl md:max-w-lg venue-fade"
+          class="venue-fade mx-auto h-auto w-full max-w-lg object-cover sm:max-w-xl md:max-w-lg"
         />
       </div>
 
       <!-- Details (date, events, countdown, RSVP) -->
       <div id="v2-details" style="opacity: 0;">
-          <!-- Location Tag -->
-          <p class="text-center text-base italic text-[#2D2D2D]/70 sm:text-lg" style="font-family: 'Playfair Display', serif;">
-            Moon Palace, Cancún, Quintana Roo, Mexico
-          </p>
-
-        <!-- Date Line -->
-        <p class="mt-2 text-center text-xs font-bold tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm" style="font-family: 'Playfair Display', serif;">
-          8TH – 11TH NOVEMBER, 2027
+        <!-- Location Tag -->
+        <p
+          class="text-center text-base text-[#2D2D2D]/70 italic sm:text-lg"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          Moon Palace, Cancún, Quintana Roo, Mexico
         </p>
 
+        <!-- Date Line -->
+        <p
+          class="mt-2 text-center text-xs font-bold tracking-[0.35em] text-[#2D2D2D]/70 sm:text-sm"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          8TH – 11TH NOVEMBER, 2027
+        </p>
 
         <!-- Horizontal Rule -->
         <hr class="mx-auto my-2 w-24 border-t border-[#2D2D2D]/20" />
@@ -368,26 +445,31 @@ const coupleMessage = `
         <!-- RSVP -->
         <div class="mt-4 flex justify-center">
           <div data-rsvp-open class="cursor-pointer">
-            <span class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-lg tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+            <span
+              class="inline-block border-b border-[#2D2D2D]/30 pb-0.5 text-lg tracking-[0.25em] text-[#2D2D2D] transition-colors hover:border-[#2D2D2D]/70"
+              style="font-family: 'Playfair Display', serif;"
+            >
               R.S.V.P.
             </span>
           </div>
         </div>
       </div>
-
     </section>
 
     <div class="flex justify-center px-4">
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-travel"
-      class="w-full scroll-mt-[140px]"
-    >
-      <div id="v2-travel-content" class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <section id="v2-travel" class="w-full scroll-mt-[140px]">
+      <div
+        id="v2-travel-content"
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
         <div class="text-center">
-          <h2 class="text-4xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2
+            class="text-4xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
+            style="font-family: 'Sirivennela', serif;"
+          >
             A Note From Us
           </h2>
           <div class="my-6 text-3xl">♥️</div>
@@ -403,26 +485,64 @@ const coupleMessage = `
               class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-neutral-600 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-neutral-800 hover:shadow-xl hover:shadow-neutral-900/15"
               style="font-family: 'Playfair Display', serif;"
             >
-              <span aria-hidden="true" class="mr-2 text-base leading-none">✦</span>
+              <span aria-hidden="true" class="mr-2 text-base leading-none"
+                >✦</span
+              >
               Book Your Stay
-              <span aria-hidden="true" class="ml-2 text-base leading-none">✦</span>
+              <span aria-hidden="true" class="ml-2 text-base leading-none"
+                >✦</span
+              >
             </a>
           </div>
         </div>
 
-        <div class="mt-8 mx-auto max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10">
+        <div
+          class="mx-auto mt-8 max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10"
+        >
           <div class="relative aspect-[16/9] overflow-hidden rounded-[26px]">
-            <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
-              <img src={travelImageArielView.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageBeach.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageGarden.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageRoom.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageBalcony.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageHammock.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageAgra.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageAgra2.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageThai.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageLounge.src} class="h-full w-full shrink-0 object-cover" />
+            <div
+              class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
+            >
+              <img
+                src={travelImageArielView.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBeach.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageGarden.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageRoom.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBalcony.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageHammock.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra2.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageThai.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageLounge.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
             </div>
           </div>
         </div>
@@ -433,91 +553,133 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-schedule"
-      class="w-full scroll-mt-[140px]"
-    >
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <section id="v2-schedule" class="w-full scroll-mt-[140px]">
+      <div
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2
+            class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
+            style="font-family: 'Sirivennela', serif;"
+          >
             Schedule
           </h2>
         </div>
 
         <div class="mt-10 space-y-12">
-          {events.map((event, index) => (
-            <div>
-              {index > 0 ? <hr class="mx-auto mb-6 w-16 border-t border-[#2D2D2D]/20" /> : null}
+          {
+            events.map((event, index) => (
+              <div>
+                {index > 0 ? (
+                  <hr class="mx-auto mb-6 w-16 border-t border-[#2D2D2D]/20" />
+                ) : null}
 
-              <h3 class="text-center text-2xl text-[#2D2D2D]" style="font-family: 'Parisienne', cursive;">
-                {event.title}
-              </h3>
+                <h3
+                  class="text-center text-2xl text-[#2D2D2D]"
+                  style="font-family: 'Parisienne', cursive;"
+                >
+                  {event.title}
+                </h3>
 
-              <div class="mt-3 flex flex-col items-center gap-4 sm:mt-6 sm:flex-row sm:items-center sm:gap-10">
-                {event.dressCodeImage ? (
-                  <div class={`mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] order-last pt-3 sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}>
-                    <div class="overflow-hidden border border-[#2D2D2D]/15">
-                      <img
-                        src={event.dressCodeImage.src}
-                        alt={event.dressCodeHeading}
-                        class="h-auto w-full"
-                      />
+                <div class="mt-3 flex flex-col items-center gap-4 sm:mt-6 sm:flex-row sm:items-center sm:gap-10">
+                  {event.dressCodeImage ? (
+                    <div
+                      class={`order-last mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 pt-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}
+                    >
+                      <div class="overflow-hidden border border-[#2D2D2D]/15">
+                        <img
+                          src={event.dressCodeImage.src}
+                          alt={event.dressCodeHeading}
+                          class="h-auto w-full"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div class={`mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] order-last pt-3 sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}>
-                    <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
-                      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                        {event.dressCodeHeading}
-                      </p>
-                      <p class="mt-2 text-xs tracking-[0.2em] uppercase text-[#2D2D2D]/40" style="font-family: 'Playfair Display', serif;">
-                        Image coming soon
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                <div class={`flex w-full flex-col sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
-                  <p class="text-center text-xs mb-4 font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
-                    {event.weekday}, {event.date}
-                  </p>
-
-                  <p class="text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                    {event.location}
-                  </p>
-
-                  <div class="w-full space-y-6">
-                    {event.agenda ? (
-                      event.agenda.map((item) => (
-                        <div>
-                          <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                            {item.time}
-                          </p>
-                          <p class="mt-1 text-lg font-semibold text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">
-                            {item.title}
-                          </p>
-                          {item.description ? (
-                            <p class="mt-1 text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
-                              {item.description}
-                            </p>
-                          ) : null}
-                        </div>
-                      ))
-                    ) : (
-                      <div>
-                        <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                          {event.time}
+                  ) : (
+                    <div
+                      class={`order-last mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 pt-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}
+                    >
+                      <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
+                        <p
+                          class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+                          style="font-family: 'Playfair Display', serif;"
+                        >
+                          {event.dressCodeHeading}
                         </p>
-                        <p class="mt-1 text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
-                          {event.venue}
+                        <p
+                          class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
+                          style="font-family: 'Playfair Display', serif;"
+                        >
+                          Image coming soon
                         </p>
                       </div>
-                    )}
+                    </div>
+                  )}
+
+                  <div
+                    class={`flex w-full flex-col sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}
+                  >
+                    <p
+                      class="mb-4 text-center text-xs font-semibold tracking-[0.35em] text-[#2D2D2D]/60 uppercase sm:text-sm"
+                      style="font-family: 'Playfair Display', serif;"
+                    >
+                      {event.weekday}, {event.date}
+                    </p>
+
+                    <p
+                      class="text-base text-[#2D2D2D]/70 italic"
+                      style="font-family: 'Playfair Display', serif;"
+                    >
+                      {event.location}
+                    </p>
+
+                    <div class="w-full space-y-6">
+                      {event.agenda ? (
+                        event.agenda.map(item => (
+                          <div>
+                            <p
+                              class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+                              style="font-family: 'Playfair Display', serif;"
+                            >
+                              {item.time}
+                            </p>
+                            <p
+                              class="mt-1 text-lg font-semibold text-[#2D2D2D]"
+                              style="font-family: 'Playfair Display', serif;"
+                            >
+                              {item.title}
+                            </p>
+                            {item.description ? (
+                              <p
+                                class="mt-1 text-sm leading-6 text-[#2D2D2D]/70"
+                                style="font-family: 'Lora', serif;"
+                              >
+                                {item.description}
+                              </p>
+                            ) : null}
+                          </div>
+                        ))
+                      ) : (
+                        <div>
+                          <p
+                            class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+                            style="font-family: 'Playfair Display', serif;"
+                          >
+                            {event.time}
+                          </p>
+                          <p
+                            class="mt-1 text-sm leading-6 text-[#2D2D2D]/70"
+                            style="font-family: 'Lora', serif;"
+                          >
+                            {event.venue}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
@@ -526,32 +688,48 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-things-to-do"
-      class="w-full scroll-mt-[140px]"
-    >
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <section id="v2-things-to-do" class="w-full scroll-mt-[140px]">
+      <div
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2
+            class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
+            style="font-family: 'Sirivennela', serif;"
+          >
             Things to do
           </h2>
         </div>
 
-        <div class="mt-6 space-y-6 text-base leading-7 text-neutral-700" style="font-family: 'Lora', serif;">
+        <div
+          class="mt-6 space-y-6 text-base leading-7 text-neutral-700"
+          style="font-family: 'Lora', serif;"
+        >
           <p class="text-center">
-            <strong>Moon Palace Cancún</strong> is made up of three connected sections—<strong>Nizuc, Sunrise and The Grand</strong>—giving guests access to a wide selection of restaurants, pools, bars and activities throughout the property.
+            <strong>Moon Palace Cancún</strong> is made up of three connected sections—<strong
+              >Nizuc, Sunrise and The Grand</strong
+            >—giving guests access to a wide selection of restaurants, pools,
+            bars and activities throughout the property.
           </p>
           <p class="text-center">
-            Whether you're looking to unwind by the beach, spend time with family, or turn the trip into a holiday, there's plenty to enjoy during your stay.
+            Whether you're looking to unwind by the beach, spend time with
+            family, or turn the trip into a holiday, there's plenty to enjoy
+            during your stay.
           </p>
 
           <div>
             <h3 class="text-center text-lg font-semibold">Things to Do</h3>
             <ul class="mt-3 space-y-2">
               <li>🏖️ Relax on the beach or by one of the many pools</li>
-              <li>🍽️ Dine at over 20 restaurants and bars, including Indian cuisine</li>
+              <li>
+                🍽️ Dine at over 20 restaurants and bars, including Indian
+                cuisine
+              </li>
               <li>💆 Visit the spa or play a round of golf*</li>
-              <li>🎳 Enjoy the bowling alley, arcade, water park and sports facilities</li>
+              <li>
+                🎳 Enjoy the bowling alley, arcade, water park and sports
+                facilities
+              </li>
               <li>🎭 Watch live entertainment and evening shows</li>
               <li>💪 Make use of the fitness centre and daily activities</li>
               <li>🍹 Unwind with a cocktail at one of the many bars</li>
@@ -562,23 +740,67 @@ const coupleMessage = `
           <div>
             <h3 class="text-center text-lg font-semibold">Excursions*</h3>
             <ul class="mt-3 space-y-2">
-              <li>⛵ <strong>Isla Mujeres</strong> – A picturesque island known for its beaches, snorkelling and relaxed atmosphere.</li>
-              <li>🏛️ <strong>Chichén Itzá</strong> – One of the New Seven Wonders of the World and Mexico's most famous Mayan archaeological site.</li>
-              <li>💧 <strong>Cenotes</strong> – Natural freshwater sinkholes perfect for swimming and snorkelling.</li>
-              <li>🐠 <strong>Snorkelling & Catamaran Tours</strong> – Explore the Caribbean Sea and nearby coral reefs.</li>
-              <li>🌆 <strong>Cancún Hotel Zone</strong> – Visit local shops, restaurants and nightlife just a short drive away.</li>
+              <li>
+                ⛵ <strong>Isla Mujeres</strong> – A picturesque island known for
+                its beaches, snorkelling and relaxed atmosphere.
+              </li>
+              <li>
+                🏛️ <strong>Chichén Itzá</strong> – One of the New Seven Wonders of
+                the World and Mexico's most famous Mayan archaeological site.
+              </li>
+              <li>
+                💧 <strong>Cenotes</strong> – Natural freshwater sinkholes perfect
+                for swimming and snorkelling.
+              </li>
+              <li>
+                🐠 <strong>Snorkelling & Catamaran Tours</strong> – Explore the Caribbean
+                Sea and nearby coral reefs.
+              </li>
+              <li>
+                🌆 <strong>Cancún Hotel Zone</strong> – Visit local shops, restaurants
+                and nightlife just a short drive away.
+              </li>
             </ul>
-            <p class="mt-3 text-sm italic">*Some resort activities and all excursions are available at an additional cost.</p>
+            <p class="mt-3 text-sm italic">
+              *Some resort activities and all excursions are available at an
+              additional cost.
+            </p>
           </div>
 
-          <div class="mt-8 rounded-3xl border border-neutral-200/80 bg-neutral-50/80 p-5 text-base leading-7 text-neutral-700" style="font-family: 'Lora', serif;">
-            <p class="font-semibold">Download the Palace Resorts app to view resort amenities, request services, book restaurants, and navigate the resort:</p>
-            <div class="mt-4 flex w-full flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-center">
-              <a href="https://apps.apple.com/us/app/palace-resorts/id1411599607" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
-                <img src={appStoreBadge.src} alt="Download on the App Store" class="h-12 w-auto rounded-lg" />
+          <div
+            class="mt-8 rounded-3xl border border-neutral-200/80 bg-neutral-50/80 p-5 text-base leading-7 text-neutral-700"
+            style="font-family: 'Lora', serif;"
+          >
+            <p class="font-semibold">
+              Download the Palace Resorts app to view resort amenities, request
+              services, book restaurants, and navigate the resort:
+            </p>
+            <div
+              class="mt-4 flex w-full flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-center"
+            >
+              <a
+                href="https://apps.apple.com/us/app/palace-resorts/id1411599607"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download on the App Store"
+              >
+                <img
+                  src={appStoreBadge.src}
+                  alt="Download on the App Store"
+                  class="h-12 w-auto rounded-lg"
+                />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
-                <img src={googlePlayBadge.src} alt="Get it on Google Play" class="h-12 w-auto rounded-lg" />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.palaceresorts.app&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get it on Google Play"
+              >
+                <img
+                  src={googlePlayBadge.src}
+                  alt="Get it on Google Play"
+                  class="h-12 w-auto rounded-lg"
+                />
               </a>
             </div>
           </div>
@@ -590,35 +812,73 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-story"
-      class="w-full scroll-mt-[140px]"
-    >
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <section id="v2-story" class="w-full scroll-mt-[140px]">
+      <div
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2
+            class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
+            style="font-family: 'Sirivennela', serif;"
+          >
             Our Story
           </h2>
         </div>
 
         <div class="mt-8">
-          <div class="mx-auto mb-6 max-w-3xl overflow-hidden rounded-[14px] border border-white/70 p-1 shadow-xl shadow-black/10 backdrop-blur-sm">
-            <div class="relative aspect-[4/5] overflow-hidden rounded-[11px] sm:aspect-[4/5] md:aspect-auto md:h-[540px] lg:h-[540px]">
-              <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
-                <img src={storyPic7.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic3.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic1.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic6.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic2.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic4.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic5.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic8.src} class="h-full w-full shrink-0 object-cover" />
-                <img src={storyPic9.src} class="h-full w-full shrink-0 object-cover" />
+          <div
+            class="mx-auto mb-6 max-w-3xl overflow-hidden rounded-[14px] border border-white/70 p-1 shadow-xl shadow-black/10 backdrop-blur-sm"
+          >
+            <div
+              class="relative aspect-[4/5] overflow-hidden rounded-[11px] sm:aspect-[4/5] md:aspect-auto md:h-[540px] lg:h-[540px]"
+            >
+              <div
+                class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
+              >
+                <img
+                  src={storyPic7.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic3.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic1.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic6.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic2.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic4.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic5.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic8.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
+                <img
+                  src={storyPic9.src}
+                  class="h-full w-full shrink-0 object-cover"
+                />
               </div>
             </div>
           </div>
 
-          <div class="space-y-4 text-center text-base leading-8 text-neutral-700" style="font-family: 'Lora', serif;">
+          <div
+            class="space-y-4 text-center text-base leading-8 text-neutral-700"
+            style="font-family: 'Lora', serif;"
+          >
             <p>
               If you'd asked either of us in September 2024 whether we'd be
               planning a wedding, we'd probably have laughed… and then
@@ -668,69 +928,91 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-q-and-a"
-      class="w-full scroll-mt-[140px]"
-    >
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+    <section id="v2-q-and-a" class="w-full scroll-mt-[140px]">
+      <div
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl" style="font-family: 'Sirivennela', serif;">
+          <h2
+            class="text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
+            style="font-family: 'Sirivennela', serif;"
+          >
             Q&A
           </h2>
         </div>
 
         <div style="font-family: 'Lora', serif;">
-        <div class="mt-6 rounded-2xl bg-white/75 p-3 shadow-sm ring-1 ring-white/70">
-          <label for="faq-search" class="sr-only">Search FAQ questions</label>
-          <div class="flex items-center gap-2">
-            <input
-              id="faq-search"
-              type="search"
-              placeholder="Search questions..."
-              class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-700 outline-none ring-0 placeholder:text-neutral-400 focus:border-neutral-400"
-            />
-            <button
-              id="faq-clear"
-              type="button"
-              class="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-700 transition hover:border-neutral-400 hover:bg-neutral-50"
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-
-        <div id="faq-empty-state" class="mt-6 hidden rounded-2xl border border-neutral-200 bg-white/80 px-4 py-5 text-sm text-neutral-600">
-          No questions matched your search. Try a different keyword.
-        </div>
-
-        <div class="mt-6 space-y-6">
-          {faqSections.map((section) => (
-            <div
-              class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
-              data-section-title={section.title.toLowerCase()}
-            >
-              <h3 class="text-center text-lg font-semibold text-neutral-800">{section.title}</h3>
-              <div class="mt-4 space-y-3" data-section>
-                {section.questions.map((item) => (
-                  <details
-                    class="faq-item rounded-xl border border-neutral-200 bg-white/90 px-4 py-3 shadow-sm"
-                    data-query={`${section.title} ${item.question} ${item.answer} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
-                  >
-                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-neutral-800">
-                      <span>{item.question}</span>
-                      <span class="shrink-0 rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-600">+</span>
-                    </summary>
-                    {item.answerHtml ? (
-                      <div class="pt-3 text-sm leading-6 text-neutral-700" style="font-family: 'Lora', serif;" set:html={item.answerHtml}></div>
-                    ) : (
-                      <div class="pt-3 text-sm leading-6 text-neutral-700" style="font-family: 'Lora', serif;">{item.answer}</div>
-                    )}
-                  </details>
-                ))}
-              </div>
+          <div
+            class="mt-6 rounded-2xl bg-white/75 p-3 shadow-sm ring-1 ring-white/70"
+          >
+            <label for="faq-search" class="sr-only">Search FAQ questions</label>
+            <div class="flex items-center gap-2">
+              <input
+                id="faq-search"
+                type="search"
+                placeholder="Search questions..."
+                class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-700 ring-0 outline-none placeholder:text-neutral-400 focus:border-neutral-400"
+              />
+              <button
+                id="faq-clear"
+                type="button"
+                class="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-700 transition hover:border-neutral-400 hover:bg-neutral-50"
+              >
+                Clear
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+
+          <div
+            id="faq-empty-state"
+            class="mt-6 hidden rounded-2xl border border-neutral-200 bg-white/80 px-4 py-5 text-sm text-neutral-600"
+          >
+            No questions matched your search. Try a different keyword.
+          </div>
+
+          <div class="mt-6 space-y-6">
+            {
+              faqSections.map(section => (
+                <div
+                  class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
+                  data-section-title={section.title.toLowerCase()}
+                >
+                  <h3 class="text-center text-lg font-semibold text-neutral-800">
+                    {section.title}
+                  </h3>
+                  <div class="mt-4 space-y-3" data-section>
+                    {section.questions.map(item => (
+                      <details
+                        class="faq-item rounded-xl border border-neutral-200 bg-white/90 px-4 py-3 shadow-sm"
+                        data-query={`${section.title} ${item.question} ${item.answer} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
+                      >
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-neutral-800">
+                          <span>{item.question}</span>
+                          <span class="shrink-0 rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-600">
+                            +
+                          </span>
+                        </summary>
+                        {item.answerHtml ? (
+                          <div
+                            class="pt-3 text-sm leading-6 text-neutral-700"
+                            style="font-family: 'Lora', serif;"
+                            set:html={item.answerHtml}
+                          />
+                        ) : (
+                          <div
+                            class="pt-3 text-sm leading-6 text-neutral-700"
+                            style="font-family: 'Lora', serif;"
+                          >
+                            {item.answer}
+                          </div>
+                        )}
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>
@@ -740,8 +1022,13 @@ const coupleMessage = `
     </div>
   </div>
 
-  <div data-rsvp-modal class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-4">
-    <div class="relative h-full w-full overflow-hidden bg-white shadow-2xl lg:h-[80vh] lg:w-[50vw] lg:rounded-2xl">
+  <div
+    data-rsvp-modal
+    class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-4"
+  >
+    <div
+      class="relative h-full w-full overflow-hidden bg-white shadow-2xl lg:h-[80vh] lg:w-[50vw] lg:rounded-2xl"
+    >
       <button
         type="button"
         data-rsvp-close
@@ -776,7 +1063,9 @@ const coupleMessage = `
         modal.classList.remove('flex');
       };
 
-      openButton.addEventListener('click', event => openModal(event as MouseEvent));
+      openButton.addEventListener('click', event =>
+        openModal(event as MouseEvent)
+      );
       closeButton.addEventListener('click', closeModal);
       modal.addEventListener('click', event => {
         if (event.target === modal) closeModal();
@@ -791,15 +1080,17 @@ const coupleMessage = `
     const applySearch = (query: string) => {
       let anyVisible = false;
 
-      sections.forEach((section) => {
+      sections.forEach(section => {
         const sectionContainer = section.closest('.rounded-2xl');
-        const sectionTitle = (sectionContainer as HTMLElement | null)?.dataset.sectionTitle ?? '';
+        const sectionTitle =
+          (sectionContainer as HTMLElement | null)?.dataset.sectionTitle ?? '';
         let sectionVisible = false;
         const items = Array.from(section.querySelectorAll('.faq-item'));
 
-        items.forEach((item) => {
+        items.forEach(item => {
           const text = (item as HTMLElement).dataset.query ?? '';
-          const shouldShow = !query || sectionTitle.includes(query) || text.includes(query);
+          const shouldShow =
+            !query || sectionTitle.includes(query) || text.includes(query);
           item.classList.toggle('hidden', !shouldShow);
           if (shouldShow) sectionVisible = true;
         });
@@ -814,8 +1105,10 @@ const coupleMessage = `
     };
 
     if (searchInput) {
-      searchInput.addEventListener('input', (event) => {
-        const query = (event.currentTarget as HTMLInputElement).value.trim().toLowerCase();
+      searchInput.addEventListener('input', event => {
+        const query = (event.currentTarget as HTMLInputElement).value
+          .trim()
+          .toLowerCase();
         applySearch(query);
       });
 
@@ -829,7 +1122,7 @@ const coupleMessage = `
     }
 
     const carousels = document.querySelectorAll('.carousel-track');
-    carousels.forEach((track) => {
+    carousels.forEach(track => {
       const slides = Array.from(track.children);
       if (!slides.length) return;
       let currentIndex = 0;
@@ -888,17 +1181,37 @@ const coupleMessage = `
           },
         });
         setTimeout(() => {
-          animate(line1, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
+          animate(line1, {
+            opacity: { from: 0, to: 1 },
+            duration: 1000,
+            ease: 'outCubic',
+          });
         }, 3400);
         setTimeout(() => {
-          animate(line2, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
-          animate(line3, { opacity: { from: 0, to: 1 }, duration: 1000, ease: 'outCubic' });
+          animate(line2, {
+            opacity: { from: 0, to: 1 },
+            duration: 1000,
+            ease: 'outCubic',
+          });
+          animate(line3, {
+            opacity: { from: 0, to: 1 },
+            duration: 1000,
+            ease: 'outCubic',
+          });
         }, 4600);
         setTimeout(() => {
-          animate(watercolor, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+          animate(watercolor, {
+            opacity: { from: 0, to: 1 },
+            duration: 1200,
+            ease: 'outCubic',
+          });
         }, 5800);
         setTimeout(() => {
-          animate(details, { opacity: { from: 0, to: 1 }, duration: 1200, ease: 'outCubic' });
+          animate(details, {
+            opacity: { from: 0, to: 1 },
+            duration: 1200,
+            ease: 'outCubic',
+          });
         }, 7200);
       }
     }
@@ -914,7 +1227,7 @@ const coupleMessage = `
         iconOpen?.classList.toggle('hidden');
         iconClose?.classList.toggle('hidden');
       });
-      links.querySelectorAll('[data-section-link]').forEach((link) => {
+      links.querySelectorAll('[data-section-link]').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth < 640) {
             links.classList.add('hidden');
@@ -931,8 +1244,16 @@ const coupleMessage = `
       --fade-height: 100%;
       --fade-start: 100%;
       --fade-end: 100%;
-      mask-image: radial-gradient(ellipse var(--fade-width) var(--fade-height) at center, black var(--fade-start), transparent var(--fade-end));
-      -webkit-mask-image: radial-gradient(ellipse var(--fade-width) var(--fade-height) at center, black var(--fade-start), transparent var(--fade-end));
+      mask-image: radial-gradient(
+        ellipse var(--fade-width) var(--fade-height) at center,
+        black var(--fade-start),
+        transparent var(--fade-end)
+      );
+      -webkit-mask-image: radial-gradient(
+        ellipse var(--fade-width) var(--fade-height) at center,
+        black var(--fade-start),
+        transparent var(--fade-end)
+      );
     }
   </style>
 </MainLayout>

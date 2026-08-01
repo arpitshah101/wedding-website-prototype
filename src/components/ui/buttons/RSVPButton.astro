@@ -5,7 +5,11 @@ interface Props {
   fontClass?: string;
 }
 
-const { title, url, fontClass = 'font-semibold tracking-[0.35em]' } = Astro.props;
+const {
+  title,
+  url,
+  fontClass = 'font-semibold tracking-[0.35em]',
+} = Astro.props;
 ---
 
 <a
@@ -13,7 +17,7 @@ const { title, url, fontClass = 'font-semibold tracking-[0.35em]' } = Astro.prop
   target="_blank"
   rel="noopener noreferrer"
   class:list={[
-    'inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/90 lg:bg-white/10 px-20 py-3 text-center text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:bg-white/50 hover:text-[#e0be63]',
+    'inline-flex items-center justify-center rounded-full border border-[#D6AB3A] bg-white/90 px-20 py-3 text-center text-[#D6AB3A] shadow-none backdrop-blur-sm transition duration-200 hover:border-white/20 hover:bg-white/50 hover:text-[#e0be63] lg:bg-white/10',
     fontClass,
   ]}
   style="font-family: 'Playfair Display', serif;"

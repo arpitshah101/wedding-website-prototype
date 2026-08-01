@@ -49,18 +49,23 @@ interface Props {
         <Icon name="quotation" />
         <div class="relative z-10 pl-6">
           {
-            message.split('\n\n').map((paragraph) => (
-              <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
-                {paragraph}
-              </p>
-            ))
+            message
+              .split('\n\n')
+              .map(paragraph => (
+                <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
+                  {paragraph}
+                </p>
+              ))
           }
         </div>
       </blockquote>
 
       {/* Signature - Right Aligned */}
       <div class="text-right">
-        <p class="text-lg font-semibold text-neutral-800 dark:text-neutral-200" set:html={signature} />
+        <p
+          class="text-lg font-semibold text-neutral-800 dark:text-neutral-200"
+          set:html={signature}
+        />
       </div>
     </div>
 
@@ -70,7 +75,7 @@ interface Props {
           <div class="space-y-6 sm:space-y-8">
             <ul class="grid grid-cols-2 divide-x-2 divide-y-2 divide-neutral-300 overflow-hidden dark:divide-neutral-700">
               {/* Generate a list item for each event detail */}
-              {eventDetails.map((detail) => (
+              {eventDetails.map(detail => (
                 <EventDetailsGrid
                   title={detail.title}
                   description={detail.description}

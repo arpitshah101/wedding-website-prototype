@@ -15,40 +15,105 @@ const { targetDate, title = 'Countdown to the Wedding' } = Astro.props;
       data-target-date={targetDate}
       style="font-family: 'Playfair Display', serif;"
     >
-      <div class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3">
-        <div data-months class="text-xl lg:text-3xl text-[#66535E] font-normal sm:text-xs">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-[0.2em] text-neutral-600">Months</div>
+      <div
+        class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3"
+      >
+        <div
+          data-months
+          class="text-xl font-normal text-[#66535E] sm:text-xs lg:text-3xl"
+        >
+          00
+        </div>
+        <div
+          class="mt-1 text-[10px] tracking-[0.2em] text-neutral-600 uppercase"
+        >
+          Months
+        </div>
       </div>
-      <div class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3">
-        <div data-days class="text-xl lg:text-3xl text-[#66535E] font-normal sm:text-xs">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-[0.2em] text-neutral-600">Days</div>
+      <div
+        class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3"
+      >
+        <div
+          data-days
+          class="text-xl font-normal text-[#66535E] sm:text-xs lg:text-3xl"
+        >
+          00
+        </div>
+        <div
+          class="mt-1 text-[10px] tracking-[0.2em] text-neutral-600 uppercase"
+        >
+          Days
+        </div>
       </div>
-      <div class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3">
-        <div data-hours class="text-xl lg:text-3xl text-[#66535E] font-normal sm:text-xs">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-[0.2em] text-neutral-600">Hours</div>
+      <div
+        class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3"
+      >
+        <div
+          data-hours
+          class="text-xl font-normal text-[#66535E] sm:text-xs lg:text-3xl"
+        >
+          00
+        </div>
+        <div
+          class="mt-1 text-[10px] tracking-[0.2em] text-neutral-600 uppercase"
+        >
+          Hours
+        </div>
       </div>
-      <div class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3">
-        <div data-minutes class="text-xl lg:text-3xl text-[#66535E] font-normal sm:text-xs">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-[0.2em] text-neutral-600">Mins</div>
+      <div
+        class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3"
+      >
+        <div
+          data-minutes
+          class="text-xl font-normal text-[#66535E] sm:text-xs lg:text-3xl"
+        >
+          00
+        </div>
+        <div
+          class="mt-1 text-[10px] tracking-[0.2em] text-neutral-600 uppercase"
+        >
+          Mins
+        </div>
       </div>
-      <div class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3">
-        <div data-seconds class="text-xl lg:text-3xl text-[#66535E] font-normal sm:text-xs">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-[0.2em] text-neutral-600">Secs</div>
+      <div
+        class="min-w-12 rounded-xl px-2 py-2 text-center sm:min-w-16 sm:px-3 sm:py-3"
+      >
+        <div
+          data-seconds
+          class="text-xl font-normal text-[#66535E] sm:text-xs lg:text-3xl"
+        >
+          00
+        </div>
+        <div
+          class="mt-1 text-[10px] tracking-[0.2em] text-neutral-600 uppercase"
+        >
+          Secs
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  const countdown = document.querySelector('[data-countdown]') as HTMLElement | null;
+  const countdown = document.querySelector(
+    '[data-countdown]'
+  ) as HTMLElement | null;
 
   if (countdown) {
     const targetDate = new Date(countdown.dataset.targetDate || '');
-    const monthsEl = countdown.querySelector('[data-months]') as HTMLElement | null;
+    const monthsEl = countdown.querySelector(
+      '[data-months]'
+    ) as HTMLElement | null;
     const daysEl = countdown.querySelector('[data-days]') as HTMLElement | null;
-    const hoursEl = countdown.querySelector('[data-hours]') as HTMLElement | null;
-    const minutesEl = countdown.querySelector('[data-minutes]') as HTMLElement | null;
-    const secondsEl = countdown.querySelector('[data-seconds]') as HTMLElement | null;
+    const hoursEl = countdown.querySelector(
+      '[data-hours]'
+    ) as HTMLElement | null;
+    const minutesEl = countdown.querySelector(
+      '[data-minutes]'
+    ) as HTMLElement | null;
+    const secondsEl = countdown.querySelector(
+      '[data-seconds]'
+    ) as HTMLElement | null;
 
     const formatNumber = (value: number) => String(value).padStart(2, '0');
 

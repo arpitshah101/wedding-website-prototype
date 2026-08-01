@@ -3,10 +3,8 @@ import ogImageSrc from '@images/ganesh-motif.svg';
 export const SITE = {
   title: 'Arpit & Rushita',
   tagline: '',
-  description:
-    '',
-  description_short:
-    '',
+  description: '',
+  description_short: '',
   url: 'localhost:3000',
   author: 'Arpit Shah',
 };

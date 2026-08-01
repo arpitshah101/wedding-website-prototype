@@ -17,11 +17,13 @@ interface Props {
 
   <div class="relative z-10">
     {
-      content.split('\n\n').map((paragraph) => (
-        <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
-          {paragraph}
-        </p>
-      ))
+      content
+        .split('\n\n')
+        .map(paragraph => (
+          <p class="mb-4 text-xl text-neutral-800 italic dark:text-neutral-200">
+            {paragraph}
+          </p>
+        ))
     }
   </div>
 

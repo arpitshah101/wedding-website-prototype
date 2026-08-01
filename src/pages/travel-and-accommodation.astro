@@ -40,16 +40,20 @@ const coupleMessage = `
     aria-hidden="true"
     class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat blur-[2px] sm:block md:hidden"
     style={`background-image: url('${mobileBackground.src}');`}
-  ></div>
+  >
+  </div>
   <div
     aria-hidden="true"
     class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat blur-[2px] md:block"
     style={`background-image: url('${weddingThemeBackground.src}');`}
-  ></div>
+  >
+  </div>
 
   <div class="relative z-10 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
     <div class="mx-auto flex max-w-5xl flex-col items-center gap-6">
-      <section class="w-full rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-6 lg:p-10">
+      <section
+        class="w-full rounded-[32px] border border-white/50 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-6 lg:p-10"
+      >
         <div class="text-center">
           <h1
             class="mt-3 text-3xl font-bold tracking-[0.1em] text-neutral-800 md:text-4xl"
@@ -59,80 +63,120 @@ const coupleMessage = `
           </h1>
         </div>
 
-        <div class="mt-8 mx-auto max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10">
+        <div
+          class="mx-auto mt-8 max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10"
+        >
           <div class="relative aspect-[16/9] overflow-hidden rounded-[26px]">
-            <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
-              <img src={travelImageArielView.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageBeach.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageGarden.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageRoom.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageBalcony.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageHammock.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageAgra.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageAgra2.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageThai.src} class="h-full w-full shrink-0 object-cover" />
-              <img src={travelImageLounge.src} class="h-full w-full shrink-0 object-cover" />
+            <div
+              class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
+            >
+              <img
+                src={travelImageArielView.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBeach.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageGarden.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageRoom.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBalcony.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageHammock.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra2.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageThai.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageLounge.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
             </div>
           </div>
         </div>
 
         <div class="mt-8 space-y-6">
           <div class="text-center">
-            <h2 class="text-xl font-bold text-neutral-900" style="font-family: 'Sirivennela', serif;">A Note From Us</h2>
+            <h2
+              class="text-xl font-bold text-neutral-900"
+              style="font-family: 'Sirivennela', serif;"
+            >
+              A Note From Us
+            </h2>
             <div class="my-6 text-3xl">♥️</div>
           </div>
           <div set:html={coupleMessage} />
-          </div>
+        </div>
 
-          <div class="mt-8 flex justify-center">
-            <a
-              href={destawedUrl}
-              rel="noreferrer"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-neutral-600 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-neutral-800 hover:shadow-xl hover:shadow-neutral-900/15"
-              style="font-family: 'Playfair Display', serif;"
+        <div class="mt-8 flex justify-center">
+          <a
+            href={destawedUrl}
+            rel="noreferrer"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-neutral-600 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-neutral-800 hover:shadow-xl hover:shadow-neutral-900/15"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            <span aria-hidden="true" class="mr-2 text-base leading-none">✦</span
             >
-              <span aria-hidden="true" class="mr-2 text-base leading-none">✦</span>
-              Book Your Stay
-              <span aria-hidden="true" class="ml-2 text-base leading-none">✦</span>
-            </a>
-          </div>
+            Book Your Stay
+            <span aria-hidden="true" class="ml-2 text-base leading-none">✦</span
+            >
+          </a>
         </div>
       </section>
-      <div class="flex flex-col gap-4 sm:flex-row">
-        <a
-          href={homePath}
-          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
-        >
-          Back to Invitation
-        </a>
-        <a
-          href={nextPagePath}
-          class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
-        >
-          Things to Do
-        </a>
-      </div>
+    </div>
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <a
+        href={homePath}
+        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+      >
+        Back to Invitation
+      </a>
+      <a
+        href={nextPagePath}
+        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm font-semibold tracking-[0.3em] text-neutral-800 uppercase shadow-md backdrop-blur transition hover:bg-white"
+      >
+        Things to Do
+      </a>
     </div>
   </div>
-
-  <script>
-    const track = document.querySelector('.carousel-track');
-    if (track) {
-      const slides = Array.from(track.children);
-      let currentIndex = 0;
-
-      const showSlide = (index: number) => {
-        const offset = index * -100;
-        track.setAttribute('style', `transform: translateX(${offset}%);`);
-      };
-
-      const nextSlide = () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      };
-
-      setInterval(nextSlide, 5000);
-      showSlide(0);
-    }
-  </script>
 </MainLayout>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  if (track) {
+    const slides = Array.from(track.children);
+    let currentIndex = 0;
+
+    const showSlide = (index: number) => {
+      const offset = index * -100;
+      track.setAttribute('style', `transform: translateX(${offset}%);`);
+    };
+
+    const nextSlide = () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    setInterval(nextSlide, 5000);
+    showSlide(0);
+  }
+</script>

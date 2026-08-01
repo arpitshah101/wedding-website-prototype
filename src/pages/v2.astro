@@ -404,7 +404,7 @@ const coupleMessage = `
         >
           Son of Pankaj &amp; Anjna Shah
         </span>
-        <span class="block mt-1">&amp;</span>
+        <span class="mt-1 block">&amp;</span>
         <span class="block">Rushita</span>
         <span
           class="block text-[.7rem] tracking-[0.25em] text-[#2D2D2D]/60"
@@ -424,7 +424,7 @@ const coupleMessage = `
 
       <p
         id="v2-text-line3-desktop"
-        class="mt-2 hidden text-center tracking-[0.25em] text-[#2D2D2D]/60 sm:block sm:text-xs text-[.7rem]"
+        class="mt-2 hidden text-center text-[.7rem] tracking-[0.25em] text-[#2D2D2D]/60 sm:block sm:text-xs"
         style="opacity: 0; font-family: 'Playfair Display', serif;"
       >
         Son of Pankaj &amp; Anjna Shah &nbsp;·&nbsp; Daughter of Bhavin &amp;
@@ -581,10 +581,7 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section
-      id="v2-schedule"
-      class="relative w-full scroll-mt-[140px]"
-    >
+    <section id="v2-schedule" class="relative w-full scroll-mt-[140px]">
       <div
         class="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
       >
@@ -1065,72 +1062,72 @@ const coupleMessage = `
     </div>
   </div>
 
-  {events.map((event, index) => (
-    <div
-      data-dresscode-modal={index}
-      class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-6"
-    >
+  {
+    events.map((event, index) => (
       <div
-        class="relative h-full w-full overflow-y-auto bg-[#FDFBF7] shadow-2xl lg:h-auto lg:max-h-[85vh] lg:w-[40rem] lg:max-w-[90vw] lg:rounded-2xl"
+        data-dresscode-modal={index}
+        class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-6"
       >
-        <button
-          type="button"
-          data-dresscode-close={index}
-          class="absolute top-3 right-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl text-[#2D2D2D] shadow-sm"
-          aria-label={`Close ${event.dressCodeHeading} dialog`}
-        >
-          ×
-        </button>
-
-        <div class="flex min-h-full flex-col items-center justify-center p-6 sm:p-8 lg:p-10">
-          <p
-            class="text-center text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
-            style="font-family: 'Playfair Display', serif;"
+        <div class="relative h-full w-full overflow-y-auto bg-[#FDFBF7] shadow-2xl lg:h-auto lg:max-h-[85vh] lg:w-[40rem] lg:max-w-[90vw] lg:rounded-2xl">
+          <button
+            type="button"
+            data-dresscode-close={index}
+            class="absolute top-3 right-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl text-[#2D2D2D] shadow-sm"
+            aria-label={`Close ${event.dressCodeHeading} dialog`}
           >
-            {event.dressCodeHeading}
-          </p>
+            ×
+          </button>
 
-          {event.dressCodeImage ? (
-            <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
-              <div class="overflow-hidden border border-[#2D2D2D]/15">
-                <img
-                  src={event.dressCodeImage.src}
-                  alt={event.dressCodeHeading}
-                  class="h-auto w-full"
-                />
-              </div>
-            </div>
-          ) : (
-            <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
-              <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
-                <p
-                  class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
-                  style="font-family: 'Playfair Display', serif;"
-                >
-                  {event.dressCodeHeading}
-                </p>
-                <p
-                  class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
-                  style="font-family: 'Playfair Display', serif;"
-                >
-                  Image coming soon
-                </p>
-              </div>
-            </div>
-          )}
-
-          {event.dressCodeInfo ? (
+          <div class="flex min-h-full flex-col items-center justify-center p-6 sm:p-8 lg:p-10">
             <p
-              class="mt-6 text-center text-sm leading-6 text-[#2D2D2D]/70"
-              style="font-family: 'Lora', serif;"
+              class="text-center text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+              style="font-family: 'Playfair Display', serif;"
             >
-              {event.dressCodeInfo}
+              {event.dressCodeHeading}
             </p>
-          ) : null}
+
+            {event.dressCodeImage ? (
+              <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
+                <div class="overflow-hidden border border-[#2D2D2D]/15">
+                  <img
+                    src={event.dressCodeImage.src}
+                    alt={event.dressCodeHeading}
+                    class="h-auto w-full"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
+                <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
+                  <p
+                    class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+                    style="font-family: 'Playfair Display', serif;"
+                  >
+                    {event.dressCodeHeading}
+                  </p>
+                  <p
+                    class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
+                    style="font-family: 'Playfair Display', serif;"
+                  >
+                    Image coming soon
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {event.dressCodeInfo ? (
+              <p
+                class="mt-6 text-center text-sm leading-6 text-[#2D2D2D]/70"
+                style="font-family: 'Lora', serif;"
+              >
+                {event.dressCodeInfo}
+              </p>
+            ) : null}
+          </div>
         </div>
       </div>
-    </div>
-  ))}
+    ))
+  }
 
   <script>
     const openButton = document.querySelector('[data-rsvp-open]');
@@ -1304,7 +1301,7 @@ const coupleMessage = `
         ganesh.style.willChange = 'transform';
         animate(ganesh, {
           translateY: { from: centerOffset, to: 0 },
-          duration: 3200,
+          duration: 2400,
           ease: 'outCubic',
           complete: () => {
             ganesh.style.willChange = '';
@@ -1313,45 +1310,43 @@ const coupleMessage = `
         setTimeout(() => {
           animate(line1, {
             opacity: { from: 0, to: 1 },
-            duration: 1000,
+            duration: 1200,
             ease: 'outCubic',
           });
-        }, 3400);
-        setTimeout(() => {
           animate(line2, {
             opacity: { from: 0, to: 1 },
-            duration: 1000,
+            duration: 1200,
             ease: 'outCubic',
           });
           if (line2Desktop) {
             animate(line2Desktop, {
               opacity: { from: 0, to: 1 },
-              duration: 1000,
+              duration: 1200,
               ease: 'outCubic',
             });
           }
           if (line3Desktop) {
             animate(line3Desktop, {
               opacity: { from: 0, to: 1 },
-              duration: 1000,
+              duration: 1200,
               ease: 'outCubic',
             });
           }
-        }, 4600);
+        }, 2400);
         setTimeout(() => {
           animate(watercolor, {
             opacity: { from: 0, to: 1 },
-            duration: 1200,
+            duration: 1300,
             ease: 'outCubic',
           });
-        }, 5800);
+        }, 3700);
         setTimeout(() => {
           animate(details, {
             opacity: { from: 0, to: 1 },
-            duration: 1200,
+            duration: 1300,
             ease: 'outCubic',
           });
-        }, 7200);
+        }, 5100);
       }
     }
   </script>

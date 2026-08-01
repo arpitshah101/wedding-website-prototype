@@ -437,69 +437,73 @@ const coupleMessage = `
 
         <div class="mt-10 space-y-12">
           {events.map((event, index) => (
-            <div class="flex flex-col items-center gap-4">
-              {index > 0 ? <hr class="mx-auto mb-2 w-16 border-t border-[#2D2D2D]/20" /> : null}
-
-              {event.dressCodeImage ? (
-                <div class="mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] order-last pt-3 sm:order-first sm:mb-3 sm:max-w-[375px] sm:p-2">
-                  <div class="overflow-hidden border border-[#2D2D2D]/15">
-                    <img
-                      src={event.dressCodeImage.src}
-                      alt={event.dressCodeHeading}
-                      class="h-auto w-full"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div class="flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#2D2D2D]/25 bg-white/50 p-8 text-center order-last pt-3 sm:order-first">
-                  <p class="text-sm font-semibold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                    {event.dressCodeHeading}
-                  </p>
-                  <p class="mt-2 text-xs tracking-[0.2em] uppercase text-[#2D2D2D]/40" style="font-family: 'Playfair Display', serif;">
-                    Image coming soon
-                  </p>
-                </div>
-              )}
-
-              <p class="text-xs font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
-                {event.weekday}, {event.date}
-              </p>
+            <div>
+              {index > 0 ? <hr class="mx-auto mb-6 w-16 border-t border-[#2D2D2D]/20" /> : null}
 
               <h3 class="text-center text-3xl text-[#2D2D2D] sm:text-4xl" style="font-family: 'Parisienne', cursive;">
                 {event.title}
               </h3>
 
-              <p class="text-center text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                {event.location}
-              </p>
-
-              <div class="mt-2 w-full space-y-6 text-center">
-                {event.agenda ? (
-                  event.agenda.map((item) => (
-                    <div>
-                      <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                        {item.time}
-                      </p>
-                      <p class="mt-1 text-lg font-semibold text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">
-                        {item.title}
-                      </p>
-                      {item.description ? (
-                        <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
-                          {item.description}
-                        </p>
-                      ) : null}
+              <div class="mt-3 flex flex-col items-center gap-4 sm:mt-6 sm:flex-row sm:items-start sm:gap-10">
+                {event.dressCodeImage ? (
+                  <div class={`mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] order-last pt-3 sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}>
+                    <div class="overflow-hidden border border-[#2D2D2D]/15">
+                      <img
+                        src={event.dressCodeImage.src}
+                        alt={event.dressCodeHeading}
+                        class="h-auto w-full"
+                      />
                     </div>
-                  ))
+                  </div>
                 ) : (
-                  <div>
-                    <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
-                      {event.time}
+                  <div class={`flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#2D2D2D]/25 bg-white/50 p-8 text-center order-last pt-3 sm:max-w-[375px] sm:shrink-0 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}>
+                    <p class="text-sm font-semibold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                      {event.dressCodeHeading}
                     </p>
-                    <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
-                      {event.venue}
+                    <p class="mt-2 text-xs tracking-[0.2em] uppercase text-[#2D2D2D]/40" style="font-family: 'Playfair Display', serif;">
+                      Image coming soon
                     </p>
                   </div>
                 )}
+
+                <div class={`flex w-full flex-col items-center gap-4 sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
+                  <p class="text-xs font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
+                    {event.weekday}, {event.date}
+                  </p>
+
+                  <p class="text-center text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                    {event.location}
+                  </p>
+
+                  <div class="mt-2 w-full space-y-6 text-center">
+                    {event.agenda ? (
+                      event.agenda.map((item) => (
+                        <div>
+                          <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                            {item.time}
+                          </p>
+                          <p class="mt-1 text-lg font-semibold text-[#2D2D2D]" style="font-family: 'Playfair Display', serif;">
+                            {item.title}
+                          </p>
+                          {item.description ? (
+                            <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                              {item.description}
+                            </p>
+                          ) : null}
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                          {event.time}
+                        </p>
+                        <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                          {event.venue}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}

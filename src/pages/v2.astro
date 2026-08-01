@@ -49,6 +49,7 @@ const events = [
     location: 'Venue TBC',
     venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mendhi Dress Code',
+    dressCodeInfo: '',
   },
   {
     date: '9th November 2027',
@@ -58,6 +59,7 @@ const events = [
     location: 'Venue TBC',
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
+    dressCodeInfo: '',
     dressCodeImage: haldiDressCode,
   },
   {
@@ -80,6 +82,7 @@ const events = [
       },
     ],
     dressCodeHeading: 'Wedding Ceremony Dress Code',
+    dressCodeInfo: '',
   },
   {
     date: '11th November 2027',
@@ -101,6 +104,7 @@ const events = [
       },
     ],
     dressCodeHeading: 'Reception Dress Code',
+    dressCodeInfo: '',
   },
 ];
 
@@ -488,8 +492,8 @@ const coupleMessage = `
       >
         <div class="text-center">
           <h2
-            class="text-3xl font-bold tracking-[0.1em] text-[#2D2D2D] md:text-4xl"
-            style="font-family: 'Sirivennela', serif;"
+            class="text-4xl text-[#2D2D2D] md:text-5xl"
+            style="font-family: 'Luxurious Script', cursive;"
           >
             A Note From Us
           </h2>
@@ -580,10 +584,10 @@ const coupleMessage = `
       >
         <div class="text-center">
           <h2
-            class="text-3xl font-bold tracking-[0.1em] text-[#2D2D2D] md:text-4xl"
-            style="font-family: 'Sirivennela', serif;"
+            class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"
+            style="font-family: 'Bodoni Moda', serif;"
           >
-            Schedule
+            The Wedding Week
           </h2>
         </div>
 
@@ -602,43 +606,8 @@ const coupleMessage = `
                   {event.title}
                 </h3>
 
-                <div class="mt-3 flex flex-col items-center gap-4 sm:mt-6 sm:flex-row sm:items-center sm:gap-10">
-                  {event.dressCodeImage ? (
-                    <div
-                      class={`order-last mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 pt-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}
-                    >
-                      <div class="overflow-hidden border border-[#2D2D2D]/15">
-                        <img
-                          src={event.dressCodeImage.src}
-                          alt={event.dressCodeHeading}
-                          class="h-auto w-full"
-                        />
-                      </div>
-                    </div>
-                  ) : (
-                    <div
-                      class={`order-last mt-5 w-full rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 pt-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:mt-0 sm:max-w-[375px] sm:shrink-0 sm:p-2 ${index % 2 === 0 ? 'sm:order-1' : 'sm:order-2'}`}
-                    >
-                      <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
-                        <p
-                          class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
-                          style="font-family: 'Playfair Display', serif;"
-                        >
-                          {event.dressCodeHeading}
-                        </p>
-                        <p
-                          class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
-                          style="font-family: 'Playfair Display', serif;"
-                        >
-                          Image coming soon
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  <div
-                    class={`flex w-full flex-col sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}
-                  >
+                <div class="mt-3 w-full sm:mt-6">
+                  <div>
                     <p
                       class="mb-4 text-center text-xs font-semibold tracking-[0.35em] text-[#2D2D2D]/60 uppercase sm:text-sm"
                       style="font-family: 'Playfair Display', serif;"
@@ -647,7 +616,7 @@ const coupleMessage = `
                     </p>
 
                     <p
-                      class="text-base text-[#2D2D2D]/70 italic sm:text-lg"
+                      class="text-center text-base text-[#2D2D2D]/70 italic sm:text-lg"
                       style="font-family: 'Playfair Display', serif;"
                     >
                       {event.location}
@@ -697,6 +666,17 @@ const coupleMessage = `
                       )}
                     </div>
                   </div>
+
+                  <div class="mt-6 flex justify-center">
+                    <button
+                      type="button"
+                      data-dresscode-open={index}
+                      class="inline-flex items-center justify-center rounded-full border border-[#2D2D2D]/25 bg-[#FDFBF7] px-6 py-2.5 text-xs font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase transition hover:border-[#2D2D2D]/50 hover:text-[#2D2D2D]"
+                      style="font-family: 'Playfair Display', serif;"
+                    >
+                      Dresscode coming soon
+                    </button>
+                  </div>
                 </div>
               </div>
             ))
@@ -715,10 +695,10 @@ const coupleMessage = `
       >
         <div class="text-center">
           <h2
-            class="text-3xl font-bold tracking-[0.1em] text-[#2D2D2D] md:text-4xl"
-            style="font-family: 'Sirivennela', serif;"
+            class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"
+            style="font-family: 'Bodoni Moda', serif;"
           >
-            Things to do
+            Things To Do
           </h2>
         </div>
 
@@ -839,8 +819,8 @@ const coupleMessage = `
       >
         <div class="text-center">
           <h2
-            class="text-3xl font-bold tracking-[0.1em] text-[#2D2D2D] md:text-4xl"
-            style="font-family: 'Sirivennela', serif;"
+            class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"
+            style="font-family: 'Bodoni Moda', serif;"
           >
             Our Story
           </h2>
@@ -955,8 +935,8 @@ const coupleMessage = `
       >
         <div class="text-center">
           <h2
-            class="text-3xl font-bold tracking-[0.1em] text-[#2D2D2D] md:text-4xl"
-            style="font-family: 'Sirivennela', serif;"
+            class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"
+            style="font-family: 'Bodoni Moda', serif;"
           >
             Q&A
           </h2>
@@ -1067,6 +1047,73 @@ const coupleMessage = `
     </div>
   </div>
 
+  {events.map((event, index) => (
+    <div
+      data-dresscode-modal={index}
+      class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-6"
+    >
+      <div
+        class="relative h-full w-full overflow-y-auto bg-[#FDFBF7] shadow-2xl lg:h-auto lg:max-h-[85vh] lg:w-[40rem] lg:max-w-[90vw] lg:rounded-2xl"
+      >
+        <button
+          type="button"
+          data-dresscode-close={index}
+          class="absolute top-3 right-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl text-[#2D2D2D] shadow-sm"
+          aria-label={`Close ${event.dressCodeHeading} dialog`}
+        >
+          ×
+        </button>
+
+        <div class="flex min-h-full flex-col items-center justify-center p-6 sm:p-8 lg:p-10">
+          <p
+            class="text-center text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            {event.dressCodeHeading}
+          </p>
+
+          {event.dressCodeImage ? (
+            <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
+              <div class="overflow-hidden border border-[#2D2D2D]/15">
+                <img
+                  src={event.dressCodeImage.src}
+                  alt={event.dressCodeHeading}
+                  class="h-auto w-full"
+                />
+              </div>
+            </div>
+          ) : (
+            <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#2D2D2D]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
+              <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
+                <p
+                  class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
+                  style="font-family: 'Playfair Display', serif;"
+                >
+                  {event.dressCodeHeading}
+                </p>
+                <p
+                  class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
+                  style="font-family: 'Playfair Display', serif;"
+                >
+                  Image coming soon
+                </p>
+              </div>
+            </div>
+          )}
+
+          {event.dressCodeInfo ? (
+            <p
+              class="mt-6 text-center text-sm leading-6 text-[#2D2D2D]/70"
+              style="font-family: 'Lora', serif;"
+            >
+              {event.dressCodeInfo}
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  ))}
+
   <script>
     const openButton = document.querySelector('[data-rsvp-open]');
     const closeButton = document.querySelector('[data-rsvp-close]');
@@ -1092,6 +1139,49 @@ const coupleMessage = `
         if (event.target === modal) closeModal();
       });
     }
+
+    const dresscodeOpenButtons = Array.from(
+      document.querySelectorAll('[data-dresscode-open]')
+    );
+    const dresscodeModals = Array.from(
+      document.querySelectorAll('[data-dresscode-modal]')
+    );
+
+    const closeDresscode = (modal: Element) => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      const anyOpen = dresscodeModals.some(
+        m => !m.classList.contains('hidden')
+      );
+      if (!anyOpen) document.body.style.overflow = '';
+    };
+
+    dresscodeOpenButtons.forEach(button => {
+      const index = button.getAttribute('data-dresscode-open');
+      if (index == null) return;
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        const modal = dresscodeModals.find(
+          m => m.getAttribute('data-dresscode-modal') === index
+        );
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    dresscodeModals.forEach(modal => {
+      modal
+        .querySelector('[data-dresscode-close]')
+        ?.addEventListener('click', () => closeDresscode(modal));
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeDresscode(modal);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeDresscode(modal);
+      });
+    });
 
     const searchInput = document.querySelector('#faq-search');
     const clearButton = document.querySelector('#faq-clear');

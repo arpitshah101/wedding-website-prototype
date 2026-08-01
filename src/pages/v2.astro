@@ -25,6 +25,8 @@ import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
 import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transparent.png';
 import haldiDressCode from '@images/Haldi dress code.png';
+import backgroundTexture from '@images/background-texture-sample.png';
+import logo from '@images/wedding-website-logo-updated.svg';
 
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
@@ -284,7 +286,9 @@ const coupleMessage = `
 <MainLayout title="Wedding Website" hideNavbar={true}>
   <header class="fixed inset-x-0 top-0 z-50 w-full border-b border-[#2D2D2D]/10 bg-[#FDFBF7]">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-1 sm:px-6">
-      <span class="text-sm text-[#2D2D2D] sm:hidden" style="font-family: 'Parisienne', cursive;">Arpit &amp; Rushita</span>
+      <div class="flex items-center gap-2 sm:hidden">
+        <img src={logo.src} alt="Arpit & Rushita monogram" class="h-11 w-auto" />
+      </div>
       <button id="nav-toggle" type="button" class="ml-auto flex h-8 w-8 items-center justify-center text-[#2D2D2D] sm:hidden" aria-label="Toggle navigation">
         <svg id="nav-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="nav-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
@@ -303,8 +307,8 @@ const coupleMessage = `
       ))}
     </nav>
   </header>
-  <div class="relative z-10 bg-[#FDFBF7]">
-    <section id="v2-home" class="mx-auto max-w-4xl px-2.5 pt-14 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20">
+  <div class="relative z-10" style="background-color: #FDFBF7; background-image: url('${backgroundTexture.src}'); background-repeat: repeat; background-size: 600px 600px;">
+    <section id="v2-home" class="mx-auto max-w-4xl px-2.5 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-16 lg:py-20">
 
       <!-- Ganesh Motif -->
       <div id="intro-ganesh" class="mb-6 md:my-6 text-center" style="opacity: 0;">
@@ -370,7 +374,6 @@ const coupleMessage = `
     <section
       id="v2-travel"
       class="w-full scroll-mt-[140px]"
-      style="background-color: #e5e5e5;"
     >
       <div id="v2-travel-content" class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
@@ -419,7 +422,6 @@ const coupleMessage = `
     <section
       id="v2-schedule"
       class="w-full scroll-mt-[140px]"
-      style="background-color: #d4d4d4;"
     >
       <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
@@ -500,7 +502,6 @@ const coupleMessage = `
     <section
       id="v2-things-to-do"
       class="w-full scroll-mt-[140px]"
-      style="background-color: #c0c0c0;"
     >
       <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
@@ -561,7 +562,6 @@ const coupleMessage = `
     <section
       id="v2-story"
       class="w-full scroll-mt-[140px]"
-      style="background-color: #f0f0f0;"
     >
       <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
@@ -636,7 +636,6 @@ const coupleMessage = `
     <section
       id="v2-q-and-a"
       class="w-full scroll-mt-[140px]"
-      style="background-color: #a3a3a3;"
     >
       <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <div class="text-center">
@@ -700,6 +699,10 @@ const coupleMessage = `
         </div>
       </div>
     </section>
+
+    <div class="flex justify-center px-4 pb-6">
+      <img src={logo.src} alt="Arpit & Rushita monogram" class="h-20 w-auto" />
+    </div>
   </div>
 
   <div data-rsvp-modal class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 lg:p-4">

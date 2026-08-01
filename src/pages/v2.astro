@@ -466,16 +466,16 @@ const coupleMessage = `
                   </div>
                 )}
 
-                <div class={`flex w-full flex-col items-center gap-4 sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
+                <div class={`flex w-full flex-col gap-4 sm:flex-1 ${index % 2 === 0 ? 'sm:order-2' : 'sm:order-1'}`}>
                   <p class="text-xs font-semibold tracking-[0.35em] uppercase text-[#2D2D2D]/60 sm:text-sm" style="font-family: 'Playfair Display', serif;">
                     {event.weekday}, {event.date}
                   </p>
 
-                  <p class="text-center text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
+                  <p class="text-base italic text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
                     {event.location}
                   </p>
 
-                  <div class="mt-2 w-full space-y-6 text-center">
+                  <div class="mt-2 w-full space-y-6">
                     {event.agenda ? (
                       event.agenda.map((item) => (
                         <div>
@@ -486,7 +486,7 @@ const coupleMessage = `
                             {item.title}
                           </p>
                           {item.description ? (
-                            <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                            <p class="mt-1 text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
                               {item.description}
                             </p>
                           ) : null}
@@ -497,7 +497,7 @@ const coupleMessage = `
                         <p class="text-sm font-bold tracking-[0.25em] uppercase text-[#2D2D2D]/70" style="font-family: 'Playfair Display', serif;">
                           {event.time}
                         </p>
-                        <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
+                        <p class="mt-1 text-sm leading-6 text-[#2D2D2D]/70" style="font-family: 'Lora', serif;">
                           {event.venue}
                         </p>
                       </div>

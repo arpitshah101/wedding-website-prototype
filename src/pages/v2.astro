@@ -37,6 +37,7 @@ const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
   { label: 'A Note From Us', href: '#v2-travel' },
   { label: 'Schedule', href: '#v2-schedule' },
+  { label: 'Booking Your Stay', href: '#v2-booking-your-stay' },
   { label: 'Things to do', href: '#v2-things-to-do' },
   { label: 'Our Story', href: '#v2-story' },
   { label: 'Q&A', href: '#v2-q-and-a' },
@@ -292,7 +293,7 @@ const coupleMessage = `
   We wanted our wedding to be more than just one day, but a chance for everyone to enjoy a relaxing getaway together. That’s why we chose Moon Palace Cancun—an all-inclusive resort where you can simply arrive, unwind, and enjoy great food, activities, and time with family and friends.
 </p>
 <p>
-  You’ll find everything you need on our website, including travel information and what to expect. We’ve also partnered with <b><i>Destawed</i></b> to manage our resort room block and make booking your stay as easy as possible. If you have any travel-related questions, please visit the Destawed page and contact the Account Manager listed there.
+  You’ll find everything you need on our website, including the wedding itinerary, details on how to book your stay, and some ideas for activities you can enjoy while you're in Cancun.
 </p>
 <p>
   Thank you for all your love and support—we can’t wait to celebrate with you in the sunshine in November 2027! ☀️🤍
@@ -510,116 +511,6 @@ const coupleMessage = `
 
         <div class="mt-8 space-y-6">
           <div set:html={coupleMessage} />
-
-          <div class="mt-8 flex justify-center">
-            <a
-              href="https://www.destawed.com/couples/rushita-arpit"
-              rel="noreferrer"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-[#2D2D2D]/60 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-[#2D2D2D] hover:shadow-xl hover:shadow-neutral-900/15"
-              style="font-family: 'Playfair Display', serif;"
-            >
-              <span aria-hidden="true" class="mr-2 text-base leading-none"
-                >✦</span
-              >
-              Book Your Stay
-              <span aria-hidden="true" class="ml-2 text-base leading-none"
-                >✦</span
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="mx-auto mt-8 max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10"
-        >
-          <div class="relative aspect-[16/9] overflow-hidden rounded-[26px]">
-            <div
-              class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
-            >
-              <img
-                src={travelImageArielView.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageBeach.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageGarden.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageRoom.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageBalcony.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageHammock.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageAgra.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageAgra2.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageThai.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-              <img
-                src={travelImageLounge.src}
-                class="h-full w-full shrink-0 object-cover"
-              />
-            </div>
-            <button
-              type="button"
-              data-carousel-prev
-              aria-label="Previous image"
-              class="absolute top-1/2 left-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 19.5 8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
-            <button
-              type="button"
-              data-carousel-next
-              aria-label="Next image"
-              class="absolute top-1/2 right-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -750,6 +641,152 @@ const coupleMessage = `
               </div>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <div class="flex justify-center px-4">
+      <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
+    </div>
+
+    <section id="v2-booking-your-stay" class="w-full scroll-mt-[140px]">
+      <div
+        class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+      >
+        <div class="text-center">
+          <h2
+            class="text-3xl font-medium text-[#2D2D2D] md:text-4xl"
+            style="font-family: 'Bodoni Moda', serif;"
+          >
+            Booking Your Stay
+          </h2>
+        </div>
+
+        <div
+          class="mx-auto mt-8 max-w-3xl space-y-6 text-center text-base leading-7 text-[#2D2D2D]/70"
+          style="font-family: 'Lora', serif;"
+        >
+          <p>
+            We've arranged a dedicated block of rooms at Moon Palace Cancún so
+            our guests can simply arrive, unwind and enjoy everything the
+            all-inclusive resort has to offer during the wedding week.
+          </p>
+          <p>
+            We've partnered with <b><i>Destawed</i></b> to manage our
+            resort room block and make booking your stay as easy as possible.
+            If you have any travel-related questions, please visit the
+            Destawed page via the button below and contact the Account Manager listed there.
+          </p>
+
+          <div class="flex justify-center pt-2">
+            <a
+              href="https://www.destawed.com/couples/rushita-arpit"
+              rel="noreferrer"
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-neutral-300 bg-white px-8 py-3 text-center text-sm font-semibold tracking-[0.18em] text-[#2D2D2D]/60 uppercase shadow-lg shadow-neutral-900/10 backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-neutral-400 hover:text-[#2D2D2D] hover:shadow-xl hover:shadow-neutral-900/15"
+              style="font-family: 'Playfair Display', serif;"
+            >
+              <span aria-hidden="true" class="mr-2 text-base leading-none"
+                >✦</span
+              >
+              Book Your Stay
+              <span aria-hidden="true" class="ml-2 text-base leading-none"
+                >✦</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mx-auto mt-8 max-w-4xl overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-xl shadow-black/10"
+        >
+          <div class="relative aspect-[16/9] overflow-hidden rounded-[26px]">
+            <div
+              class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
+            >
+              <img
+                src={travelImageArielView.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBeach.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageGarden.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageRoom.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageBalcony.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageHammock.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageAgra2.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageThai.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+              <img
+                src={travelImageLounge.src}
+                class="h-full w-full shrink-0 object-cover"
+              />
+            </div>
+            <button
+              type="button"
+              data-carousel-prev
+              aria-label="Previous image"
+              class="absolute top-1/2 left-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-carousel-next
+              aria-label="Next image"
+              class="absolute top-1/2 right-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

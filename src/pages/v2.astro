@@ -1077,38 +1077,65 @@ const coupleMessage = `
             {
               faqSections.map(section => (
                 <div
-                  class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
+                  data-section
                   data-section-title={section.title.toLowerCase()}
                 >
-                  <h3 class="text-center text-lg font-semibold text-[#2D2D2D]">
-                    {section.title}
-                  </h3>
-                  <div class="mt-4 space-y-3" data-section>
+                  <div
+                    class="flex items-center justify-center gap-3"
+                    aria-hidden="true"
+                  >
+                    <span class="h-px w-8 bg-[#2D2D2D]/20" />
+                    <span class="text-sm text-[#2D2D2D]/40">✦</span>
+                    <h3
+                      class="text-center text-base font-medium text-[#2D2D2D] sm:text-lg"
+                      style="font-family: 'Bodoni Moda', serif;"
+                    >
+                      {section.title}
+                    </h3>
+                    <span class="text-sm text-[#2D2D2D]/40">✦</span>
+                    <span class="h-px w-8 bg-[#2D2D2D]/20" />
+                  </div>
+                  <div class="mt-4">
                     {section.questions.map(item => (
                       <details
-                        class="faq-item rounded-xl border border-neutral-200 bg-white/90 px-4 py-3 shadow-sm"
-                        data-query={`${section.title} ${item.question} ${item.answer} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
+                        class="faq-item group border-b border-[#2D2D2D]/15 py-4"
+                        data-query={`${section.title} ${item.question} ${item.answer ?? ''} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
                       >
                         <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-[#2D2D2D]">
                           <span>{item.question}</span>
-                          <span class="shrink-0 rounded-full bg-neutral-100 px-2 py-1 text-xs text-[#2D2D2D]/60">
-                            +
-                          </span>
-                        </summary>
-                        {item.answerHtml ? (
-                          <div
-                            class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
-                            style="font-family: 'Lora', serif;"
-                            set:html={item.answerHtml}
-                          />
-                        ) : (
-                          <div
-                            class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
-                            style="font-family: 'Lora', serif;"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="faq-chevron h-4 w-4 shrink-0 text-[#2D2D2D]/60 transition-transform duration-300"
                           >
-                            {item.answer}
-                          </div>
-                        )}
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
+                        </summary>
+                        <div
+                          class="faq-answer overflow-hidden transition-[height] duration-500 ease-in-out"
+                        >
+                          {item.answerHtml ? (
+                            <div
+                              class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
+                              style="font-family: 'Lora', serif;"
+                              set:html={item.answerHtml}
+                            />
+                          ) : (
+                            <div
+                              class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
+                              style="font-family: 'Lora', serif;"
+                            >
+                              {item.answer}
+                            </div>
+                          )}
+                        </div>
                       </details>
                     ))}
                   </div>
@@ -1358,9 +1385,8 @@ const coupleMessage = `
       let anyVisible = false;
 
       sections.forEach(section => {
-        const sectionContainer = section.closest('.rounded-2xl');
-        const sectionTitle =
-          (sectionContainer as HTMLElement | null)?.dataset.sectionTitle ?? '';
+        const sectionContainer = section as HTMLElement;
+        const sectionTitle = sectionContainer.dataset.sectionTitle ?? '';
         let sectionVisible = false;
         const items = Array.from(section.querySelectorAll('.faq-item'));
 
@@ -1372,7 +1398,7 @@ const coupleMessage = `
           if (shouldShow) sectionVisible = true;
         });
 
-        sectionContainer?.classList.toggle('hidden', !sectionVisible);
+        sectionContainer.classList.toggle('hidden', !sectionVisible);
         if (sectionVisible) anyVisible = true;
       });
 
@@ -1397,6 +1423,47 @@ const coupleMessage = `
         }
       });
     }
+
+    document.querySelectorAll('.faq-item').forEach(el => {
+      const details = el as HTMLDetailsElement;
+      const summary = details.querySelector('summary');
+      const content = details.querySelector('.faq-answer') as HTMLElement | null;
+      if (!summary || !content) return;
+
+      summary.addEventListener('click', event => {
+        event.preventDefault();
+        if (details.open) {
+          const height = content.scrollHeight;
+          content.style.height = `${height}px`;
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              content.style.height = '0px';
+            });
+          });
+          const onEnd = (e: TransitionEvent) => {
+            if (e.target !== content || e.propertyName !== 'height') return;
+            content.removeEventListener('transitionend', onEnd);
+            details.open = false;
+            content.style.height = '';
+          };
+          content.addEventListener('transitionend', onEnd);
+        } else {
+          details.open = true;
+          content.style.height = '0px';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              content.style.height = `${content.scrollHeight}px`;
+            });
+          });
+          const onEnd = (e: TransitionEvent) => {
+            if (e.target !== content || e.propertyName !== 'height') return;
+            content.removeEventListener('transitionend', onEnd);
+            content.style.height = '';
+          };
+          content.addEventListener('transitionend', onEnd);
+        }
+      });
+    });
 
     const carousels = document.querySelectorAll('.carousel-track');
     carousels.forEach(el => {
@@ -1676,6 +1743,10 @@ const coupleMessage = `
         black var(--fade-start),
         transparent var(--fade-end)
       );
+    }
+
+    details[open] .faq-chevron {
+      transform: rotate(-90deg);
     }
   </style>
 </MainLayout>

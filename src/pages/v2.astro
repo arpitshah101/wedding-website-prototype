@@ -1084,16 +1084,16 @@ const coupleMessage = `
                     class="flex items-center justify-center gap-3"
                     aria-hidden="true"
                   >
-                    <span class="h-px w-8 bg-[#2D2D2D]/20" />
-                    <span class="text-sm text-[#2D2D2D]/40">✦</span>
+                    <span class="h-px w-10 bg-[#2D2D2D]/20" />
+                    <span class="text-base text-[#2D2D2D]/40">✦</span>
                     <h3
-                      class="text-center text-base font-medium text-[#2D2D2D] sm:text-lg"
+                      class="text-center text-lg font-medium tracking-wide text-[#2D2D2D] sm:text-xl"
                       style="font-family: 'Bodoni Moda', serif;"
                     >
                       {section.title}
                     </h3>
-                    <span class="text-sm text-[#2D2D2D]/40">✦</span>
-                    <span class="h-px w-8 bg-[#2D2D2D]/20" />
+                    <span class="text-base text-[#2D2D2D]/40">✦</span>
+                    <span class="h-px w-10 bg-[#2D2D2D]/20" />
                   </div>
                   <div class="mt-4">
                     {section.questions.map(item => (
@@ -1101,7 +1101,7 @@ const coupleMessage = `
                         class="faq-item group border-b border-[#2D2D2D]/15 py-4"
                         data-query={`${section.title} ${item.question} ${item.answer ?? ''} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
                       >
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-[#2D2D2D]">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-[#2D2D2D]">
                           <span>{item.question}</span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1123,13 +1123,13 @@ const coupleMessage = `
                         >
                           {item.answerHtml ? (
                             <div
-                              class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
+                              class="pt-3 text-base leading-7 text-[#2D2D2D]/70"
                               style="font-family: 'Lora', serif;"
                               set:html={item.answerHtml}
                             />
                           ) : (
                             <div
-                              class="pt-3 text-sm leading-6 text-[#2D2D2D]/70"
+                              class="pt-3 text-base leading-7 text-[#2D2D2D]/70"
                               style="font-family: 'Lora', serif;"
                             >
                               {item.answer}

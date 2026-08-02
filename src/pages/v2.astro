@@ -35,8 +35,8 @@ const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
-  { label: 'A Note From Us', href: '#v2-travel' },
-  { label: 'Schedule', href: '#v2-schedule' },
+  { label: 'A Note From Us', href: '#v2-note-from-us' },
+  { label: 'The Wedding Week', href: '#v2-wedding-week' },
   { label: 'Booking Your Stay', href: '#v2-booking-your-stay' },
   { label: 'Things to do', href: '#v2-things-to-do' },
   { label: 'Our Story', href: '#v2-story' },
@@ -253,7 +253,7 @@ const faqSections = [
           <br/>
           <P>If you choose to stay at another hotel, please note that Moon Palace requires non-resort guests to purchase a day pass, at their own expense, for each day they wish to attend events at the resort. Day passes are approximately $150 USD per person, per day (subject to change and resort availability), which can add up quickly over the course of the celebrations. Our negotiated room rates are fully flexible and refundable, giving you added peace of mind should your plans change. Guests staying four nights or more will also receive complimentary round-trip airport transfers and resort credit as part of their booking.</p>
           <br/>
-          <P>To avoid any additional costs and enjoy these benefits, we kindly ask that all guests book their stay using the links provided on our Travel & Accommodation page.</p>`,
+          <P>To avoid any additional costs and enjoy these benefits, we kindly ask that all guests book their stay using the links provided in our <a class="text-yellow-600 underline" href="#v2-booking-your-stay">Booking Your Stay</a> section.</p>`,
       },
       {
         question: 'Can I extend my stay?',
@@ -350,7 +350,7 @@ const coupleMessage = `
     </div>
     <nav
       id="nav-links"
-      class="hidden flex-col divide-y divide-[#2D2D2D]/10 border-t border-[#2D2D2D]/10 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0"
+      class="flex flex-col divide-y divide-[#2D2D2D]/10 sm:flex sm:flex-row sm:divide-x sm:divide-y-0"
       aria-label="Global"
     >
       {
@@ -367,6 +367,11 @@ const coupleMessage = `
       }
     </nav>
   </header>
+  <div
+    id="nav-overlay"
+    class="pointer-events-none fixed inset-0 z-40 bg-white/20 opacity-0 backdrop-blur-lg transition-opacity duration-500 sm:hidden"
+    aria-hidden="true"
+  ></div>
   <div
     class="relative z-10"
     style="background-color: #FDFBF7; background-image: url('${backgroundTexture.src}'); background-repeat: repeat; background-size: 600px 600px;"
@@ -494,9 +499,9 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section id="v2-travel" class="w-full scroll-mt-[140px]">
+    <section id="v2-note-from-us" class="w-full scroll-mt-[140px]">
       <div
-        id="v2-travel-content"
+        id="v2-note-from-us-content"
         class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
       >
         <div class="text-center">
@@ -519,7 +524,7 @@ const coupleMessage = `
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
     </div>
 
-    <section id="v2-schedule" class="relative w-full scroll-mt-[140px]">
+    <section id="v2-wedding-week" class="relative w-full scroll-mt-[140px]">
       <div
         class="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
       >
@@ -1688,13 +1693,13 @@ const coupleMessage = `
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from('#v2-travel-content', {
+    gsap.from('#v2-note-from-us-content', {
       autoAlpha: 0,
       y: 50,
       duration: 1,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: '#v2-travel-content',
+        trigger: '#v2-note-from-us-content',
         start: 'top 80%',
         once: true,
       },
@@ -1789,43 +1794,70 @@ const coupleMessage = `
       }
     }
 
+    const scrollToHash = (href: string) => {
+      const target = document.querySelector(href);
+      const headerHeight =
+        document.querySelector('header.fixed')?.getBoundingClientRect()
+          .height ?? 0;
+      const targetTop =
+        (target?.getBoundingClientRect().top ?? 0) + window.scrollY;
+      const scrollTop = Math.max(0, targetTop - headerHeight - 12);
+      const lenis = window.lenisScroll;
+      if (lenis) {
+        lenis.scrollTo(scrollTop);
+      } else {
+        window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+      }
+    };
+
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');
     const iconOpen = document.getElementById('nav-icon-open');
     const iconClose = document.getElementById('nav-icon-close');
+    const overlay = document.getElementById('nav-overlay');
+
+    const setMenuOpen = (open: boolean) => {
+      if (!links) return;
+      links.classList.toggle('is-open', open);
+      overlay?.classList.toggle('opacity-100', open);
+      overlay?.classList.toggle('pointer-events-none', !open);
+      iconOpen?.classList.toggle('hidden', open);
+      iconClose?.classList.toggle('hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    const closeMenu = () => {
+      if (window.innerWidth < 640) setMenuOpen(false);
+    };
+
     if (toggle && links) {
       toggle.addEventListener('click', () => {
-        links.classList.toggle('hidden');
-        iconOpen?.classList.toggle('hidden');
-        iconClose?.classList.toggle('hidden');
+        const isOpen = links.classList.contains('is-open');
+        setMenuOpen(!isOpen);
       });
+      overlay?.addEventListener('click', closeMenu);
       links.querySelectorAll('[data-section-link]').forEach(link => {
         link.addEventListener('click', event => {
           const href = link.getAttribute('href');
           if (href?.startsWith('#')) {
             event.preventDefault();
-            if (window.innerWidth < 640) {
-              links.classList.add('hidden');
-              iconOpen?.classList.remove('hidden');
-              iconClose?.classList.add('hidden');
-            }
-            const target = document.querySelector(href);
-            const headerHeight =
-              document.querySelector('header.fixed')?.getBoundingClientRect()
-                .height ?? 0;
-            const targetTop =
-              (target?.getBoundingClientRect().top ?? 0) + window.scrollY;
-            const scrollTop = Math.max(0, targetTop - headerHeight - 12);
-            const lenis = window.lenisScroll;
-            if (lenis) {
-              lenis.scrollTo(scrollTop);
-            } else {
-              window.scrollTo({ top: scrollTop, behavior: 'smooth' });
-            }
+            closeMenu();
+            scrollToHash(href);
           }
         });
       });
     }
+
+    document.addEventListener('click', event => {
+      const anchor = (event.target as HTMLElement).closest('a[href^="#"]');
+      if (!anchor) return;
+      if (anchor.closest('[data-section-link]')) return;
+      const href = anchor.getAttribute('href');
+      if (href && href.length > 1) {
+        event.preventDefault();
+        scrollToHash(href);
+      }
+    });
   </script>
   <style>
     .venue-fade {
@@ -1847,6 +1879,27 @@ const coupleMessage = `
 
     details[open] .faq-chevron {
       transform: rotate(-90deg);
+    }
+
+    #nav-links {
+      max-height: 0;
+      overflow: hidden;
+      border-top: 0;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    #nav-links.is-open {
+      max-height: 26rem;
+      border-top: 1px solid rgb(45 45 45 / 0.1);
+    }
+
+    @media (min-width: 640px) {
+      #nav-links {
+        max-height: none;
+        overflow: visible;
+        border-top: 0;
+        transition: none;
+      }
     }
   </style>
 </MainLayout>

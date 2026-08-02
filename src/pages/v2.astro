@@ -30,6 +30,10 @@ import logo from '@images/wedding-website-logo-updated.svg';
 import divider from '@images/divider.svg';
 import flowerVineBackground from '@images/flower-vine-border.png';
 import sangeetDressCode from '@images/Sangeet dress code.png';
+import marigoldWatercolor from '@images/marigold-watercolor.png';
+import sageGreenWatercolor from '@images/sage-green-watercolor.png';
+import paleBlueWatercolor from '@images/pale-blue-watercolor.png';
+import peachCoralWatercolor from '@images/peach_coral_watercolor.png';
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
@@ -48,6 +52,9 @@ const events = [
     date: '8th November 2027',
     weekday: 'Monday',
     title: 'Sangeet / Mendhi',
+    bg: '#F9EDE2',
+    accent: '#EFD8C1',
+    bgImage: sageGreenWatercolor,
     time: '6:00 PM - 10:00 PM',
     startDate: '2027-11-08',
     startTime: '18:00',
@@ -61,6 +68,9 @@ const events = [
     date: '9th November 2027',
     weekday: 'Tuesday',
     title: 'Vidhi / Haldi',
+    bg: '#F9F0D8',
+    accent: '#EDDDB0',
+    bgImage: marigoldWatercolor,
     time: '10:00 AM - 2:00 PM',
     startDate: '2027-11-09',
     startTime: '10:00',
@@ -74,6 +84,9 @@ const events = [
     date: '10th November 2027',
     weekday: 'Wednesday',
     title: 'Wedding Day',
+    bg: '#FAE9E8',
+    accent: '#F1CCC9',
+    bgImage: peachCoralWatercolor,
     time: '9:00 AM - 4:00 PM',
     startDate: '2027-11-10',
     startTime: '09:00',
@@ -98,6 +111,9 @@ const events = [
     date: '11th November 2027',
     weekday: 'Thursday',
     title: 'Reception',
+    bg: '#F3ECE5',
+    accent: '#E3D3C4',
+    bgImage: paleBlueWatercolor,
     time: '6:00 PM - 11:00 PM',
     startDate: '2027-11-11',
     startTime: '18:00',
@@ -120,7 +136,9 @@ const events = [
   },
 ];
 
-const calendarButtonStyle = `--btn-background:#FDFBF7;--btn-hover-background:#FDFBF7;--btn-border:rgba(45,45,45,0.25);--btn-hover-border:rgba(45,45,45,0.5);--btn-text:rgba(45,45,45,0.7);--btn-hover-text:#2D2D2D;--btn-border-radius:9999px;--btn-padding-x:1.5rem;--btn-padding-y:0.625rem;--btn-font-weight:600;--btn-shadow:none;--btn-hover-shadow:none;--btn-active-shadow:none;--font:'Playfair Display',serif;--list-background:#FDFBF7;--list-hover-background:#FFF;--list-text:#2D2D2D;--list-hover-text:#2D2D2D;--list-border-radius:14px;--list-shadow:0 10px 30px -10px rgb(0 0 0 / 20%);`;
+function calendarButtonStyle(bg, accent) {
+  return `--btn-background:${bg};--btn-hover-background:${accent};--btn-border:${accent};--btn-hover-border:${accent};--btn-text:#2D2D2D;--btn-hover-text:#2D2D2D;--btn-border-radius:9999px;--btn-padding-x:1.5rem;--btn-padding-y:0.625rem;--btn-font-weight:600;--btn-shadow:none;--btn-hover-shadow:none;--btn-active-shadow:none;--font:'Playfair Display',serif;--list-background:${bg};--list-hover-background:#FFF;--list-text:#2D2D2D;--list-hover-text:#2D2D2D;--list-border-radius:14px;--list-shadow:0 10px 30px -10px rgb(0 0 0 / 20%);`;
+}
 
 const faqSections = [
   {
@@ -549,25 +567,35 @@ const coupleMessage = `
           </h2>
         </div>
 
-        <div class="mt-10 space-y-12">
+        <div class="mt-10 space-y-8 md:space-y-12">
           {
             events.map((event, index) => (
-              <div>
-                {index > 0 ? (
-                  <hr class="mx-auto mb-6 w-16 border-t border-[#2D2D2D]/20" />
+              <div
+                class={
+                  event.bgImage
+                    ? 'relative overflow-hidden rounded-3xl px-5 py-6 sm:px-10 sm:py-10'
+                    : ''
+                }
+              >
+                {event.bgImage ? (
+                  <img
+                    src={event.bgImage.src}
+                    alt=""
+                    class="absolute inset-0 h-full w-full object-cover opacity-50"
+                  />
                 ) : null}
 
                 <h3
-                  class="text-center text-2xl text-[#2D2D2D]"
+                  class="relative text-center text-2xl font-medium text-[#2D2D2D]"
                   style="font-family: 'Parisienne', cursive;"
                 >
                   {event.title}
                 </h3>
 
-                <div class="mt-3 w-full sm:mt-6">
+                <div class="relative mt-3 w-full sm:mt-6">
                   <div>
                     <p
-                      class="mb-4 text-center text-xs font-semibold tracking-[0.35em] text-[#2D2D2D]/60 uppercase sm:text-sm"
+                      class="mb-4 text-center text-xs font-semibold tracking-[0.35em] text-[#2D2D2D] uppercase sm:text-sm"
                       style="font-family: 'Playfair Display', serif;"
                     >
                       {event.weekday}, {event.date}
@@ -578,20 +606,20 @@ const coupleMessage = `
                         event.agenda.map(item => (
                           <div>
                             <p
-                              class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D]/70 uppercase text-center"
+                              class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
                               style="font-family: 'Playfair Display', serif;"
                             >
                               {item.time}
                             </p>
                             <p
-                              class="mt-1 text-lg font-semibold text-[#2D2D2D]"
+                              class="mt-1 text-lg font-semibold text-center text-[#2D2D2D]"
                               style="font-family: 'Playfair Display', serif;"
                             >
                               {item.title}
                             </p>
                             {item.description ? (
                               <p
-                                class="mt-1 text-sm leading-6 text-[#2D2D2D]/70"
+                                class="mt-1 text-sm leading-6 text-center text-[#2D2D2D]"
                                 style="font-family: 'Lora', serif;"
                               >
                                 {item.description}
@@ -602,13 +630,13 @@ const coupleMessage = `
                       ) : (
                         <div>
                           <p
-                            class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D]/70 uppercase text-center"
+                            class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
                             style="font-family: 'Playfair Display', serif;"
                           >
                             {event.time}
                           </p>
                           <p
-                            class="mt-1 text-sm leading-6 text-[#2D2D2D]/70"
+                            class="mt-1 text-sm leading-6 text-center text-[#2D2D2D]"
                             style="font-family: 'Lora', serif;"
                           >
                             {event.venue}
@@ -622,8 +650,12 @@ const coupleMessage = `
                     <button
                       type="button"
                       data-dresscode-open={index}
-                      class="inline-flex items-center justify-center rounded-full border border-[#2D2D2D]/25 bg-[#FDFBF7] px-6 py-2.5 text-xs font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase transition hover:border-[#2D2D2D]/50 hover:text-[#2D2D2D]"
-                      style="font-family: 'Playfair Display', serif;"
+                      class="inline-flex items-center justify-center rounded-full border border-[var(--event-accent)] bg-[var(--event-bg)] px-6 py-2.5 text-xs font-semibold tracking-[0.25em] text-[#2D2D2D] uppercase transition hover:bg-[var(--event-accent)] hover:text-[#2D2D2D]"
+                      style={{
+                        '--event-bg': event.bg,
+                        '--event-accent': event.accent,
+                        fontFamily: "'Playfair Display', serif",
+                      }}
                     >
                       Dresscode coming soon
                     </button>
@@ -639,7 +671,7 @@ const coupleMessage = `
                       size="2|2|2"
                       lightMode="light"
                       hideBranding
-                      styleLight={calendarButtonStyle}
+                      styleLight={calendarButtonStyle(event.bg, event.accent)}
                     ></add-to-calendar-button>
                   </div>
                 </div>

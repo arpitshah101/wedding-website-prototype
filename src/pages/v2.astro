@@ -48,7 +48,9 @@ const events = [
     weekday: 'Monday',
     title: 'Sangeet / Mendhi',
     time: '6:00 PM - 10:00 PM',
-    location: 'Venue TBC',
+    startDate: '2027-11-08',
+    startTime: '18:00',
+    endTime: '22:00',
     venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mendhi Dress Code',
     dressCodeInfo: '',
@@ -59,7 +61,9 @@ const events = [
     weekday: 'Tuesday',
     title: 'Vidhi / Haldi',
     time: '10:00 AM - 2:00 PM',
-    location: 'Venue TBC',
+    startDate: '2027-11-09',
+    startTime: '10:00',
+    endTime: '14:00',
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
     dressCodeInfo: '',
@@ -70,7 +74,9 @@ const events = [
     weekday: 'Wednesday',
     title: 'Wedding Day',
     time: '9:00 AM - 4:00 PM',
-    location: 'Venue TBC',
+    startDate: '2027-11-10',
+    startTime: '09:00',
+    endTime: '16:00',
     venue: `The moment we've been waiting for! Join both families as we exchange our vows in a beautiful Hindu wedding ceremony. Be part of this special moment by showering the newlyweds with flower petals and celebrating the beginning of our next chapter together. Light refreshments will be served during the ceremony, followed by a formal Indian lunch.`,
     agenda: [
       {
@@ -92,7 +98,9 @@ const events = [
     weekday: 'Thursday',
     title: 'Reception',
     time: '6:00 PM - 11:00 PM',
-    location: 'Venue TBC',
+    startDate: '2027-11-11',
+    startTime: '18:00',
+    endTime: '23:00',
     venue: `One final celebration! Dress to impress for an evening dinner and dance as we toast to an unforgettable wedding week. Let's end the festivities in style and create memories that will last a lifetime.`,
     agenda: [
       {
@@ -110,6 +118,8 @@ const events = [
     dressCodeInfo: '',
   },
 ];
+
+const calendarButtonStyle = `--btn-background:#FDFBF7;--btn-hover-background:#FDFBF7;--btn-border:rgba(45,45,45,0.25);--btn-hover-border:rgba(45,45,45,0.5);--btn-text:rgba(45,45,45,0.7);--btn-hover-text:#2D2D2D;--btn-border-radius:9999px;--btn-padding-x:1.5rem;--btn-padding-y:0.625rem;--btn-font-weight:600;--btn-shadow:none;--btn-hover-shadow:none;--btn-active-shadow:none;--font:'Playfair Display',serif;--list-background:#FDFBF7;--list-hover-background:#FFF;--list-text:#2D2D2D;--list-hover-text:#2D2D2D;--list-border-radius:14px;--list-shadow:0 10px 30px -10px rgb(0 0 0 / 20%);`;
 
 const faqSections = [
   {
@@ -672,13 +682,6 @@ const coupleMessage = `
                       {event.weekday}, {event.date}
                     </p>
 
-                    <p
-                      class="text-center text-base text-[#2D2D2D]/70 italic sm:text-lg"
-                      style="font-family: 'Playfair Display', serif;"
-                    >
-                      {event.location}
-                    </p>
-
                     <div class="w-full space-y-6">
                       {event.agenda ? (
                         event.agenda.map(item => (
@@ -724,7 +727,7 @@ const coupleMessage = `
                     </div>
                   </div>
 
-                  <div class="mt-6 flex justify-center">
+                  <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
                     <button
                       type="button"
                       data-dresscode-open={index}
@@ -733,6 +736,20 @@ const coupleMessage = `
                     >
                       Dresscode coming soon
                     </button>
+                    <add-to-calendar-button
+                      name={event.title}
+                      description={event.venue}
+                      startDate={event.startDate}
+                      startTime={event.startTime}
+                      endTime={event.endTime}
+                      timeZone="America/Cancun"
+                      options="'Apple','Google','iCal','Outlook.com','Microsoft 365','Yahoo'"
+                      label="ADD TO CALENDAR"
+                      size="2|2|2"
+                      lightMode="light"
+                      hideBranding
+                      styleLight={calendarButtonStyle}
+                    ></add-to-calendar-button>
                   </div>
                 </div>
               </div>
@@ -1306,6 +1323,10 @@ const coupleMessage = `
       </svg>
     </button>
   </div>
+
+  <script>
+    import 'add-to-calendar-button/no-pro';
+  </script>
 
   <script>
     const openButton = document.querySelector('[data-rsvp-open]');

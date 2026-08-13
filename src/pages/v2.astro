@@ -24,12 +24,10 @@ import travelImageLounge from '@images/Moon Palace/lounge.webp';
 import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
 import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transparent.png';
-import haldiDressCode from '@images/Haldi dress code.png';
 import backgroundTexture from '@images/background-texture-sample.png';
 import logo from '@images/wedding-website-logo-updated.svg';
 import divider from '@images/divider.svg';
 import flowerVineBackground from '@images/flower-vine-border.png';
-import sangeetDressCode from '@images/Sangeet dress code.png';
 import marigoldWatercolor from '@images/marigold-watercolor.png';
 import sageGreenWatercolor from '@images/sage-green-watercolor.png';
 import paleBlueWatercolor from '@images/pale-blue-watercolor.png';
@@ -62,7 +60,6 @@ const events = [
     venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mendhi Dress Code',
     dressCodeInfo: '',
-    dressCodeImage: sangeetDressCode,
   },
   {
     date: '9th November 2027',
@@ -78,7 +75,6 @@ const events = [
     venue: `A morning filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
     dressCodeInfo: '',
-    dressCodeImage: haldiDressCode,
   },
   {
     date: '10th November 2027',
@@ -586,7 +582,7 @@ const coupleMessage = `
                 ) : null}
 
                 <h3
-                  class="relative text-center text-3xl font-medium text-[#2D2D2D]"
+                  class="relative text-center text-4xl font-medium text-[#2D2D2D]"
                   style="font-family: 'Parisienne', cursive;"
                 >
                   {event.title}
@@ -595,7 +591,7 @@ const coupleMessage = `
                 <div class="relative mt-3 w-full sm:mt-6">
                   <div>
                     <p
-                      class="mb-4 text-center text-xs font-semibold tracking-[0.35em] text-[#2D2D2D] uppercase sm:text-sm"
+                      class="mb-4 text-center text-sm font-semibold tracking-[0.35em] text-[#2D2D2D] uppercase sm:text-base"
                       style="font-family: 'Playfair Display', serif;"
                     >
                       {event.weekday}, {event.date}
@@ -605,12 +601,14 @@ const coupleMessage = `
                       {event.agenda ? (
                         event.agenda.map(item => (
                           <div>
-                            <p
-                              class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
-                              style="font-family: 'Playfair Display', serif;"
-                            >
-                              {item.time}
-                            </p>
+                            {item.title !== 'Wedding Ceremony' && item.title !== 'Reception' ? (
+                              <p
+                                class="text-xs font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
+                                style="font-family: 'Playfair Display', serif;"
+                              >
+                                Venue &amp; timings coming soon
+                              </p>
+                            ) : null}
                             <p
                               class="mt-1 text-lg font-semibold text-center text-[#2D2D2D]"
                               style="font-family: 'Playfair Display', serif;"
@@ -630,10 +628,10 @@ const coupleMessage = `
                       ) : (
                         <div>
                           <p
-                            class="text-sm font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
+                            class="text-xs font-bold tracking-[0.25em] text-[#2D2D2D] uppercase text-center"
                             style="font-family: 'Playfair Display', serif;"
                           >
-                            {event.time}
+                            Venue &amp; timings coming soon
                           </p>
                           <p
                             class="mt-1 text-sm leading-6 text-center text-[#2D2D2D]"
@@ -1348,12 +1346,6 @@ const coupleMessage = `
                 <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#2D2D2D]/20 text-center">
                   <p
                     class="text-sm font-semibold tracking-[0.25em] text-[#2D2D2D]/70 uppercase"
-                    style="font-family: 'Playfair Display', serif;"
-                  >
-                    {event.dressCodeHeading}
-                  </p>
-                  <p
-                    class="mt-2 text-xs tracking-[0.2em] text-[#2D2D2D]/40 uppercase"
                     style="font-family: 'Playfair Display', serif;"
                   >
                     Image coming soon

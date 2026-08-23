@@ -4,15 +4,7 @@ import Countdown from '@/components/Countdown.astro';
 import ganeshMotif from '@images/ganesh-motif.svg';
 import appStoreBadge from '@images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
 import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.svg';
-import storyPic1 from '@images/story-pic-1.jpg';
-import storyPic2 from '@images/story-pic-2.jpg';
-import storyPic3 from '@images/story-pic-3.jpg';
-import storyPic4 from '@images/story-pic-4.jpg';
-import storyPic5 from '@images/story-pic-5.jpeg';
-import storyPic6 from '@images/story-pic-6.jpg';
-import storyPic7 from '@images/story-pic-7.jpg';
-import storyPic8 from '@images/story-pic-8.jpg';
-import storyPic9 from '@images/story-pic-9.jpg';
+import watercolorComoSteps from '@images/watercolor_como_steps.png';
 import travelImageAgra from '@images/Moon Palace/agra.avif';
 import travelImageAgra2 from '@images/Moon Palace/agra 2.avif';
 import travelImageArielView from '@images/Moon Palace/ariel view.avif';
@@ -971,95 +963,12 @@ const coupleMessage = `
         </div>
 
         <div class="mt-8">
-          <div
-            class="mx-auto mb-6 max-w-3xl overflow-hidden rounded-[14px] border border-white/70 p-1 shadow-xl shadow-black/10 backdrop-blur-sm"
-          >
-            <div
-              class="relative aspect-[4/5] overflow-hidden rounded-[11px] sm:aspect-[4/5] md:aspect-auto md:h-[540px] lg:h-[540px]"
-            >
-              <div
-                class="carousel-track flex h-full transition-transform duration-700 ease-in-out"
-              >
-                <img
-                  src={storyPic7.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic3.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic1.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic6.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic2.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic4.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic5.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic8.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-                <img
-                  src={storyPic9.src}
-                  class="h-full w-full shrink-0 object-cover"
-                />
-              </div>
-              <button
-                type="button"
-                data-carousel-prev
-                aria-label="Previous image"
-                class="absolute top-1/2 left-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 19.5 8.25 12l7.5-7.5"
-                  />
-                </svg>
-              </button>
-              <button
-                type="button"
-                data-carousel-next
-                aria-label="Next image"
-                class="absolute top-1/2 right-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#2D2D2D] shadow-md backdrop-blur-sm transition hover:scale-105 hover:bg-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </button>
-            </div>
+          <div class="relative mx-auto mb-6 w-full overflow-hidden">
+            <img
+              src={watercolorComoSteps.src}
+              alt="Watercolour illustration of our story"
+              class="venue-fade mx-auto h-auto w-full max-w-lg object-cover sm:max-w-xl md:max-w-lg"
+            />
           </div>
 
           <div

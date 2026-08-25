@@ -27,6 +27,24 @@ import peachCoralWatercolor from '@images/peach_coral_watercolor.png';
 
 const RSVP_EMBED_URL = 'https://withjoy.com/arpit-rushita-cancun2027/rsvp';
 
+interface WeddingEvent {
+  date: string;
+  weekday: string;
+  title: string;
+  bg: string;
+  accent: string;
+  bgImage: ImageMetadata;
+  time: string;
+  startDate: string;
+  startTime: string;
+  endTime: string;
+  venue: string;
+  agenda?: { time: string; title: string; description: string }[];
+  dressCodeHeading: string;
+  dressCodeInfo: string;
+  dressCodeImage?: ImageMetadata;
+}
+
 const sectionNavItems = [
   { label: 'Home', href: '#v2-home' },
   { label: 'A Note From Us', href: '#v2-note-from-us' },
@@ -37,7 +55,7 @@ const sectionNavItems = [
   { label: 'Q&A', href: '#v2-q-and-a' },
 ];
 
-const events = [
+const events: WeddingEvent[] = [
   {
     date: '8th November 2027',
     weekday: 'Monday',
@@ -124,7 +142,7 @@ const events = [
   },
 ];
 
-function calendarButtonStyle(bg, accent) {
+function calendarButtonStyle(bg: string, accent: string) {
   return `--btn-background:${bg};--btn-hover-background:${accent};--btn-border:${accent};--btn-hover-border:${accent};--btn-text:#2D2D2D;--btn-hover-text:#2D2D2D;--btn-border-radius:9999px;--btn-padding-x:1.5rem;--btn-padding-y:0.625rem;--btn-font-weight:600;--btn-shadow:none;--btn-hover-shadow:none;--btn-active-shadow:none;--font:'Playfair Display',serif;--list-background:${bg};--list-hover-background:#FFF;--list-text:#2D2D2D;--list-hover-text:#2D2D2D;--list-border-radius:14px;--list-shadow:0 10px 30px -10px rgb(0 0 0 / 20%);`;
 }
 

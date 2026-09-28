@@ -4,7 +4,7 @@ import Countdown from '@/components/Countdown.astro';
 import ganeshMotif from '@images/ganesh-motif.svg';
 import appStoreBadge from '@images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
 import googlePlayBadge from '@images/GetItOnGooglePlay_Badge_Web_color_English.svg';
-import watercolorComoSteps from '@images/watercolor_como_steps.png';
+import couplePhoto from '@images/couple.jpg';
 import travelImageAgra from '@images/Moon Palace/agra.avif';
 import travelImageAgra2 from '@images/Moon Palace/agra 2.avif';
 import travelImageArielView from '@images/Moon Palace/ariel view.avif';
@@ -1096,11 +1096,13 @@ const coupleMessage = `
         </div>
 
         <div class="mt-8">
-          <div class="relative mx-auto mb-6 w-full overflow-hidden">
+          <div
+            class="relative mx-auto mb-6 w-full max-w-lg overflow-hidden rounded-2xl sm:max-w-xl md:max-w-lg"
+          >
             <img
-              src={watercolorComoSteps.src}
-              alt="Watercolour illustration of our story"
-              class="venue-fade mx-auto h-auto w-full max-w-lg object-cover sm:max-w-xl md:max-w-lg"
+              src={couplePhoto.src}
+              alt="Photo of the couple"
+              class="mx-auto h-auto w-full max-w-lg scale-[1.5] rounded-2xl object-cover object-center sm:max-w-xl md:max-w-lg"
             />
           </div>
 

@@ -15,6 +15,7 @@ import travelImageHammock from '@images/Moon Palace/hammock.webp';
 import travelImageLounge from '@images/Moon Palace/lounge.webp';
 import travelImageRoom from '@images/Moon Palace/room.webp';
 import travelImageThai from '@images/Moon Palace/thai.webp';
+import resortMap from '@images/map-MoonPalaceCancun.jpg';
 import watercolorResort from '@images/upscaled-watercolor-resort-cropped-transparent.png';
 import backgroundTexture from '@images/background-texture-sample.png';
 import logo from '@images/wedding-website-logo-updated.svg';
@@ -1024,9 +1025,50 @@ const coupleMessage = `
               </a>
             </div>
           </div>
+
+          <div>
+            <button
+              type="button"
+              id="map-lightbox-open"
+              class="group block"
+              aria-label="Open a larger map of Moon Palace Cancún resort"
+            >
+              <img
+                src={resortMap.src}
+                alt="Map of Moon Palace Cancún resort"
+                class="mx-auto h-auto w-full max-w-lg object-cover transition-opacity group-hover:opacity-90"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>
+
+    <div
+      id="map-lightbox"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Larger map of Moon Palace Cancún resort"
+    >
+      <div
+        class="relative flex max-h-full max-w-full items-center justify-center"
+      >
+        <button
+          type="button"
+          id="map-lightbox-close"
+          class="absolute top-2 right-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl leading-none text-black shadow-lg transition-colors hover:bg-neutral-200"
+          aria-label="Close map"
+        >
+          ×
+        </button>
+        <img
+          src={resortMap.src}
+          alt="Map of Moon Palace Cancún resort"
+          class="max-h-full max-w-full object-contain"
+        />
+      </div>
+    </div>
 
     <div class="flex justify-center px-4">
       <img src={divider.src} alt="" class="h-6 w-auto opacity-80 sm:h-7" />
@@ -1893,6 +1935,31 @@ const coupleMessage = `
         event.preventDefault();
         scrollToHash(href);
       }
+    });
+
+    const lightboxOpen = document.getElementById('map-lightbox-open');
+    const lightbox = document.getElementById('map-lightbox');
+    const lightboxClose = document.getElementById('map-lightbox-close');
+
+    const openLightbox = () => {
+      lightbox?.classList.remove('hidden');
+      lightbox?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      lightbox?.classList.add('hidden');
+      lightbox?.classList.remove('flex');
+      document.body.style.overflow = '';
+    };
+
+    lightboxOpen?.addEventListener('click', openLightbox);
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLightbox();
     });
   </script>
   <style>

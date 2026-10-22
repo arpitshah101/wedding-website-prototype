@@ -49,7 +49,9 @@ interface WeddingEvent {
   venue: string;
   agenda?: { time: string; title: string; description: string }[];
   dressCodeHeading: string;
+  dressCodeTheme: string;
   dressCodeInfo: string;
+  dressCodeAvoid: string;
   dressCodeImage?: ImageMetadata;
 }
 
@@ -77,7 +79,10 @@ const events: WeddingEvent[] = [
     endTime: '22:00',
     venue: `The celebrations begin! Join us for an evening of colourful outfits, henna artistry, delicious food, music and plenty of dancing. Whether you're showing off your Bollywood moves or cheering from the sidelines, this is the perfect chance for everyone to meet, mingle and kick off the wedding festivities in style.`,
     dressCodeHeading: 'Sangeet & Mehndi Dress Code',
-    dressCodeInfo: '',
+    dressCodeTheme: 'Colourful & Festive',
+    dressCodeInfo:
+      'Bring on the colour! We encourage vibrant, playful outfits with a mix of traditional and Indo-Western styles.',
+    dressCodeAvoid: 'Red, white and black.',
     dressCodeImage: dresscodeSangeet,
   },
   {
@@ -93,7 +98,10 @@ const events: WeddingEvent[] = [
     endTime: '14:00',
     venue: `An event filled with tradition, laughter and a splash of yellow! We'll take part in meaningful pre-wedding rituals before the Haldi ceremony, where family and friends bless the couple by applying turmeric paste—a joyful custom believed to bring good luck, happiness and prosperity. Don't be surprised if things get a little messy!`,
     dressCodeHeading: 'Vidhi & Haldi Dress Code',
-    dressCodeInfo: '',
+    dressCodeTheme: 'Bright & Joyful',
+    dressCodeInfo:
+      'Embrace the festive spirit with warm, cheerful colours inspired by marigolds and florals.',
+    dressCodeAvoid: 'Red, white and black.',
     dressCodeImage: dresscodeVidhi,
   },
   {
@@ -121,7 +129,10 @@ const events: WeddingEvent[] = [
       },
     ],
     dressCodeHeading: 'Wedding Ceremony Dress Code',
-    dressCodeInfo: '',
+    dressCodeTheme: 'Elegant & Traditional',
+    dressCodeInfo:
+      'Celebrate with us in elegant Indian attire, choosing rich yet balanced colours that complement our wedding setting.',
+    dressCodeAvoid: 'Red, white, black and overly bright or neon colours.',
     dressCodeImage: dresscodeCeremony,
   },
   {
@@ -144,7 +155,10 @@ const events: WeddingEvent[] = [
       },
     ],
     dressCodeHeading: 'Reception Dress Code',
-    dressCodeInfo: '',
+    dressCodeTheme: 'Evening Glam',
+    dressCodeInfo:
+      'Dress to impress! Think sophisticated evening glamour, rich jewel tones, elegant silhouettes and a touch of sparkle.',
+    dressCodeAvoid: 'Red, white, black and very light colours.',
     dressCodeImage: dresscodeReception,
   },
 ];
@@ -1381,15 +1395,49 @@ const coupleMessage = `
               {event.dressCodeHeading}
             </p>
 
+            <h3
+              class="mt-1 text-center text-2xl font-semibold text-[#000000] md:text-3xl"
+              style="font-family: 'Playfair Display', serif;"
+            >
+              {event.dressCodeTheme}
+            </h3>
+
+            {event.dressCodeInfo ? (
+              <p
+                class="mt-5 max-w-[36rem] text-center text-sm leading-6 text-[#000000]/85 md:text-base"
+                style="font-family: 'Lora', serif;"
+              >
+                {event.dressCodeInfo}
+              </p>
+            ) : null}
+
+            {event.dressCodeAvoid ? (
+              <div
+                class="mt-3 w-full max-w-[36rem] rounded-sm border border-[#000000]/15 px-4 py-3 sm:px-5 sm:py-4"
+                style={`background-color: ${event.bg};`}
+              >
+                <p
+                  class="text-xs font-semibold tracking-[0.2em] text-[#000000]/70 uppercase"
+                  style="font-family: 'Playfair Display', serif;"
+                >
+                  Please avoid
+                </p>
+                <p
+                  class="mt-1 text-sm leading-6 text-[#000000]/90 md:text-base"
+                  style="font-family: 'Lora', serif;"
+                >
+                  {event.dressCodeAvoid}
+                </p>
+              </div>
+            ) : null}
+
             {event.dressCodeImage ? (
-              <div class="mt-5 w-full max-w-[420px] md:max-w-[540px] lg:max-w-[700px] xl:max-w-[760px] rounded-sm border border-[#000000]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
-                <div class="overflow-hidden border border-[#000000]/15">
-                  <img
-                    src={event.dressCodeImage.src}
-                    alt={event.dressCodeHeading}
-                    class="h-auto w-full"
-                  />
-                </div>
+              <div class="mx-auto mt-5 w-fit max-w-[420px] rounded-sm border border-[#000000]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:max-w-[540px] sm:p-2 lg:max-w-[700px] xl:max-w-[760px]">
+                <img
+                  src={event.dressCodeImage.src}
+                  alt={event.dressCodeHeading}
+                  class="block h-auto max-h-[46vh] w-auto max-w-full border border-[#000000]/15 lg:max-h-[48vh]"
+                />
               </div>
             ) : (
               <div class="mt-5 w-full max-w-[420px] md:max-w-[540px] lg:max-w-[700px] xl:max-w-[760px] rounded-sm border border-[#000000]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
@@ -1403,15 +1451,6 @@ const coupleMessage = `
                 </div>
               </div>
             )}
-
-            {event.dressCodeInfo ? (
-              <p
-                class="mt-6 text-center text-sm leading-6 text-[#000000]/85"
-                style="font-family: 'Lora', serif;"
-              >
-                {event.dressCodeInfo}
-              </p>
-            ) : null}
           </div>
         </div>
       </div>

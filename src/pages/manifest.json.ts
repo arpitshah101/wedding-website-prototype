@@ -2,6 +2,7 @@ import type { APIRoute, ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import icon from '@images/icon.png';
 import maskableIcon from '@images/icon-maskable.png';
+import { getBasePath } from '@/utils/basePath';
 
 interface Favicon {
   purpose: 'any' | 'maskable' | 'monochrome';
@@ -34,7 +35,7 @@ export const GET: APIRoute = async () => {
           format: 'png',
         });
         return {
-          src: image.src,
+          src: getBasePath(image.src),
           sizes: `${image.options.width}x${image.options.height}`,
           type: `image/${image.options.format}`,
           purpose: favicon.purpose,
@@ -44,14 +45,14 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    short_name: 'ScrewFast',
-    name: 'ScrewFast',
+    short_name: 'Arpit & Rushita',
+    name: 'Arpit & Rushita Wedding',
     icons,
     display: 'minimal-ui',
-    id: '/',
-    start_url: '/',
-    theme_color: '#FFEDD5',
-    background_color: '#262626',
+    id: getBasePath('/'),
+    start_url: getBasePath('/'),
+    theme_color: '#FFF8F0',
+    background_color: '#FFF8F0',
   };
 
   return new Response(JSON.stringify(manifest));

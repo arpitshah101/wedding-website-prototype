@@ -3,7 +3,6 @@
 import { getBasePath } from '@/utils/basePath';
 import NavLink from '@components/ui/links/NavLink.astro';
 import enStrings from '@utils/navigation.ts';
-import frStrings from '@utils/fr/navigation.ts';
 import weddingWebsiteLogo from '@images/wedding-website-logo.svg';
 
 interface SectionLink {
@@ -18,7 +17,7 @@ interface Props {
 const { sectionLinks } = Astro.props;
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === 'fr' ? frStrings : enStrings;
+const strings = enStrings;
 const homeUrl = getBasePath('/');
 const useSectionLinks = sectionLinks && sectionLinks.length > 0;
 ---

@@ -1,7 +1,9 @@
 ---
 import { getImage } from 'astro:assets';
 import { OG, SEO, SITE } from '@data/constants';
+import { getBasePath } from '@/utils/basePath';
 import weddingWebsiteLogo from '@images/wedding-website-logo.svg';
+import weddingIcon from '@images/icon.png';
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -34,31 +36,13 @@ const siteURL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
   .href;
-const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
   width: 1200,
   height: 600,
 });
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
-
-const languages: { [key: string]: string } = {
-  en: '',
-  fr: 'fr',
-};
-
-function createHref(lang: string, prefix: string, path: string): string {
-  // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(fr|en)\//, '/');
-
-  // Add the correct language prefix if needed
-  const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, '/');
-
-  return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
-}
-
-const fullPath: string = Astro.url.pathname;
+const socialImage = new URL(socialImageRes.src, Astro.site || Astro.url.origin)
+  .href;
 const faviconHref = weddingWebsiteLogo.src;
 ---
 
@@ -80,19 +64,9 @@ const faviconHref = weddingWebsiteLogo.src;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="canonical" href={canonical} />
-{
-  Object.entries(languages).map(([lang, prefix]) => {
-    const cleanPath = fullPath.replace(/^\/(fr|en)\//, '/');
-    const href = createHref(lang, prefix, cleanPath);
-    return <link rel="alternate" hreflang={lang} href={href} />;
-  })
-}
 
 {/* Facebook Meta Tags */}
-<meta
-  property="og:locale"
-  content={basePath.startsWith('/fr') ? 'fr_FR' : 'en_US'}
-/>
+<meta property="og:locale" content="en_US" />
 <meta property="og:url" content={siteURL} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
@@ -112,14 +86,14 @@ const faviconHref = weddingWebsiteLogo.src;
 <meta name="twitter:image" content={socialImage} />
 
 {/* Links to the webmanifest and sitemap */}
-<link rel="manifest" href="/manifest.json" />
+<link rel="manifest" href={getBasePath('/manifest.json')} />
 {/* https://docs.astro.build/en/guides/integrations-guide/sitemap/ */}
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href={getBasePath('/sitemap-index.xml')} />
 
 {/* Links for favicons */}
 <link href={faviconHref} rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
-<link href={faviconHref} rel="apple-touch-icon" />
+<link href={weddingIcon.src} rel="apple-touch-icon" sizes="512x512" />
 <link href={faviconHref} rel="shortcut icon" />
 {/* Set theme color */}
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content="#B8860B" />

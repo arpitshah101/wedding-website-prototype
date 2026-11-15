@@ -82,7 +82,8 @@ const events: WeddingEvent[] = [
     dressCodeTheme: 'Colourful & Festive',
     dressCodeInfo:
       'Bring on the colour! We encourage vibrant, playful outfits with a mix of traditional and Indo-Western styles.',
-    dressCodeAvoid: 'Red, white and black outfits.',
+    dressCodeAvoid:
+      'Entirely red, white or black outfits. These colours are welcome as accents.',
     dressCodeImage: dresscodeSangeet,
   },
   {
@@ -101,7 +102,8 @@ const events: WeddingEvent[] = [
     dressCodeTheme: 'Bright & Joyful',
     dressCodeInfo:
       'Embrace the festive spirit with warm, cheerful colours inspired by marigolds and florals.',
-    dressCodeAvoid: 'Red, white and black outfits.',
+    dressCodeAvoid:
+      'Entirely red, white or black outfits. These colours are welcome as accents.',
     dressCodeImage: dresscodeVidhi,
   },
   {
@@ -132,7 +134,8 @@ const events: WeddingEvent[] = [
     dressCodeTheme: 'Elegant & Traditional',
     dressCodeInfo:
       'Celebrate with us in elegant Indian attire, choosing rich yet balanced colours that complement our wedding setting.',
-    dressCodeAvoid: 'Red, white and black outfits.',
+    dressCodeAvoid:
+      'Entirely red, white or black outfits. These colours are welcome as accents.',
     dressCodeImage: dresscodeCeremony,
   },
   {
@@ -151,7 +154,8 @@ const events: WeddingEvent[] = [
     dressCodeTheme: 'Evening Glam',
     dressCodeInfo:
       'Dress to impress! Think sophisticated evening glamour, rich jewel tones, elegant silhouettes and a touch of sparkle.',
-    dressCodeAvoid: 'Red and white outfits.',
+    dressCodeAvoid:
+      'Entirely red or white outfits. These colours are welcome as accents.',
     dressCodeImage: dresscodeReception,
   },
 ];
@@ -160,7 +164,15 @@ function calendarButtonStyle(bg: string, accent: string) {
   return `--btn-background:${bg};--btn-hover-background:${accent};--btn-border:${accent};--btn-hover-border:${accent};--btn-text:#000000;--btn-hover-text:#000000;--btn-border-radius:9999px;--btn-padding-x:1.5rem;--btn-padding-y:0.625rem;--btn-font-weight:600;--btn-shadow:none;--btn-hover-shadow:none;--btn-active-shadow:none;--font:'Playfair Display',serif;--list-background:${bg};--list-hover-background:#FFF;--list-text:#000000;--list-hover-text:#000000;--list-border-radius:14px;--list-shadow:0 10px 30px -10px rgb(0 0 0 / 20%);`;
 }
 
-const faqSections = [
+type FaqQuestion = {
+  id?: string;
+  question: string;
+  answer?: string;
+  answerHtml?: string;
+  keywords?: string[];
+};
+
+const faqSections: { title: string; questions: FaqQuestion[] }[] = [
   {
     title: 'Travel & Arrival',
     questions: [
@@ -240,6 +252,7 @@ const faqSections = [
         question: 'What should I wear?',
         answerHtml: `
           <p>Each of our celebrations has its own dress code. Please visit our Wedding Week section for outfit guidance, inspiration and recommended colours for each event.</p>
+          <p class="mt-2">Where an event lists colours to avoid, we ask that you don't wear those colours head-to-toe. They're very welcome as accents, prints or accessories.</p>
           <p class="mt-2">Here are some helpful links to get you started:</p>
           <p class="mt-2"><strong>Listed below are buy options:</strong></p>
           <ul class="mt-1 space-y-1 list-disc list-inside">
@@ -309,6 +322,7 @@ const faqSections = [
     title: 'Resort & Stay',
     questions: [
       {
+        id: 'faq-book-through-our-link',
         question:
           'Can I book my room directly with the resort or through another website?',
         answerHtml: `
@@ -827,6 +841,25 @@ const coupleMessage = `
             below and contact the Account Manager listed there.
           </p>
 
+          <div
+            class="rounded-2xl border border-[#EDDDB0] bg-[#F9F0D8] px-5 py-4 text-left text-sm leading-6 text-[#000000]/85 sm:px-6 sm:text-base sm:leading-7"
+          >
+            <p>
+              <b>Important Note:</b> Due to the resort's policies, each guest
+              <i
+                >NOT booking through this link might have additional fees
+                applied for the wedding events.</i
+              >
+              We request using the booking link and if you need more information,
+              please
+              <a
+                class="text-yellow-600 underline"
+                href="#faq-book-through-our-link">visit our Q&A below</a
+              >
+              for more details.
+            </p>
+          </div>
+
           <div class="flex justify-center pt-2">
             <a
               href="https://www.destawed.com/couples/rushita-arpit"
@@ -1255,7 +1288,8 @@ const coupleMessage = `
                   <div class="mt-4">
                     {section.questions.map(item => (
                       <details
-                        class="faq-item group border-b border-[#000000]/15 py-4"
+                        id={item.id}
+                        class="faq-item group scroll-mt-[160px] border-b border-[#000000]/15 py-4"
                         data-query={`${section.title} ${item.question} ${item.answer ?? ''} ${item.keywords?.join(' ') ?? ''}`.toLowerCase()}
                       >
                         <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-[#000000]">
@@ -1938,6 +1972,13 @@ const coupleMessage = `
 
     const scrollToHash = (href: string) => {
       const target = document.querySelector(href);
+      if (
+        target instanceof HTMLDetailsElement &&
+        target.classList.contains('faq-item') &&
+        !target.open
+      ) {
+        target.querySelector('summary')?.click();
+      }
       const headerHeight =
         document.querySelector('header.fixed')?.getBoundingClientRect()
           .height ?? 0;
@@ -1951,6 +1992,10 @@ const coupleMessage = `
         window.scrollTo({ top: scrollTop, behavior: 'smooth' });
       }
     };
+
+    if (location.hash.startsWith('#faq-')) {
+      scrollToHash(location.hash);
+    }
 
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');

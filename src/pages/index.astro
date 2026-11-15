@@ -575,13 +575,12 @@ const coupleMessage = `
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
+              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M19.5 10.5c0 7.142-7.5 10.5-7.5 10.5S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-            />
+            ></path>
           </svg>
           <span class="underline underline-offset-4"
             >Moon Palace, Cancún, Quintana Roo, Mexico</span
@@ -830,15 +829,21 @@ const coupleMessage = `
           style="font-family: 'Lora', serif;"
         >
           <p>
-            We've arranged a dedicated block of rooms at Moon Palace Cancún so
-            our guests can simply arrive, unwind and enjoy everything the
-            all-inclusive resort has to offer during the wedding week.
+            We’ve arranged a dedicated room block at Moon Palace Cancún so you
+            can settle in and enjoy the wedding week with us. Your all-inclusive
+            rate covers your accommodation, meals, drinks and a range of resort
+            activities.
           </p>
           <p>
-            We've partnered with <b><i>Destawed</i></b> to manage our resort room
-            block and make booking your stay as easy as possible. If you have any
-            travel-related questions, please visit the Destawed page via the button
-            below and contact the Account Manager listed there.
+            Complimentary round-trip airport transfers are also included when
+            you book a stay of four nights or more through the
+            <strong>Book Your Stay</strong> button below.
+          </p>
+          <p>
+            We’ve partnered with <strong>Destawed</strong> to manage our wedding room
+            block. If you have any questions about booking your room or planning your
+            travel, you’ll find your account manager’s contact details on the Destawed
+            page linked below.
           </p>
 
           <div
@@ -1010,13 +1015,11 @@ const coupleMessage = `
               <ul class="mt-3 space-y-2">
                 <li>🏖️ Relax on the beach or by one of the many pools</li>
                 <li>
-                  🍽️ Dine at 17 restaurants across Nizuc and Sunrise,
-                  including Indian cuisine, and relax at over 10 bars
+                  🍽️ Dine at 17 restaurants across Nizuc and Sunrise, including
+                  Indian cuisine, and relax at over 10 bars
                 </li>
                 <li>💆 Visit the spa or play a round of golf*</li>
-                <li>
-                  🎮 Enjoy the arcade, water park and sports facilities
-                </li>
+                <li>🎮 Enjoy the arcade, water park and sports facilities</li>
                 <li>🎭 Watch live entertainment and evening shows</li>
                 <li>💪 Make use of the fitness centre and daily activities</li>
                 <li>🍹 Unwind with a cocktail at one of the many bars</li>
@@ -1420,7 +1423,7 @@ const coupleMessage = `
         data-dresscode-modal={index}
         class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 md:p-6 lg:p-8"
       >
-        <div class="relative h-full w-full overflow-y-auto bg-[#FDFBF7] shadow-2xl md:h-auto md:max-h-[86vh] md:w-[44rem] md:max-w-[92vw] md:rounded-2xl lg:max-h-[90vh] lg:w-[60rem] xl:w-[64rem]">
+        <div class="relative h-[100dvh] max-h-[100dvh] w-full overflow-y-auto overscroll-contain bg-[#FDFBF7] shadow-2xl [-webkit-overflow-scrolling:touch] md:h-auto md:max-h-[86vh] md:w-[44rem] md:max-w-[92vw] md:rounded-2xl lg:max-h-[90vh] lg:w-[60rem] xl:w-[64rem]">
           <button
             type="button"
             data-dresscode-close={index}
@@ -1430,7 +1433,7 @@ const coupleMessage = `
             ×
           </button>
 
-          <div class="flex min-h-full flex-col items-center justify-center p-4 sm:p-6 md:p-7 lg:p-8">
+          <div class="flex min-h-full flex-col items-center [justify-content:safe_center] p-4 pt-14 sm:p-6 sm:pt-14 md:p-7 lg:p-8">
             <p
               class="text-center text-sm font-semibold tracking-[0.25em] text-[#000000]/70 uppercase"
               style="font-family: 'Playfair Display', serif;"
@@ -1483,7 +1486,7 @@ const coupleMessage = `
                 />
               </div>
             ) : (
-              <div class="mt-5 w-full max-w-[420px] md:max-w-[540px] lg:max-w-[700px] xl:max-w-[760px] rounded-sm border border-[#000000]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2">
+              <div class="mt-5 w-full max-w-[420px] rounded-sm border border-[#000000]/25 bg-[#F1E8DF] p-3 shadow-[10px_-5px_5px_rgba(0,0,0,0.05)] sm:p-2 md:max-w-[540px] lg:max-w-[700px] xl:max-w-[760px]">
                 <div class="flex aspect-[1312/1199] w-full flex-col items-center justify-center border border-dashed border-[#000000]/20 text-center">
                   <p
                     class="text-sm font-semibold tracking-[0.25em] text-[#000000]/70 uppercase"
